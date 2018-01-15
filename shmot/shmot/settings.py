@@ -76,9 +76,9 @@ WSGI_APPLICATION = 'shmot.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'shmotdb',
-        'USER': 'shmotuser',
-        'PASSWORD': '0001234',
+        'NAME': 'shmotdb',     # Database name (Database -> schemas)
+        'USER': 'shmotuser',   # Name of db user (must set while creating db)
+        'PASSWORD': '0001234', # User's password
         'HOST': 'localhost',
         'PORT': '',
     }
