@@ -1,0 +1,117 @@
+#background {
+    height: 100%;
+    display: block;
+    position: absolute;
+    bottom: 0; right: 0
+}
+@media screen and (max-width: 1024px) {
+    #background {
+        height: 600px;
+    }
+}
+input {
+    /*display: block;*/
+    margin: 5px 0;
+}
+.expanded {
+    width: 325px;
+}
+.sign_up .title {
+    display: inline-block;
+}
+.sign_up .icon img{
+    width: 14px;
+    margin: 5px;
+    display: block;
+}
+.sign_up .icon {
+    position: absolute;
+    left: 255px;
+}
+.contrast_btn:hover {
+    color: white;
+    background-color: rgba(48, 198, 234, 0.75);
+}
+.avatar {
+    position: absolute;
+    top: 190px;
+    left: 470px;
+    z-index: 1;
+}
+.center {
+    position: relative;
+}
+.avatar .cropping {
+    border-radius: 50%;
+    width: 110px;
+    display: block;
+    margin: 0 auto;
+}
+.avatar .title {
+    margin: 16px auto 0;
+    display: block;
+    width: 180px;
+    text-align: center;
+    color: black;
+}
+
+#contacts_info {
+    left: 235px;
+}
+#contacts_info:before {
+    top: -65px;
+    left: -70px;
+    width: 170px;
+    height: 61px;
+}
+.tooltip-toggle {
+    cursor: pointer;
+}
+
+.tooltip-toggle::before {
+    position: absolute;
+    top: -48px;
+    left: -57px;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 3px;
+    content: attr(aria-label); /*This pulls in the text from the element with the tooltip*/
+    padding: 5px;
+    text-transform: none;
+    transition: all 0.5s ease;
+    width: 140px;
+    height: 44px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    letter-spacing: normal;
+    font-size: 14px;
+    color: white;
+}
+
+.tooltip-toggle::after {
+    position: absolute;
+    top: -4px;
+    left: 12px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid rgba(0,0,0,0.7);
+    content: " ";
+    font-size: 0;
+    line-height: 0;
+    margin-left: -5px;
+    width: 0;
+}
+
+.tooltip-toggle::before,
+.tooltip-toggle::after {
+    opacity: 0;
+    pointer-events: none;
+    text-align: center;
+}
+
+.tooltip-toggle:hover::before,
+.tooltip-toggle:hover::after,
+.tooltip-toggle:focus::before,
+.tooltip-toggle:focus::after{
+    opacity: 1;
+    transition: all 0.75s ease;
+}

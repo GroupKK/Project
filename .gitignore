@@ -102,3 +102,6 @@ ENV/
 
 # notes
 note
+
+# PyCharm
+.idea
