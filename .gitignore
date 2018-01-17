@@ -105,3 +105,12 @@ note
 
 # PyCharm
 .idea
+
+# Other
+*.pyc
+*~
+__pycache__
+PythonVEnv
+db.sqlite3
+/static
+.DS_Store
