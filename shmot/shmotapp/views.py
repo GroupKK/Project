@@ -1,5 +1,6 @@
+from django.http import HttpResponse
 from django.shortcuts import redirect
-from django.shortcuts import render
+from django.template import loader
 
 
 def redirect_to_home(request):
@@ -7,8 +8,16 @@ def redirect_to_home(request):
 
 
 def index(request):
-    return render(request, 'index.html')
+    template = loader.get_template('index.html')
+    context = {
+
+    }
+    return HttpResponse(template.render(context, request))
 
 
 def sign_up(request):
-    return render(request, 'sign_up.html')
+    template = loader.get_template('sign_up.html')
+    context = {
+
+    }
+    return HttpResponse(template.render(context, request))
