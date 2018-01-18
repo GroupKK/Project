@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <!--[if lt IE 7]><html lang="ru" class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
 <!--[if IE 7]><html lang="ru" class="lt-ie9 lt-ie8"><![endif]-->
@@ -13,62 +15,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!--<meta name="viewport" content="width=1040"/>-->
-    <link rel="stylesheet" href="libs/bootstrap/bootstrap-grid.min.css"/>
+    <link rel="stylesheet" href="{% static 'libs/bootstrap/bootstrap-grid.min.css' %}"/>
     <!--<link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css"/>-->
-    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="{% static 'libs/font-awesome/css/font-awesome.min.css'%}"/>
     <!--<link rel="stylesheet" href="libs/fancybox/jquery.fancybox.css"/>-->
-    <link rel="stylesheet" href="libs/magnific-popup/magnific-popup.css"/>
+    <link rel="stylesheet" href="{% static 'libs/magnific-popup/magnific-popup.css' %}"/>
     <!--<link rel="stylesheet" href="libs/owl-carousel/owl.carousel.css"/>-->
-    <link rel="stylesheet" href="libs/owlcarousel/owl.carousel.css">
+    <link rel="stylesheet" href="{% static 'libs/owlcarousel/owl.carousel.css' %}">
 
-    <link rel="stylesheet" href="libs/countdown/jquery.countdown.css"/>
-    <link rel="stylesheet" href="css/fonts.css"/>
-    <link rel="stylesheet" href="css/main.css"/>
-    <link rel="stylesheet" href="css/sign_up.css"/>
-    <link rel="stylesheet" href="css/media.css"/>
+    <link rel="stylesheet" href="{% static 'libs/countdown/jquery.countdown.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/sign_up.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/media.css' %}"/>
     <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700&amp;subset=cyrillic" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&amp;subset=cyrillic" rel="stylesheet">
     <!--Icons-->
-    <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="icons/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="icons/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="icons/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="icons/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="icons/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
-    <link rel="manifest" href="icons/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'icons/apple-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'icons/apple-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'icons/apple-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'icons/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'icons/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'icons/apple-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'icons/apple-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'icons/apple-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'icons/apple-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{% static 'icons/android-icon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'icons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'icons/favicon-96x96.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'icons/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'icons/manifest.json' %}">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="icons/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="{% static 'icons/ms-icon-144x144.png' %}">
     <meta name="theme-color" content="#ffffff">
 </head>
 <body>
 <!--[if lt IE 9]>
-<script src="libs/html5shiv/es5-shim.min.js"></script>
-<script src="libs/html5shiv/html5shiv.min.js"></script>
-<script src="libs/html5shiv/html5shiv-printshiv.min.js"></script>
-<script src="libs/respond/respond.min.js"></script>
+<script src="{% static 'libs/html5shiv/es5-shim.min.js' %}"></script>
+<script src="{% static 'libs/html5shiv/html5shiv.min.js' %}"></script>
+<script src="{% static 'libs/html5shiv/html5shiv-printshiv.min.js' %}"></script>
+<script src="{% static 'libs/respond/respond.min.js' %}"></script>
 <![endif]-->
-<script src="libs/jquery/jquery-3.2.1.min.js"></script>
-<script src="libs/jquery-mousewheel/jquery.mousewheel.min.js"></script>
+<script src="{% static 'libs/jquery/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'libs/jquery-mousewheel/jquery.mousewheel.min.js' %}"></script>
 <!--<script src="libs/fancybox/jquery.fancybox.pack.js"></script>-->
-<script src="libs/magnific-popup/jquery.magnific-popup.js"></script>
-<script src="libs/waypoints/waypoints-1.6.2.min.js"></script>
-<script src="libs/scrollto/jquery.scrollTo.min.js"></script>
+<script src="{% static 'libs/magnific-popup/jquery.magnific-popup.js' %}"></script>
+<script src="{% static 'libs/waypoints/waypoints-1.6.2.min.js' %}"></script>
+<script src="{% static 'libs/scrollto/jquery.scrollTo.min.js' %}"></script>
 <!--<script src="libs/owl-carousel/owl.carousel.min.js"></script>-->
-<script src="libs/owlcarousel/owl.carousel.min.js"></script>
+<script src="{% static 'libs/owlcarousel/owl.carousel.min.js' %}"></script>
 
-<script src="libs/countdown/jquery.plugin.js"></script>
-<script src="libs/countdown/jquery.countdown.min.js"></script>
-<script src="libs/countdown/jquery.countdown-ru.js"></script>
-<script src="libs/landing-nav/navigation.js"></script>
-<script src="js/common.js"></script>
+<script src="{% static 'libs/countdown/jquery.plugin.js' %}"></script>
+<script src="{% static 'libs/countdown/jquery.countdown.min.js' %}"></script>
+<script src="{% static 'libs/countdown/jquery.countdown-ru.js' %}"></script>
+<script src="{% static 'libs/landing-nav/navigation.js' %}"></script>
+<script src="{% static 'js/common.js' %}"></script>
 <!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
 <!-- Google Analytics counter --><!-- /Google Analytics counter -->
 
@@ -418,32 +420,32 @@
                     <div class="title" style="text-align: center; padding-top: 32px">Регистрация</div>
                     <div class="center">
                         <input required type="text" name="login" placeholder="Логин">
-                        <div class="icon tooltip-toggle" aria-label="Обязательно для заполнения"><img src="images/important.svg"></div>
+                        <div class="icon tooltip-toggle" aria-label="Обязательно для заполнения"><img src="{% static 'images/important.svg' %}"></div>
                     </div>
                     <div class="center">
                         <input required type="text" name="password" placeholder="Пароль">
-                        <div class="icon tooltip-toggle" aria-label="Обязательно для заполнения"><img src="images/important.svg"></div>
+                        <div class="icon tooltip-toggle" aria-label="Обязательно для заполнения"><img src="{% static 'images/important.svg' %}"></div>
                     </div>
                     <div class="center" style="margin-top: 16px">
                         <input required type="text" name="name" placeholder="Имя">
-                        <div class="icon tooltip-toggle" aria-label="Обязательно для заполнения"><img src="images/important.svg"></div>
+                        <div class="icon tooltip-toggle" aria-label="Обязательно для заполнения"><img src="{% static 'images/important.svg' %}"></div>
                     </div>
                     <div class="center">
                         <input required type="text" name="surname" placeholder="Фамилия">
-                        <div class="icon tooltip-toggle" aria-label="Обязательно для заполнения"><img src="images/important.svg"></div>
+                        <div class="icon tooltip-toggle" aria-label="Обязательно для заполнения"><img src="{% static 'images/important.svg' %}"></div>
                     </div>
                     <input type="text" name="city" placeholder="Город">
                     <a href="">
                         <div class="avatar">
-                            <img class="cropping" src="images/avatar_placeholder.svg">
-                            <div class="title">Добавить аватар <img src="images/plus.svg" width="16px"></div>
-                            <div class="title" style="display: none">Удалить <img src="images/plus.svg" width="16px" style="transform: rotate(45deg);"></div>
+                            <img class="cropping" src="{% static 'images/avatar_placeholder.svg' %}">
+                            <div class="title">Добавить аватар <img src="{% static 'images/plus.svg' %}" width="16px"></div>
+                            <div class="title" style="display: none">Удалить <img src="{% static 'images/plus.svg' %}" width="16px" style="transform: rotate(45deg);"></div>
                         </div>
                     </a>
                     <div class="center" style="margin-top: 16px">
                         <div class="title" style="text-align: center; padding-top: 16px">Контактная информация</div>
                         <div class="icon tooltip-toggle" id="contacts_info" aria-label="Чтобы другие пользователи могли с Вами связаться">
-                            <img src="images/info.svg">
+                            <img src="{% static 'images/info.svg' %}">
                         </div>
                     </div>
                     <div><input type="text" name="city" placeholder="Телефон"></div>
@@ -454,7 +456,7 @@
                         <button class="contrast_btn" style="margin: 32px auto">Зарегистрироваться</button>
                     </div>
                 </form>
-                <img id="background" src="images/sign_up_placeholder.png">
+                <img id="background" src="{% static 'images/sign_up_placeholder.png' %}">
             </div>
         </div>
     </div>
