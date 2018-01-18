@@ -6,10 +6,14 @@ from django.utils import timezone
 
 # Create your models here.
 
+class Image(models.Model):
+    image = models.ImageField(upload_to='img')
+
+
 class Advert(models.Model):
     is_active = models.BooleanField()
 
-    author = models.CharField(max_length=30) # TODO: change it to ForeignKey field
+    author = models.CharField(max_length=30)  # TODO: change it to ForeignKey field
     title = models.CharField(max_length=50)
     description = models.CharField(max_length=1000)
 
@@ -22,8 +26,10 @@ class Advert(models.Model):
     number_of_likes = models.IntegerField(default=0)
     city_tmp = models.CharField(max_length=20)  # Temporary shit. Going to add choices from csv/database
     brand = models.CharField(max_length=30)
-    size = models.IntegerField(default=0)                # TODO: add basic choices from tuple
-    color = models.CharField(max_length=20)     # TODO: add basic choices from tuple
+    size = models.IntegerField(default=0)  # TODO: add basic choices from tuple
+    color = models.CharField(max_length=20)  # TODO: add basic choices from tuple
+
+    images = models.ForeignKey(Image, related_name='images', on_delete=models.CASCADE)
 
     # TODO: Add here normal city field
 
@@ -37,9 +43,3 @@ class Advert(models.Model):
 
     def __str__(self):
         return self.title
-
-
-class Image(models.Model):
-    advert = models.ForeignKey(Advert, related_name='images', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='img')
-
