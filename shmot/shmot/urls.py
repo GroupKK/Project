@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.urls import include, path
 from django.contrib import admin
+# from django.shortcuts import redirect
 
 urlpatterns = [
     path('', include('shmotapp.urls')),
+    path('home/', include('shmotapp.urls')),
     path('admin/', admin.site.urls),
 ]
