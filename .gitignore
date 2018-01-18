@@ -112,7 +112,6 @@ note
 __pycache__
 PythonVEnv
 db.sqlite3
-/static
 .DS_Store
 settings.py
 myvenv
