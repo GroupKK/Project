@@ -1,9 +1,9 @@
-from django.shortcuts import render
 from django.shortcuts import redirect
+from django.shortcuts import render
 
 
 def redirect_to_home(request):
-    return redirect('home/')
+    return redirect('/')
 
 
 def index(request):
