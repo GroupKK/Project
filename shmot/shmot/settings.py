@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 't+0+*wo*!t_)dz@7_8jxep4$o7ef39mjrq%9v&0&=jya^g*w1e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'shmot.pythonanywhere.com']
+ALLOWED_HOSTS = ['shmot.pythonanywhere.com']
 
 
 # Application definition
@@ -76,12 +76,11 @@ WSGI_APPLICATION = 'shmot.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'shmotdb',     # Database name (Database -> schemas)
-        'USER': 'shmotuser',   # Name of db user (must set while creating db)
-        'PASSWORD': '0001234', # User's password
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'shmot$shmotdb',
+        'USER': 'shmot',
+        'PASSWORD': '00001234M',
+        'HOST': 'shmot.mysql.pythonanywhere-services.com',
     }
 }
 
