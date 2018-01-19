@@ -1,3 +1,11 @@
+# Features
+
+* mainapp - home page, 404
+* userapp - sign in, sign up, user preferences
+* infoapp - about, help, social media
+* adsapp - post ad, search ad, list ads
+
+
 # Project
 
 Саша - frontend 
