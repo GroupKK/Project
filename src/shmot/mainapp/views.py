@@ -14,10 +14,3 @@ def index(request):
     }
     return HttpResponse(template.render(context, request))
 
-
-def sign_up(request):
-    template = loader.get_template('sign_up.html')
-    context = {
-
-    }
-    return HttpResponse(template.render(context, request))

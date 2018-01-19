@@ -19,6 +19,6 @@ from django.urls import include, path
 # from django.shortcuts import redirect
 
 urlpatterns = [
-    path('', include('shmotapp.urls')),
+    path('', include('mainapp.urls')),
     path('admin/', admin.site.urls),
 ]
