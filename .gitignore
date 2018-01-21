@@ -116,3 +116,4 @@ db.sqlite3
 settings.py
 myvenv/
 concept/
+concept
