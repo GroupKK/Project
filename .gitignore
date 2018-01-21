@@ -110,8 +110,9 @@ note
 *.pyc
 *~
 __pycache__
-PythonVEnv
+PythonVEnv/
 db.sqlite3
 .DS_Store
 settings.py
-myvenv
+myvenv/
+concept/
