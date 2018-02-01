@@ -2,8 +2,8 @@
     /*!*display: block;*!*/
     /*margin: 5px 0;*/
 /*}*/
-.expanded {
-    width: 325px;
+.expanded { 
+width: 325px !important; 
 }
 .main_form .title {
     display: inline-block;

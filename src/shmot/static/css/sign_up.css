@@ -109,3 +109,6 @@ input, textarea {
     margin: 30px 20px;
     border-radius: 4px;
 }
+.main_form input { 
+width: 250px; 
+}
