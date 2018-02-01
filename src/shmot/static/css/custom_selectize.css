@@ -1,0 +1,99 @@
+.main_form p{
+    width: 160px;
+}
+.main_form {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+.main_form .title {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.expanded {
+    width: 550px;
+}
+.main_form .icon {
+    left: 715px;
+}
+.selectize-control, select {
+    width: 270px;
+}
+.selectize-input {
+    border: 1px solid #e0e0e0;
+    padding: 10px 32px;
+    overflow: unset;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    font-size: 16px;
+}
+.set_focus .selectize-input {
+    border-color: #f94f4f;
+}
+.selectize-input input {
+    font-size: 16px;
+    width: 100%;
+    opacity: 1;
+}
+.dropdown-active {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.selectize-input.dropdown-active::before {
+    height: 0;
+}
+.selectize-control.single .selectize-input:after {
+    content: '\f107';
+    display: block;
+    position: absolute;
+    top: 37%;
+    right: 8px;
+    margin-top: -3px;
+    font-family: fontawesome;
+    width: auto;
+    height: auto;
+    border: none;
+    color: #e0e0e0;
+}
+.set_focus .selectize-control.single .selectize-input:after {
+    color: #f94f4f;
+}
+.set_focus .selectize-control.single .dropdown-active:after {
+    color: #f94f4f;
+}
+.selectize-control.single .dropdown-active:after {
+    content: '\f106';
+}
+.selectize-dropdown {
+    border: 1px solid #e0e0e0;
+    border-top: 0.7px solid #e0e0e0;
+    font-size: 16px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.selectize-control .selectize-input.disabled {
+    background-color: white;
+}
+.selectize-dropdown .option {
+    padding: 10px 32px;
+}
+.selectize-dropdown .active {
+    /*background-color: #146fa50f;*/
+    background-color: #e0e0e042;
+    color: black;
+}
+.selectize-input.focus {
+    overflow: unset;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.selectize-input.disabled .item{
+    color: #e0e0e0;
+}
+.selectize-input.disabled input{
+    color: #e0e0e0;
+}
+.hidden {
+    display: none;
+}
+.tooltip-toggle::before {
+    z-index: 1010;
+}

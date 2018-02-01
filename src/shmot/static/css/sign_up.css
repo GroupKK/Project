@@ -1,3 +1,7 @@
+input, textarea {
+    /*display: block;*/
+    margin: 7px 0;
+}
 #background {
     height: 100%;
     display: block;
@@ -6,43 +10,21 @@
 }
 @media screen and (max-width: 1024px) {
     #background {
-        height: 600px;
+        height: 700px;
     }
 }
-input {
-    /*display: block;*/
-    margin: 5px 0;
-}
-.expanded {
-    width: 325px;
-}
-.sign_up .title {
-    display: inline-block;
-}
-.sign_up .icon img{
-    width: 14px;
-    margin: 5px;
-    display: block;
-}
-.sign_up .icon {
-    position: absolute;
-    left: 255px;
-}
-.contrast_btn:hover {
-    color: white;
-    background-color: rgba(48, 198, 234, 0.75);
+.main_form .title {
+    padding-top: 16px;
 }
 .avatar {
     position: absolute;
-    top: 190px;
+    top: 205px;
     left: 470px;
     z-index: 1;
 }
-.center {
-    position: relative;
-}
+
 .avatar .cropping {
-    border-radius: 50%;
+    border-radius: 3px;
     width: 110px;
     display: block;
     margin: 0 auto;
@@ -53,8 +35,8 @@ input {
     width: 180px;
     text-align: center;
     color: black;
+    position: relative;
 }
-
 #contacts_info {
     left: 235px;
 }
@@ -64,54 +46,66 @@ input {
     width: 170px;
     height: 61px;
 }
-.tooltip-toggle {
-    cursor: pointer;
+.selectize-control, select {
+    width: 248px;
+    margin-right: 0;
 }
-
-.tooltip-toggle::before {
+.selectize-control {
+    margin: 5px 0;
+}
+.add_button {
+    display: none;
+}
+.center {
+    height: 60px;
+}
+.main_form {
+    width: 160px;
+    top: 293px;
+    left: 386px;
     position: absolute;
-    top: -48px;
-    left: -57px;
-    background-color: rgba(0,0,0,0.7);
-    border-radius: 3px;
-    content: attr(aria-label); /*This pulls in the text from the element with the tooltip*/
-    padding: 5px;
-    text-transform: none;
-    transition: all 0.5s ease;
-    width: 140px;
-    height: 44px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    letter-spacing: normal;
-    font-size: 14px;
-    color: white;
+    z-index: 10;
 }
-
-.tooltip-toggle::after {
+.fields {
     position: absolute;
-    top: -4px;
-    left: 12px;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid rgba(0,0,0,0.7);
-    content: " ";
-    font-size: 0;
-    line-height: 0;
-    margin-left: -5px;
-    width: 0;
+    left: -387px;
+    top: -305px;
+}.dropzone.dz-clickable {
+    background-color: transparent;
+ }
+ .main_form .contrast_btn {
+     margin: 32px auto;
+ }
+#form_wrap {
+    position: relative; margin-left: 5%;
+    height: 873px;
 }
-
-.tooltip-toggle::before,
-.tooltip-toggle::after {
-    opacity: 0;
-    pointer-events: none;
-    text-align: center;
+.dz-message {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -25px;
 }
-
-.tooltip-toggle:hover::before,
-.tooltip-toggle:hover::after,
-.tooltip-toggle:focus::before,
-.tooltip-toggle:focus::after{
-    opacity: 1;
-    transition: all 0.75s ease;
+#avatar {
+    position: absolute;
+    top: -58px;
+    left: 0;
+    right: 0;
+}
+#avatar .title {
+    display: block;
+    margin: 0 auto;
+}
+#default_avatar {
+    top: 293px;
+    left: 387px;
+    position: absolute;
+    z-index: 0;
+}
+#default_avatar img{
+    border: 1px solid transparent;
+    width: 120px;
+    height: 120px;
+    margin: 30px 20px;
+    border-radius: 4px;
 }

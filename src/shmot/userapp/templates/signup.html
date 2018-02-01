@@ -1,13 +1,554 @@
-<!-- templates/signup.html -->
-{% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Sign Up{% endblock %}
+<!DOCTYPE html>
+<!--[if lt IE 7]><html lang="ru" class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html lang="ru" class="lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html lang="ru" class="lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="ru">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8"/>
+    <!--TODO: Add custom name for each page with Flask-->
+    <title>SHMOT</title>
+    <meta name="description" content=""/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0"/>-->
+    <!--<meta name="viewport" content="width=1040"/>-->
+    <link rel="stylesheet" href="{% static 'libs/bootstrap/bootstrap-grid.min.css' %}"/>
+    <!--<link rel="stylesheet" href="{% static 'libs/bootstrap/bootstrap.min.css' %}"/>-->
+    <link rel="stylesheet" href="{% static 'libs/font-awesome/css/font-awesome.min.css' %}"/>
+    <!--<link rel="stylesheet" href="{% static 'libs/fancybox/jquery.fancybox.css' %}"/>-->
+    <link rel="stylesheet" href="{% static 'libs/magnific-popup/magnific-popup.css' %}"/>
+    <!--<link rel="stylesheet" href="{% static 'libs/owl-carousel/owl.carousel.css' %}"/>-->
+    <link rel="stylesheet" href="{% static 'libs/owlcarousel/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'libs/selectize/css/selectize.css' %}">
 
-{% block content %}
-  <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign up</button>
-  </form>
-{% endblock %}
+    <link rel="stylesheet" href="{% static 'libs/countdown/jquery.countdown.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/media.css' %}"/>
+    <link rel="stylesheet" href="{% static 'libs/dropzone/dropzone.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/custom_selectize.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/custom_inputs.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/custom_dropzone.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/sign_up.css' %}"/>
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700&amp;subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&amp;subset=cyrillic" rel="stylesheet">
+    <!--Icons-->
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'icons/apple-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'icons/apple-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'icons/apple-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'icons/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'icons/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'icons/apple-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'icons/apple-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'icons/apple-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'icons/apple-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{% static 'icons/android-icon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'icons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'icons/favicon-96x96.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'icons/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'icons/manifest.js' %}on' %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{% static 'icons/ms-icon-144x144.png' %}">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<!--[if lt IE 9]>
+<script src="{% static 'libs/html5shiv/es5-shim.min.js' %}"></script>
+<script src="{% static 'libs/html5shiv/html5shiv.min.js' %}"></script>
+<script src="{% static 'libs/html5shiv/html5shiv-printshiv.min.js' %}"></script>
+<script src="{% static 'libs/respond/respond.min.js' %}"></script>
+<![endif]-->
+<script src="{% static 'libs/jquery/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'libs/jquery-mousewheel/jquery.mousewheel.min.js' %}"></script>
+<!--<script src="{% static 'libs/fancybox/jquery.fancybox.pack.js' %}"></script>-->
+<script src="{% static 'libs/magnific-popup/jquery.magnific-popup.js' %}"></script>
+<script src="{% static 'libs/waypoints/waypoints-1.6.2.min.js' %}"></script>
+<script src="{% static 'libs/scrollto/jquery.scrollTo.min.js' %}"></script>
+<!--<script src="{% static 'libs/owl-carousel/owl.carousel.min.js' %}"></script>-->
+<script src="{% static 'libs/owlcarousel/owl.carousel.min.js' %}"></script>
+
+<script src="{% static 'libs/dropzone/dropzone.js' %}"></script>
+
+<script src="{% static 'libs/selectize/js/standalone/selectize.min.js' %}"></script>
+
+<script src="{% static 'libs/countdown/jquery.plugin.js' %}"></script>
+<script src="{% static 'libs/countdown/jquery.countdown.min.js' %}"></script>
+<script src="{% static 'libs/countdown/jquery.countdown-ru.js' %}"></script>
+<script src="{% static 'libs/landing-nav/navigation.js' %}"></script>
+<script src="{% static 'js/common.js' %}"></script>
+<script src="{% static 'js/sign_up.js' %}"></script>
+<!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
+<!-- Google Analytics counter --><!-- /Google Analytics counter -->
+
+<div class="wrap">
+    <!--<div class="wrap">-->
+    <!--Navigation bar-->
+    <header class="span">
+        <nav>
+            <div class="centered ">
+                <a class="logo" href="../index">
+                    <img src="{% static 'images/logo.svg' %}" width="50">
+                </a>
+                <div class="cat">
+                    <div class="a">
+                        <a href="">Женское</a>
+                    </div>
+                    <div class="sub span">
+                        <ul class="centered row">
+                            <li class="sub_column">
+                                <div class="title"><a href="">Одежда</a></div>
+                                <ul>
+                                    <li><a href="">Толстовки и свитшоты</a></li>
+                                    <li><a href="">Платья</a></li>
+                                    <li><a href="">Свитеры и кардиганы</a></li>
+                                    <li><a href="">Лонгсливы</a></li>
+                                    <li><a href="">Футболки</a></li>
+                                    <li><a href="">Блузы и рубашки</a></li>
+                                    <li><a href="">Пиджаки</a></li>
+                                    <li><a href="">Юбки</a></li>
+                                    <li><a href="">Брюки</a></li>
+                                    <li><a href="">Джинсы</a></li>
+                                    <li><a href="">Шорты</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub_column">
+                                <div class="title"><a href="">Верхняя одежда</a></div>
+                                <ul>
+                                    <li><a href="">Пальто</a></li>
+                                    <li><a href="">Пуховики</a></li>
+                                    <li><a href="">Парки</a></li>
+                                    <li><a href="">Джинсовки</a></li>
+                                    <li><a href="">Бомберы</a></li>
+                                    <li><a href="">Куртки</a></li>
+                                    <li><a href="">Плащи</a></li>
+                                    <li><a href="">Жилеты</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub_column">
+                                <div class="title"><a href="">Обувь</a></div>
+                                <ul>
+                                    <li><a href="">Кеды</a></li>
+                                    <li><a href="">Слипоны</a></li>
+                                    <li><a href="">Кросовки</a></li>
+                                    <li><a href="">Туфли</a></li>
+                                    <li><a href="">Ботинки</a></li>
+                                    <li><a href="">Сапоги</a></li>
+                                    <li><a href="">Полусапоги</a></li>
+                                    <li><a href="">Балетки</a></li>
+                                    <li><a href="">Босоножки</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub_column">
+                                <div class="title"><a href="">Аксессуары</a></div>
+                                <ul>
+                                    <li><a href="">Рюкзаки</a></li>
+                                    <li><a href="">Сумки</a></li>
+                                    <li><a href="">Клатчи</a></li>
+                                    <li><a href="">Поясные сумки</a></li>
+                                    <li><a href="">Наручные часы</a></li>
+                                    <li><a href="">Шапки и шарфы</a></li>
+                                    <li><a href="">Перчатки</a></li>
+                                    <li><a href="">Шляпы</a></li>
+                                    <li><a href="">Кепки и панамы</a></li>
+                                    <li><a href="">Ремни</a></li>
+                                    <li><a href="">Очки</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="cat">
+                    <div class="a">
+                        <a href="">Мужское</a>
+                    </div>
+                    <div class="sub span">
+                        <ul class="centered row">
+                            <li class="sub_column">
+                                <div class="title"><a href="">Одежда</a></div>
+                                <ul>
+                                    <li><a href="">Толстовки и свитшоты</a></li>
+                                    <li><a href="">Свитеры и кардиганы</a></li>
+                                    <li><a href="">Лонгсливы</a></li>
+                                    <li><a href="">Футболки</a></li>
+                                    <li><a href="">Блузы и рубашки</a></li>
+                                    <li><a href="">Пиджаки</a></li>
+                                    <li><a href="">Костюмы</a></li>
+                                    <li><a href="">Брюки</a></li>
+                                    <li><a href="">Джинсы</a></li>
+                                    <li><a href="">Шорты</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub_column">
+                                <div class="title"><a href="">Верхняя одежда</a></div>
+                                <ul>
+                                    <li><a href="">Пальто</a></li>
+                                    <li><a href="">Пуховики</a></li>
+                                    <li><a href="">Парки</a></li>
+                                    <li><a href="">Джинсовки</a></li>
+                                    <li><a href="">Бомберы</a></li>
+                                    <li><a href="">Куртки</a></li>
+                                    <li><a href="">Плащи</a></li>
+                                    <li><a href="">Жилеты</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub_column">
+                                <div class="title"><a href="">Обувь</a></div>
+                                <ul>
+                                    <li><a href="">Кеды</a></li>
+                                    <li><a href="">Слипоны</a></li>
+                                    <li><a href="">Кросовки</a></li>
+                                    <li><a href="">Туфли</a></li>
+                                    <li><a href="">Ботинки</a></li>
+                                    <li><a href="">Сапоги</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub_column">
+                                <div class="title"><a href="">Аксессуары</a></div>
+                                <ul>
+                                    <li><a href="">Рюкзаки</a></li>
+                                    <li><a href="">Сумки</a></li>
+                                    <li><a href="">Поясные сумки</a></li>
+                                    <li><a href="">Наручные часы</a></li>
+                                    <li><a href="">Шапки и шарфы</a></li>
+                                    <li><a href="">Перчатки</a></li>
+                                    <li><a href="">Шляпы</a></li>
+                                    <li><a href="">Кепки и панамы</a></li>
+                                    <li><a href="">Ремни</a></li>
+                                    <li><a href="">Очки</a></li>
+                                    <li><a href="">Галстуки</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="cat">
+                    <div class="a">
+                        <a href="">Аксессуары</a>
+                    </div>
+                    <div class="sub span" style="height: 304px">
+                        <ul class="centered row">
+                            <li class="sub_column">
+                                <div class="title"><a href="">Сумки</a></div>
+                                <ul>
+                                    <li><a href="">Рюкзаки</a></li>
+                                    <li><a href="">Поясные сумки</a></li>
+                                    <li><a href="">Сумки</a></li>
+                                    <li><a href="">Клатчи</a></li>
+                                    <li><a href="">Кошельки</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub_column">
+                                <div class="title"><a href="">Головные уборы</a></div>
+                                <ul>
+                                    <li><a href="">Шапки</a></li>
+                                    <li><a href="">Шляпы</a></li>
+                                    <li><a href="">Кепки</a></li>
+                                    <li><a href="">Панамы</a></li>
+                                    <li><a href="">Береты</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub_column">
+                                <div class="title"><a href="">Прочее</a></div>
+                                <ul>
+                                    <li><a href="">Наручные часы</a></li>
+                                    <li><a href="">Платки и шарфы</a></li>
+                                    <li><a href="">Перчатки</a></li>
+                                    <li><a href="">Ремни и пояса</a></li>
+                                    <li><a href="">Украшения</a></li>
+                                    <li><a href="">Очки</a></li>
+                                    <li><a href="">Галстуки</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="cat">
+                    <div class="a">
+                        <a href="">Бренды</a>
+                    </div>
+                    <div class="sub span">
+                        <ul class="centered row">
+                            <li class="sub_column">
+                                <ul>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub_column">
+                                <ul>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub_column">
+                                <ul>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub_column">
+                                <ul>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="">United Colors of Benetton</a></li>
+                                    <li><a href="" style="font-weight: normal;">
+                                        Все бренды
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    </a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="cat">
+                    <div class="a hype">
+                        <a href="">
+                            Хайп
+                            <svg class="icon icon--best_fire" width="15" height="16" xmlns="http://www.w3.org/2000/svg">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#best_fire">
+                                    <svg id="best_fire" viewBox="0 590 20 20" width="100%" height="100%" fill="#f94f4f">
+                                        <path d="M6.407 609.796c-3.99-2.248-5.04-4.378-4.44-7.284.444-2.146 1.896-3.892 2.035-6.034.62 1.128.88 1.942.95 3.122 1.97-2.416 3.274-5.762 3.352-9.275 0 0 5.137 3.018 5.474 7.578.442-.94.665-2.433.223-3.4 1.327.968 9.092 9.555-1.05 15.295 1.906-3.714.49-8.724-2.82-11.038.222.995-.167 4.706-1.63 6.337.405-2.725-.387-3.877-.387-3.877s-.272 1.525-1.327 3.067c-.964 1.406-1.632 2.9-.38 5.51z"></path>
+                                    </svg>
+                                </use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="nav_icon"><a href="">
+                        <img src="{% static 'images/fav_icon.svg' %}" width="50">
+                    </a></div>
+                    <div class="nav_icon"><a href="">
+                        <img src="{% static 'images/search_icon.svg' %}" width="50">
+                    </a></div>
+
+                    <div class="nav_icon" id="profile">
+                        <a href="#sign_in_popup" style="display: block">
+                            <img src="{% static 'images/profile_icon.svg' %}" width="50" style="display: block">
+                        </a>
+                        <div id="profile_options">
+                            <ul>
+                                <li><a href="">Профиль</a></li>
+                                <li><a href="">Объявления</a></li>
+                                <li><a href="">Подписки</a></li>
+                                <li><a href="">Настройки <i class="fa fa-cog" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="section span" style="margin-bottom: 86px;">
+        <div class="centered">
+            <div id="form_wrap">
+                <form action="/file-upload" class="main_form dropzone" id="dropzone">
+                    <div class="fields">
+                        <div class="title" style="text-align: center; padding-top: 32px">Регистрация</div>
+                        <div class="center">
+                            <input class="required" type="text" name="login" placeholder="Логин">
+                            <div class="icon tooltip-toggle" aria-label="Обязательно для заполнения">
+                                <img class="neutral" src="{% static 'images/important.svg' %}">
+                                <img class="red" src="{% static 'images/important_red.svg' %}">
+                            </div>
+                        </div>
+                        <div class="center">
+                            <input class="required" type="password" name="password" placeholder="Пароль" id="password" maxlength="30">
+                            <div class="icon tooltip-toggle" aria-label="Минимальная длина 6 символов">
+                                <img class="neutral" src="{% static 'images/important.svg' %}">
+                                <img class="red" src="{% static 'images/important_red.svg' %}">
+                            </div>
+                        </div>
+                        <div class="center">
+                            <input class="required" type="password" name="password_repeat" placeholder="Повторите пароль" id="password_repeat" maxlength="30">
+                            <div class="icon tooltip-toggle" aria-label="Пароли должны совпадать">
+                                <img class="neutral" src="{% static 'images/important.svg' %}">
+                                <img class="red" src="{% static 'images/important_red.svg' %}">
+                            </div>
+                        </div>
+                        <div class="center">
+                            <div class="title" style="">Персональная информация</div>
+                        </div>
+                        <div class="center" style="/*margin-top: 16px*/">
+                            <input class="required" type="text" name="name" placeholder="Имя">
+                            <div class="icon tooltip-toggle" aria-label="Обязательно для заполнения">
+                                <img class="neutral" src="{% static 'images/important.svg' %}">
+                                <img class="red" src="{% static 'images/important_red.svg' %}">
+                            </div>
+                        </div>
+                        <div class="center">
+                            <input class="required" type="text" name="surname" placeholder="Фамилия">
+                            <div class="icon tooltip-toggle" aria-label="Обязательно для заполнения">
+                                <img class="neutral" src="{% static 'images/important.svg' %}">
+                                <img class="red" src="{% static 'images/important_red.svg' %}">
+                            </div>
+                        </div>
+                        <div>
+                            <select id="city" name="city">
+                                <option value disabled selected>Город</option>
+                            </select>
+                        </div>
+                        <div class="center" style="/*margin-top: 16px*/">
+                            <div class="title" style="text-align: center; padding-top: 16px">Контактная информация</div>
+                            <div class="icon tooltip-toggle" id="contacts_info" aria-label="Чтобы другие пользователи могли с Вами связаться">
+                                <img src="{% static 'images/info.svg' %}">
+                            </div>
+                        </div>
+                        <div id="contacts">
+                            <div class="center">
+                                <input class="required" type="tel" name="phone" id="phone" maxlength="18" placeholder="Телефон">
+                                <div class="icon tooltip-toggle" aria-label="Обязательно для заполнения">
+                                    <img class="neutral" src="{% static 'images/important.svg' %}">
+                                    <img class="red" src="{% static 'images/important_red.svg' %}">
+                                </div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div><input type="email" class="expanded" name="email" id="email" placeholder="Электронная почта"></div>
+                                <div><input type="url" class="expanded" name="vk" placeholder="Вконтакте"></div>
+                                <div><input type="url" class="expanded" name="fb" placeholder="Facebook"></div>
+                                <button class="contrast_btn" type="button" onclick="check()">Зарегистрироваться</button>
+                                <button id="submit" type="submit" style="display: none"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="center" id="avatar">
+                        <div class="title" style="">Аватар</div>
+                    </div>
+                </form>
+                <div id="default_avatar">
+                    <img class="cropping" src="{% static 'images/avatar_placeholder.svg' %}">
+                </div>
+                <img id="background" src="{% static 'images/sign_up_placeholder.png' %}">
+            </div>
+        </div>
+    </div>
+
+    <!-- form itself -->
+    <div id="sign_in_popup" class="white-popup mfp-hide">
+        <div class="title">Вход</div>
+        <button class="sign_in_btn" style="color: #597a9e">
+            <i class="fa fa-vk" aria-hidden="true"></i> Вконтакте
+        </button>
+        <button class="sign_in_btn" style="color: #dc4e41">
+            <i class="fa fa-google-plus" aria-hidden="true"></i> Google
+        </button>
+        <button class="sign_in_btn" style="color: #3e5b9b">
+            <i class="fa fa-facebook" aria-hidden="true"></i> Facebook
+        </button>
+        <div class="title">Есть аккаунт?</div>
+        <form action="/file-upload" id="sign_in_form">
+            <input type="text" name="login" placeholder="Логин">
+            <input type="password" name="password" placeholder="Пароль">
+            <button class="sign_in_btn" type="button" style="margin-bottom: 16px" onclick="check_sign_in()">Войти</button>
+            <button id="sign_in" type="submit" style="display: none"></button>
+        </form>
+        <a href="" class="title" id="sign_up">Регистрация</a>
+    </div>
+
+    <div class="push"></div>
+</div>
+<!--<p id="current_avatar_url" style="display: none">lisa.jpg</p>-->
+<div class="add_button tooltip-toggle" aria-label="Подать объявление">
+    <a href="#sign_in_popup"><i class="fa fa-plus" aria-hidden="true"></i></a>
+</div>
+<div class="footer span">
+    <div class="centered" style="height: 100%">
+        <div  style="position: relative; float: left; padding: 48px; height: 100%">
+            <div class="title">
+                <a href="">О сайте</a>
+            </div>
+            <div class="title">
+                <a href="">Помощь</a>
+            </div>
+            <div class="title">
+                <a href="">Обратная связь</a>
+            </div>
+            <div class="title" style="position: absolute; bottom: 0">
+                © 2018
+            </div>
+        </div>
+        <div style="float: right; padding: 48px">
+            <div class="title">
+                Поделиться
+            </div>
+            <a href="">
+                <div class="share_icon" id="vk" style="margin-left: 0">
+                    <i class="fa fa-vk" aria-hidden="true"></i>
+                </div>
+            </a>
+            <a href="">
+                <div class="share_icon" id="fb">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                </div>
+            </a>
+            <a href="">
+                <div class="share_icon" id="twi">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                </div>
+            </a>
+            <a href="">
+                <div class="share_icon" id="ok">
+                    <i class="fa fa-odnoklassniki" aria-hidden="true"></i>
+                </div>
+            </a>
+            <a href="">
+                <div class="share_icon" id="gplus" style="margin-right: 0">
+                    <i class="fa fa-google-plus" aria-hidden="true"></i>
+                </div>
+            </a>
+            <div class="title" style="margin-top: 80px">
+                <a href="">
+                    Мобильное приложение <i class="fa fa-android" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

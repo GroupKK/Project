@@ -1,0 +1,92 @@
+/*input, textarea {*/
+    /*!*display: block;*!*/
+    /*margin: 5px 0;*/
+/*}*/
+.expanded {
+    width: 325px;
+}
+.main_form .title {
+    display: inline-block;
+}
+.main_form .icon img{
+    width: 14px;
+    margin: 5px;
+    display: block;
+}
+.main_form .icon {
+    position: absolute;
+    left: 255px;
+}
+.main_form .icon .red {
+    display: none;
+}
+.main_form .set_focus .red {
+    display: block;
+}
+.main_form .set_focus .neutral {
+    display: none;
+}
+
+.center {
+    position: relative;
+}
+
+.tooltip-toggle {
+    cursor: pointer;
+}
+
+.tooltip-toggle::before {
+    position: absolute;
+    top: -48px;
+    left: -57px;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 3px;
+    content: attr(aria-label); /*This pulls in the text from the element with the tooltip*/
+    padding: 5px;
+    text-transform: none;
+    transition: all 0.5s ease;
+    width: 140px;
+    height: 44px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    letter-spacing: normal;
+    font-size: 14px;
+    color: white;
+}
+
+.tooltip-toggle::after {
+    position: absolute;
+    top: -4px;
+    left: 12px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid rgba(0,0,0,0.7);
+    content: " ";
+    font-size: 0;
+    line-height: 0;
+    margin-left: -5px;
+    width: 0;
+}
+
+.tooltip-toggle::before,
+.tooltip-toggle::after {
+    opacity: 0;
+    pointer-events: none;
+    text-align: center;
+}
+
+.tooltip-toggle:hover::before,
+.tooltip-toggle:hover::after,
+.tooltip-toggle.hovered::before,
+.tooltip-toggle.hovered::after{
+    opacity: 1;
+    transition: all 0.75s ease;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: 0;
+}
+

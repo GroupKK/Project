@@ -1,0 +1,87 @@
+#price {
+    width: 170px;
+    margin-right: 10px;
+}
+#price_wrap:after {
+    content: '\0020BD';
+    font-family: 'Roboto', sans-serif;
+}
+input, textarea, select, .selectize-control {
+    margin: 10px 0;
+}
+.selectize-control {
+    margin-right: 10px;
+}
+.selectize-dropdown {
+    /*border-top: 0.5px solid #e0e0e0;*/
+}
+.main_form .contrast_btn {
+    display: block;
+    margin: 32px auto;
+    position: absolute;
+    left: 237px;
+    bottom: -287px
+}
+.main_form {
+    /* margin-left: 5%; */
+    position:  absolute;
+    z-index: 10;
+    left: 163px;
+}
+.fields {
+    position: absolute;
+    z-index: -1;
+    left: -161px;
+}
+.faded {
+    opacity: 0.5;
+}
+input:disabled, select:disabled, textarea:disabled {
+    opacity: 0.5;
+}
+
+.selectize-dropdown {
+    /*border-top: 0.5px solid #e0e0e0 !important;*/
+}
+#form_wrap {
+    position: relative; margin-left: 5%
+}
+.center {
+    height: 60px;
+}
+.no_fields {
+    height: 835px;
+}
+.no_fields .main_form {
+    top: 550px;
+}
+.no_fields .fields {
+    top: -561px;
+}
+.two_additional_fields {
+    height: 955px;
+}
+.two_additional_fields .main_form {
+    top: 670px;
+}
+.two_additional_fields .fields {
+    top: -681px;
+}
+.three_additional_fields {
+    height: 1015px;
+}
+.three_additional_fields .main_form {
+    top: 730px;
+}
+.three_additional_fields .fields {
+    top: -741px;
+}
+.dropzone.dz-clickable .contrast_btn {
+    cursor: pointer;
+}
+.dropzone.dz-clickable .contrast_btn:disabled {
+    cursor: default;
+}
+.add_button {
+    display: none;
+}
