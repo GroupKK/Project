@@ -109,12 +109,10 @@ note
 # Other
 *.pyc
 *~
-__pycache__
 PythonVEnv/
 db.sqlite3
 .DS_Store
 settings.py
 myvenv/
-concept/
 sent_emails/
 __pycache__/
