@@ -1,8 +1,8 @@
-from django.urls import path
+from django.urls import path, re_path
 
 from . import views
 
 urlpatterns = [
     path('', views.index, name='home'),
-    path('index/', views.redirect_to_home, name='redirect_to_home'),
+    re_path(r'^index/$', views.redirect_to_home, name='redirect_to_home'),
 ]
