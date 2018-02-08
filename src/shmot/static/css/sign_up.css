@@ -22,6 +22,9 @@ input, textarea {
     left: 470px;
     z-index: 1;
 }
+.main_form input {
+    width: 250px;
+}
 
 .avatar .cropping {
     border-radius: 3px;
@@ -39,12 +42,6 @@ input, textarea {
 }
 #contacts_info {
     left: 235px;
-}
-#contacts_info:before {
-    top: -65px;
-    left: -70px;
-    width: 170px;
-    height: 61px;
 }
 .selectize-control, select {
     width: 248px;
@@ -108,7 +105,4 @@ input, textarea {
     height: 120px;
     margin: 30px 20px;
     border-radius: 4px;
-}
-.main_form input { 
-width: 250px; 
 }

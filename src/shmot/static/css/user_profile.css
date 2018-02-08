@@ -62,9 +62,9 @@
 }
 .contact {
     margin: 4px 0;
-    /*width: 100px;*/
+    width: fit-content;
 }
-.contact i {
+.contact>i {
     margin-right: 8px;
 }
 .ads {
@@ -85,6 +85,11 @@
 .active {
     border-bottom: 1px solid black;
 }
-.hidden {
-    display: none;
+@media screen and (max-width: 1024px) {
+    .profile {
+        width: 35%;
+    }
+    .ads {
+        width: 65%;
+    }
 }

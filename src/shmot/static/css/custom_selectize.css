@@ -9,7 +9,7 @@
     font-family: 'Roboto Condensed', sans-serif;
 }
 .expanded {
-    width: 550px;
+    width: 550px !important;
 }
 .main_form .icon {
     left: 715px;
@@ -77,7 +77,7 @@
 }
 .selectize-dropdown .active {
     /*background-color: #146fa50f;*/
-    background-color: #e0e0e042;
+    background-color: #e0e0e029;
     color: black;
 }
 .selectize-input.focus {
@@ -93,7 +93,4 @@
 }
 .hidden {
     display: none;
-}
-.tooltip-toggle::before {
-    z-index: 1010;
 }

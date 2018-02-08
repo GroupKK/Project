@@ -57,6 +57,40 @@ $(document).ready(function() {
         else { //add to favourites
             $(this).addClass('starred');
         }
+    });
+    //load brands
+    $.ajax({
+        type: 'GET',
+        url: 'static/json/top_brands.json',
+        data: { get_param: 'value' },
+        dataType: 'json',
+        success: function (data) {
+            $.each(data, function(index, element) {
+                var i = Math.floor(index / 12 + 1);
+                //TODO: add links in href attribute
+                $('.brands_list .sub_column:nth-child(' + i + ') ul').append('<li><a href=\"\">' +
+                    element.name + '</a></li>');
+                if (index > 45)
+                    return false;
+            });
+            $('.brands_list .sub_column:last-child').append('<li><a href="" style="font-weight: normal;">\n' +
+                '                                        Все бренды\n' +
+                '                                        <i class="fa fa-angle-right" aria-hidden="true"></i>\n' +
+                '                                    </a></li>');
+        },
+        error: function () {
+            $('.brands_list .sub_column:first-child').append('<li><a href="" style="font-weight: normal;">\n' +
+                '                                        Все бренды\n' +
+                '                                        <i class="fa fa-angle-right" aria-hidden="true"></i>\n' +
+                '                                    </a></li>');
+        }
+    });
+    $('.copy').on('click', function () {
+        copyToClipboard($(this).prev());
+        $(this).attr('data-balloon', 'Скопировано');
+        setTimeout(function (e) {
+            e.attr('data-balloon', 'Копировать');
+        }, 2000, $(this));
     })
 });
 
@@ -88,6 +122,22 @@ function pulse(o) {
         pulse(o)
     }, 10000);
 }
+
+function copyToClipboard(element) {
+    var $temp = $("<input>");
+    $("body").append($temp);
+    var val = '';
+    //if it's a link tag copy the very link
+    if (element.prop('tagName')=='A') {
+        val = element.attr('href');
+    }
+    else
+        val = element.text();
+    $temp.val(val).select();
+    document.execCommand("copy");
+    $temp.remove();
+}
+
 
 // function likeItem(likes) {
 //     var number = likes.getElementsByTagName('a')[0];

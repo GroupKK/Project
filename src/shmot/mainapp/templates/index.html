@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <!--[if lt IE 7]><html lang="ru" class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
 <!--[if IE 7]><html lang="ru" class="lt-ie9 lt-ie8"><![endif]-->
@@ -13,63 +15,63 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0"/>-->
 	<!--<meta name="viewport" content="width=1040"/>-->
-	<link rel="stylesheet" href="static/libs/bootstrap/bootstrap-grid.min.css"/>
-	<!--<link rel="stylesheet" href="static/libs/bootstrap/bootstrap.min.css"/>-->
-	<link rel="stylesheet" href="static/libs/font-awesome/css/font-awesome.min.css"/>
-	<!--<link rel="stylesheet" href="static/libs/fancybox/jquery.fancybox.css"/>-->
-	<link rel="stylesheet" href="static/libs/magnific-popup/magnific-popup.css"/>
-	<!--<link rel="stylesheet" href="static/libs/owl-carousel/owl.carousel.css"/>-->
-	<link rel="stylesheet" href="static/libs/owlcarousel/owl.carousel.css">
+	<link rel="stylesheet" href="{% static 'libs/bootstrap/bootstrap-grid.min.css' %}"/>
+	<!--<link rel="stylesheet" href="{% static 'libs/bootstrap/bootstrap.min.css' %}"/>-->
+	<link rel="stylesheet" href="{% static 'libs/font-awesome/css/font-awesome.min.css' %}"/>
+	<!--<link rel="stylesheet" href="{% static 'libs/fancybox/jquery.fancybox.css' %}"/>-->
+	<link rel="stylesheet" href="{% static 'libs/magnific-popup/magnific-popup.css' %}"/>
+	<!--<link rel="stylesheet" href="{% static 'libs/owl-carousel/owl.carousel.css' %}"/>-->
+	<link rel="stylesheet" href="{% static 'libs/owlcarousel/owl.carousel.css' %}">
 
-	<link rel="stylesheet" href="static/libs/countdown/jquery.countdown.css"/>
-	<link rel="stylesheet" href="static/css/fonts.css"/>
-	<link rel="stylesheet" href="static/css/main.css"/>
-	<link rel="stylesheet" href="static/css/media.css"/>
+	<link rel="stylesheet" href="{% static 'libs/countdown/jquery.countdown.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/fonts.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/media.css' %}"/>
 	<!--Google Fonts-->
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700&amp;subset=cyrillic" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&amp;subset=cyrillic" rel="stylesheet">
 	<!--Icons-->
-	<link rel="apple-touch-icon" sizes="57x57" href="static/icons/apple-icon-57x57.png">
-	<link rel="apple-touch-icon" sizes="60x60" href="static/icons/apple-icon-60x60.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="static/icons/apple-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="static/icons/apple-icon-76x76.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="static/icons/apple-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="static/icons/apple-icon-120x120.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="static/icons/apple-icon-144x144.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="static/icons/apple-icon-152x152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="static/icons/apple-icon-180x180.png">
-	<link rel="icon" type="image/png" sizes="192x192"  href="static/icons/android-icon-192x192.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="static/icons/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="static/icons/favicon-96x96.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="static/icons/favicon-16x16.png">
-	<link rel="manifest" href="static/icons/manifest.json">
+	<link rel="apple-touch-icon" sizes="57x57" href="{% static 'icons/apple-icon-57x57.png' %}">
+	<link rel="apple-touch-icon" sizes="60x60" href="{% static 'icons/apple-icon-60x60.png' %}">
+	<link rel="apple-touch-icon" sizes="72x72" href="{% static 'icons/apple-icon-72x72.png' %}">
+	<link rel="apple-touch-icon" sizes="76x76" href="{% static 'icons/apple-icon-76x76.png' %}">
+	<link rel="apple-touch-icon" sizes="114x114" href="{% static 'icons/apple-icon-114x114.png' %}">
+	<link rel="apple-touch-icon" sizes="120x120" href="{% static 'icons/apple-icon-120x120.png' %}">
+	<link rel="apple-touch-icon" sizes="144x144" href="{% static 'icons/apple-icon-144x144.png' %}">
+	<link rel="apple-touch-icon" sizes="152x152" href="{% static 'icons/apple-icon-152x152.png' %}">
+	<link rel="apple-touch-icon" sizes="180x180" href="{% static 'icons/apple-icon-180x180.png' %}">
+	<link rel="icon" type="image/png" sizes="192x192"  href="{% static 'icons/android-icon-192x192.png' %}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'icons/favicon-32x32.png' %}">
+	<link rel="icon" type="image/png" sizes="96x96" href="{% static 'icons/favicon-96x96.png' %}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{% static 'icons/favicon-16x16.png' %}">
+	<link rel="manifest" href="{% static 'icons/manifest.json' %}">
 	<meta name="msapplication-TileColor" content="#ffffff">
-	<meta name="msapplication-TileImage" content="static/icons/ms-icon-144x144.png">
+	<meta name="msapplication-TileImage" content="icons/ms-icon-144x144.png' %}">
 	<meta name="theme-color" content="#ffffff">
 </head>
 <body class="signed_in">
 	<!--[if lt IE 9]>
-	<script src="static/libs/html5shiv/es5-shim.min.js"></script>
-	<script src="static/libs/html5shiv/html5shiv.min.js"></script>
-	<script src="static/libs/html5shiv/html5shiv-printshiv.min.js"></script>
-	<script src="static/libs/respond/respond.min.js"></script>
+	<script src="{% static 'libs/html5shiv/es5-shim.min.js' %}"></script>
+	<script src="{% static 'libs/html5shiv/html5shiv.min.js' %}"></script>
+	<script src="{% static 'libs/html5shiv/html5shiv-printshiv.min.js' %}"></script>
+	<script src="{% static 'libs/respond/respond.min.js' %}"></script>
 	<![endif]-->
-	<script src="static/libs/jquery/jquery-3.2.1.min.js"></script>
-	<script src="static/libs/jquery-mousewheel/jquery.mousewheel.min.js"></script>
-	<!--<script src="static/libs/fancybox/jquery.fancybox.pack.js"></script>-->
-	<script src="static/libs/magnific-popup/jquery.magnific-popup.js"></script>
-	<script src="static/libs/waypoints/waypoints-1.6.2.min.js"></script>
-	<script src="static/libs/scrollto/jquery.scrollTo.min.js"></script>
-	<!--<script src="static/libs/owl-carousel/owl.carousel.min.js"></script>-->
-	<script src="static/libs/owlcarousel/owl.carousel.min.js"></script>
+	<script src="{% static 'libs/jquery/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'libs/jquery-mousewheel/jquery.mousewheel.min.js' %}"></script>
+	<!--<script src="{% static 'libs/fancybox/jquery.fancybox.pack.js' %}"></script>-->
+	<script src="{% static 'libs/magnific-popup/jquery.magnific-popup.js' %}"></script>
+	<script src="{% static 'libs/waypoints/waypoints-1.6.2.min.js' %}"></script>
+	<script src="{% static 'libs/scrollto/jquery.scrollTo.min.js' %}"></script>
+	<!--<script src="{% static 'libs/owl-carousel/owl.carousel.min.js' %}"></script>-->
+	<script src="{% static 'libs/owlcarousel/owl.carousel.min.js' %}"></script>
 
-	<script src="static/libs/countdown/jquery.plugin.js"></script>
-	<script src="static/libs/countdown/jquery.countdown.min.js"></script>
-	<script src="static/libs/countdown/jquery.countdown-ru.js"></script>
-	<script src="static/libs/landing-nav/navigation.js"></script>
-	<script src="static/js/main.js"></script>
-	<script src="static/js/common.js"></script>
-	<script src="static/js/items_bar.js"></script>
+	<script src="{% static 'libs/countdown/jquery.plugin.js' %}"></script>
+	<script src="{% static 'libs/countdown/jquery.countdown.min.js' %}"></script>
+	<script src="{% static 'libs/countdown/jquery.countdown-ru.js' %}"></script>
+	<script src="{% static 'libs/landing-nav/navigation.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+	<script src="{% static 'js/common.js' %}"></script>
+	<script src="{% static 'js/items_bar.js' %}"></script>
 	<!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
 	<!-- Google Analytics counter --><!-- /Google Analytics counter -->
 
@@ -80,7 +82,7 @@
 			<nav>
 				<div class="centered ">
 					<a class="logo" href="index.html">
-						<img src="static/images/logo.svg" width="50">
+						<img src="{% static 'images/logo.svg' %}" width="50">
 					</a>
 					<div class="cat">
 						<div class="a">
@@ -262,76 +264,12 @@
 							<a href="">Бренды</a>
 						</div>
 						<div class="sub span">
-							<ul class="centered row">
-								<li class="sub_column">
-									<ul>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-									</ul>
-								</li>
-								<li class="sub_column">
-									<ul>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-									</ul>
-								</li>
-								<li class="sub_column">
-									<ul>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-									</ul>
-								</li>
-								<li class="sub_column">
-									<ul>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="">United Colors of Benetton</a></li>
-										<li><a href="" style="font-weight: normal;">
-											Все бренды
-											<i class="fa fa-angle-right" aria-hidden="true"></i>
-										</a></li>
-									</ul>
-								</li>
+							<ul class="centered row brands_list">
+								<li class="sub_column"><ul></ul></li>
+								<li class="sub_column"><ul></ul></li>
+								<li class="sub_column"><ul></ul></li>
+								<li class="sub_column"><ul></ul></li>
 							</ul>
-
 						</div>
 					</div>
 					<div class="cat">
@@ -350,15 +288,15 @@
 					</div>
 					<div class="right">
 						<div class="nav_icon"><a href="">
-							<img src="static/images/fav_icon.svg" width="50">
+							<img src="{% static 'images/fav_icon.svg' %}" width="50">
 						</a></div>
 						<div class="nav_icon"><a href="">
-							<img src="static/images/search_icon.svg" width="50">
+							<img src="{% static 'images/search_icon.svg' %}" width="50">
 						</a></div>
 
 						<div class="nav_icon" id="profile">
 							<a href="#sign_in_popup" style="display: block">
-								<img src="static/images/profile_icon.svg" width="50" style="display: block">
+								<img src="{% static 'images/profile_icon.svg' %}" width="50" style="display: block">
 							</a>
 							<div id="profile_options">
 								<ul>
@@ -380,7 +318,7 @@
 			<h2 class="section_header">Рекомендуемые объявления</h2>
 			<div class="center" style="padding-bottom: 30px;">
 				<div class="arrow_button_back" id="prev_i">
-					<img src="static/images/back_arrow.svg" height="20px">
+					<img src="{% static 'images/back_arrow.svg' %}" height="20px">
 				</div>
 				<div class="owl-carousel" id="items">
 					<div class="item">
@@ -391,30 +329,26 @@
 								<i class="fa fa-heart" aria-hidden="true"></i>
 								<a>20</a>
 							</div>
-							<div class="fav tooltip-toggle" aria-label="Добавить в избранное">
+							<div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
 								<i class="fa fa-star-o" aria-hidden="true"></i>
 								<i class="fa fa-star" aria-hidden="true"></i>
 							</div>
 
 							<div class="overlay item_top_border">
-								<div class="center" style="margin: 10px 0 0 10px">
-									<div style="width: 15px; margin-right: 5px">
-										<i class="fa fa-map-marker" aria-hidden="true" style="font-size: 22px"></i>
-									</div>
+								<div class="center">
+									<i class="fa fa-map-marker" aria-hidden="true"></i>
 									<a>Москва</a>
 								</div>
-								<div class="center" style="margin: 5px 0 0 10px">
-									<div style="width: 15px; margin-right: 5px">
-										<i class="fa fa-paper-plane" aria-hidden="true" style="font-size: 14px"></i>
-									</div>
+								<div class="center">
+									<i class="fa fa-paper-plane" aria-hidden="true"></i>
 									<a>Пересылка</a>
 								</div>
-								<div style="font-size: 22px; position: absolute; right: 0; top: 0; margin: 10px 12px 0 0">S</div>
+								<div class="size">S</div>
 							</div>
-							<img class="item_image cropping item_top_border" src="static/images/item.jpg">
+							<img class="item_image cropping item_top_border" src="{% static 'images/item.jpg' %}">
 							<div class="item_bottom">
 								<div class="item_description">Свитер</div>
-								<div class="item_price">1000 ₽</div>
+								<div class="item_price">1000</div>
 								<div class="item_brand">Zara</div>
 							</div>
 						</div>
@@ -427,30 +361,26 @@
 								<i class="fa fa-heart" aria-hidden="true"></i>
 								<a>20</a>
 							</div>
-							<div class="fav tooltip-toggle" aria-label="Добавить в избранное">
+							<div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
 								<i class="fa fa-star-o" aria-hidden="true"></i>
 								<i class="fa fa-star" aria-hidden="true"></i>
 							</div>
 
 							<div class="overlay item_top_border">
-								<div class="center" style="margin: 10px 0 0 10px">
-									<div style="width: 15px; margin-right: 5px">
-										<i class="fa fa-map-marker" aria-hidden="true" style="font-size: 22px"></i>
-									</div>
+								<div class="center">
+									<i class="fa fa-map-marker" aria-hidden="true"></i>
 									<a>Москва</a>
 								</div>
-								<div class="center" style="margin: 5px 0 0 10px">
-									<div style="width: 15px; margin-right: 5px">
-										<i class="fa fa-paper-plane" aria-hidden="true" style="font-size: 14px"></i>
-									</div>
+								<div class="center">
+									<i class="fa fa-paper-plane" aria-hidden="true"></i>
 									<a>Пересылка</a>
 								</div>
-								<div style="font-size: 22px; position: absolute; right: 0; top: 0; margin: 10px 12px 0 0">S</div>
+								<div class="size">S</div>
 							</div>
-							<img class="item_image cropping item_top_border" src="static/images/item.jpg">
+							<img class="item_image cropping item_top_border" src="{% static 'images/item.jpg' %}">
 							<div class="item_bottom">
 								<div class="item_description">Свитер</div>
-								<div class="item_price">1000 ₽</div>
+								<div class="item_price">1000</div>
 								<div class="item_brand">Zara</div>
 							</div>
 						</div>
@@ -463,30 +393,26 @@
 								<i class="fa fa-heart" aria-hidden="true"></i>
 								<a>20</a>
 							</div>
-							<div class="fav tooltip-toggle" aria-label="Добавить в избранное">
+							<div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
 								<i class="fa fa-star-o" aria-hidden="true"></i>
 								<i class="fa fa-star" aria-hidden="true"></i>
 							</div>
 
 							<div class="overlay item_top_border">
-								<div class="center" style="margin: 10px 0 0 10px">
-									<div style="width: 15px; margin-right: 5px">
-										<i class="fa fa-map-marker" aria-hidden="true" style="font-size: 22px"></i>
-									</div>
+								<div class="center">
+									<i class="fa fa-map-marker" aria-hidden="true"></i>
 									<a>Москва</a>
 								</div>
-								<div class="center" style="margin: 5px 0 0 10px">
-									<div style="width: 15px; margin-right: 5px">
-										<i class="fa fa-paper-plane" aria-hidden="true" style="font-size: 14px"></i>
-									</div>
+								<div class="center">
+									<i class="fa fa-paper-plane" aria-hidden="true"></i>
 									<a>Пересылка</a>
 								</div>
-								<div style="font-size: 22px; position: absolute; right: 0; top: 0; margin: 10px 12px 0 0">S</div>
+								<div class="size">S</div>
 							</div>
-							<img class="item_image cropping item_top_border" src="static/images/item.jpg">
+							<img class="item_image cropping item_top_border" src="{% static 'images/item.jpg' %}">
 							<div class="item_bottom">
 								<div class="item_description">Свитер</div>
-								<div class="item_price">1000 ₽</div>
+								<div class="item_price">1000</div>
 								<div class="item_brand">Zara</div>
 							</div>
 						</div>
@@ -499,30 +425,26 @@
 								<i class="fa fa-heart" aria-hidden="true"></i>
 								<a>20</a>
 							</div>
-							<div class="fav tooltip-toggle" aria-label="Добавить в избранное">
+							<div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
 								<i class="fa fa-star-o" aria-hidden="true"></i>
 								<i class="fa fa-star" aria-hidden="true"></i>
 							</div>
 
 							<div class="overlay item_top_border">
-								<div class="center" style="margin: 10px 0 0 10px">
-									<div style="width: 15px; margin-right: 5px">
-										<i class="fa fa-map-marker" aria-hidden="true" style="font-size: 22px"></i>
-									</div>
+								<div class="center">
+									<i class="fa fa-map-marker" aria-hidden="true"></i>
 									<a>Москва</a>
 								</div>
-								<div class="center" style="margin: 5px 0 0 10px">
-									<div style="width: 15px; margin-right: 5px">
-										<i class="fa fa-paper-plane" aria-hidden="true" style="font-size: 14px"></i>
-									</div>
+								<div class="center">
+									<i class="fa fa-paper-plane" aria-hidden="true"></i>
 									<a>Пересылка</a>
 								</div>
-								<div style="font-size: 22px; position: absolute; right: 0; top: 0; margin: 10px 12px 0 0">S</div>
+								<div class="size">S</div>
 							</div>
-							<img class="item_image cropping item_top_border" src="static/images/item.jpg">
+							<img class="item_image cropping item_top_border" src="{% static 'images/item.jpg' %}">
 							<div class="item_bottom">
 								<div class="item_description">Свитер</div>
-								<div class="item_price">1000 ₽</div>
+								<div class="item_price">1000</div>
 								<div class="item_brand">Zara</div>
 							</div>
 						</div>
@@ -535,30 +457,26 @@
 								<i class="fa fa-heart" aria-hidden="true"></i>
 								<a>20</a>
 							</div>
-							<div class="fav tooltip-toggle" aria-label="Добавить в избранное">
+							<div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
 								<i class="fa fa-star-o" aria-hidden="true"></i>
 								<i class="fa fa-star" aria-hidden="true"></i>
 							</div>
 
 							<div class="overlay item_top_border">
-								<div class="center" style="margin: 10px 0 0 10px">
-									<div style="width: 15px; margin-right: 5px">
-										<i class="fa fa-map-marker" aria-hidden="true" style="font-size: 22px"></i>
-									</div>
+								<div class="center">
+									<i class="fa fa-map-marker" aria-hidden="true"></i>
 									<a>Москва</a>
 								</div>
-								<div class="center" style="margin: 5px 0 0 10px">
-									<div style="width: 15px; margin-right: 5px">
-										<i class="fa fa-paper-plane" aria-hidden="true" style="font-size: 14px"></i>
-									</div>
+								<div class="center">
+									<i class="fa fa-paper-plane" aria-hidden="true"></i>
 									<a>Пересылка</a>
 								</div>
-								<div style="font-size: 22px; position: absolute; right: 0; top: 0; margin: 10px 12px 0 0">S</div>
+								<div class="size">S</div>
 							</div>
-							<img class="item_image cropping item_top_border" src="static/images/item.jpg">
+							<img class="item_image cropping item_top_border" src="{% static 'images/item.jpg' %}">
 							<div class="item_bottom">
 								<div class="item_description">Свитер</div>
-								<div class="item_price">1000 ₽</div>
+								<div class="item_price">1000</div>
 								<div class="item_brand">Zara</div>
 							</div>
 						</div>
@@ -571,30 +489,26 @@
 								<i class="fa fa-heart" aria-hidden="true"></i>
 								<a>20</a>
 							</div>
-							<div class="fav tooltip-toggle" aria-label="Добавить в избранное">
+							<div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
 								<i class="fa fa-star-o" aria-hidden="true"></i>
 								<i class="fa fa-star" aria-hidden="true"></i>
 							</div>
 
 							<div class="overlay item_top_border">
-								<div class="center" style="margin: 10px 0 0 10px">
-									<div style="width: 15px; margin-right: 5px">
-										<i class="fa fa-map-marker" aria-hidden="true" style="font-size: 22px"></i>
-									</div>
+								<div class="center">
+									<i class="fa fa-map-marker" aria-hidden="true"></i>
 									<a>Москва</a>
 								</div>
-								<div class="center" style="margin: 5px 0 0 10px">
-									<div style="width: 15px; margin-right: 5px">
-										<i class="fa fa-paper-plane" aria-hidden="true" style="font-size: 14px"></i>
-									</div>
+								<div class="center">
+									<i class="fa fa-paper-plane" aria-hidden="true"></i>
 									<a>Пересылка</a>
 								</div>
-								<div style="font-size: 22px; position: absolute; right: 0; top: 0; margin: 10px 12px 0 0">S</div>
+								<div class="size">S</div>
 							</div>
-							<img class="item_image cropping item_top_border" src="static/images/item.jpg">
+							<img class="item_image cropping item_top_border" src="{% static 'images/item.jpg' %}">
 							<div class="item_bottom">
 								<div class="item_description">Свитер</div>
-								<div class="item_price">1000 ₽</div>
+								<div class="item_price">1000</div>
 								<div class="item_brand">Zara</div>
 							</div>
 						</div>
@@ -607,30 +521,26 @@
 								<i class="fa fa-heart" aria-hidden="true"></i>
 								<a>20</a>
 							</div>
-							<div class="fav tooltip-toggle" aria-label="Добавить в избранное">
+							<div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
 								<i class="fa fa-star-o" aria-hidden="true"></i>
 								<i class="fa fa-star" aria-hidden="true"></i>
 							</div>
 
 							<div class="overlay item_top_border">
-								<div class="center" style="margin: 10px 0 0 10px">
-									<div style="width: 15px; margin-right: 5px">
-										<i class="fa fa-map-marker" aria-hidden="true" style="font-size: 22px"></i>
-									</div>
+								<div class="center">
+									<i class="fa fa-map-marker" aria-hidden="true"></i>
 									<a>Москва</a>
 								</div>
-								<div class="center" style="margin: 5px 0 0 10px">
-									<div style="width: 15px; margin-right: 5px">
-										<i class="fa fa-paper-plane" aria-hidden="true" style="font-size: 14px"></i>
-									</div>
+								<div class="center">
+									<i class="fa fa-paper-plane" aria-hidden="true"></i>
 									<a>Пересылка</a>
 								</div>
-								<div style="font-size: 22px; position: absolute; right: 0; top: 0; margin: 10px 12px 0 0">S</div>
+								<div class="size">S</div>
 							</div>
-							<img class="item_image cropping item_top_border" src="static/images/item.jpg">
+							<img class="item_image cropping item_top_border" src="{% static 'images/item.jpg' %}">
 							<div class="item_bottom">
 								<div class="item_description">Свитер</div>
-								<div class="item_price">1000 ₽</div>
+								<div class="item_price">1000</div>
 								<div class="item_brand">Zara</div>
 							</div>
 						</div>
@@ -645,7 +555,7 @@ text-transform: none; color: black;
 					</div>
 				</div>
 				<div class="arrow_button_forward" id="next_i">
-					<img src="static/images/forward_arrow.svg" height="20">
+					<img src="{% static 'images/forward_arrow.svg' %}" height="20">
 				</div>
 			</div>
 		</div>
@@ -659,14 +569,14 @@ text-transform: none; color: black;
 					<h2 class="section_header">Актуальные категории</h2>
 					<div class="center">
 						<div class="arrow_button_back" id="prev_c">
-							<img src="static/images/back_arrow.svg" height="20px">
+							<img src="{% static 'images/back_arrow.svg' %}" height="20px">
 						</div>
 						<!--TODO: figure out dependence on image size-->
 						<!--<div style="position: relative">-->
 							<!--<div class="text_on_image">Платья</div>-->
 							<!--<div style="position:relative; z-index: 0">-->
 								<!--<a href="" title="Платья">-->
-									<!--<img class="image" src="static/images/cat_banner.png">-->
+									<!--<img class="image" src="{% static 'images/cat_banner.png' %}">-->
 								<!--</a>-->
 							<!--</div>-->
 						<!--</div>-->
@@ -676,7 +586,7 @@ text-transform: none; color: black;
 									<a href="">
 									<div class="text_on_image">Платья</div>
 									<div style="position:relative; z-index: 0">
-									<img class="image" src="static/images/cat_banner_1.png">
+									<img class="image" src="{% static 'images/cat_banner_1.png' %}">
 									</div>
 									</a>
 								</div>
@@ -684,7 +594,7 @@ text-transform: none; color: black;
 									<a href="">
 									<div class="text_on_image">Джинсовые куртки</div>
 									<div style="position:relative; z-index: 0">
-									<img class="image" src="static/images/cat_banner_2.png">
+									<img class="image" src="{% static 'images/cat_banner_2.png' %}">
 									</div>
 									</a>
 								</div>
@@ -692,7 +602,7 @@ text-transform: none; color: black;
 									<a href="">
 									<div class="text_on_image">Пуховики</div>
 									<div style="position:relative; z-index: 0">
-									<img class="image" src="static/images/cat_banner_3.png">
+									<img class="image" src="{% static 'images/cat_banner_3.png' %}">
 									</div>
 									</a>
 								</div>
@@ -700,14 +610,14 @@ text-transform: none; color: black;
 									<a href="">
 									<div class="text_on_image">Худи</div>
 									<div style="position:relative; z-index: 0">
-									<img class="image" src="static/images/cat_banner_4.png">
+									<img class="image" src="{% static 'images/cat_banner_4.png' %}">
 									</div>
 									</a>
 								</div>
 							</div>
 						</div>
 						<div class="arrow_button_forward" id="next_c">
-							<img src="static/images/forward_arrow.svg" height="20">
+							<img src="{% static 'images/forward_arrow.svg' %}" height="20">
 						</div>
 					</div>
 				</div>
@@ -718,37 +628,37 @@ text-transform: none; color: black;
 					<h2 class="section_header">Бренды</h2>
 					<div class="center">
 						<div class="arrow_button_back" id="prev_b">
-							<img src="static/images/back_arrow.svg" height="20px">
+							<img src="{% static 'images/back_arrow.svg' %}" height="20px">
 						</div>
 						<!--<a href="" title="Champion">-->
-							<!--<img class="image" src="images/champion-brandshop.svg" height="280px" style="margin: 0 auto">-->
+							<!--<img class="image" src="{% static 'images/champion-brandshop.svg' %}" height="280px" style="margin: 0 auto">-->
 						<!--</a>-->
 						<div class="brands">
 							<div class="owl-carousel" id="brands">
 								<div class="item">
 									<a href="" title="Champion">
-										<img class="image" src="static/images/champion-brandshop.svg" height="280px" style="margin: 0 auto">
+										<img class="image" src="{% static 'images/champion-brandshop.svg' %}" height="280px" style="margin: 0 auto">
 									</a>
 								</div>
 								<div class="item">
 									<a href="" title="Champion">
-										<img class="image" src="static/images/champion-brandshop.svg" height="280px" style="margin: 0 auto">
+										<img class="image" src="{% static 'images/champion-brandshop.svg' %}" height="280px" style="margin: 0 auto">
 									</a>
 								</div>
 								<div class="item">
 									<a href="" title="Champion">
-										<img class="image" src="static/images/champion-brandshop.svg" height="280px" style="margin: 0 auto">
+										<img class="image" src="{% static 'images/champion-brandshop.svg' %}" height="280px" style="margin: 0 auto">
 									</a>
 								</div>
 								<div class="item">
 									<a href="" title="Champion">
-										<img class="image" src="static/images/champion-brandshop.svg" height="280px" style="margin: 0 auto">
+										<img class="image" src="{% static 'images/champion-brandshop.svg' %}" height="280px" style="margin: 0 auto">
 									</a>
 								</div>
 							</div>
 						</div>
 						<div class="arrow_button_forward" id="next_b">
-							<img src="static/images/forward_arrow.svg" height="20">
+							<img src="{% static 'images/forward_arrow.svg' %}" height="20">
 						</div>
 					</div>
 				</div>
@@ -765,7 +675,7 @@ text-transform: none; color: black;
 					<button class="contrast_btn ad_btn" href="#sign_in_popup">Подать объявление</button>
 				</div>
 				<div style="position:relative; z-index: 0">
-					<img src="static/images/placeholder.png" width="100%" style="display: block">
+					<img src="{% static 'images/placeholder.png' %}" width="100%" style="display: block">
 				</div>
 			</div>
 		</div>
@@ -780,7 +690,7 @@ text-transform: none; color: black;
 						</div>
 						<div class="title" style="font-weight: normal">
 							456
-							<img src="static/images/tshirt.svg" height="10px">
+							<img src="{% static 'images/tshirt.svg' %}" height="10px">
 						</div>
 					</div>
 					<div class="title">
@@ -789,7 +699,7 @@ text-transform: none; color: black;
 						</div>
 						<div class="title" style="font-weight: normal">
 							129
-							<img src="static/images/tshirt.svg" height="10px">
+							<img src="{% static 'images/tshirt.svg' %}" height="10px">
 						</div>
 					</div>
 					<div class="title">
@@ -798,12 +708,12 @@ text-transform: none; color: black;
 						</div>
 						<div class="title" style="font-weight: normal">
 							236
-							<img src="static/images/tshirt.svg" height="10px">
+							<img src="{% static 'images/tshirt.svg' %}" height="10px">
 						</div>
 					</div>
 				</div>
 				<div style="position:relative; z-index: 0; width: 100%">
-					<img src="static/images/clothes.png" width="100%" style="display: block">
+					<img src="{% static 'images/clothes.png' %}" width="100%" style="display: block">
 				</div>
 			</div>
 		</div>
@@ -816,7 +726,7 @@ text-transform: none; color: black;
 				<i class="fa fa-heart" aria-hidden="true"></i>
 				<a>20</a>
 			</div>
-			<div class="fav tooltip-toggle" aria-label="Добавить в избранное">
+			<div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
 				<i class="fa fa-star-o" aria-hidden="true"></i>
 				<i class="fa fa-star" aria-hidden="true"></i>
 			</div>
@@ -836,7 +746,7 @@ text-transform: none; color: black;
 				</div>
 				<div style="font-size: 22px; position: absolute; right: 0; top: 0; margin: 10px 12px 0 0">S</div>
 				</div>
-			<img class="item_image cropping item_top_border" src="static/images/item.jpg">
+			<img class="item_image cropping item_top_border" src="{% static 'images/item.jpg' %}">
 			<div class="item_bottom">
 				<div class="item_description">Свитер</div>
 				<div class="item_price">1000 ₽</div>
@@ -863,12 +773,12 @@ text-transform: none; color: black;
 				<button class="sign_in_btn" type="button" style="margin-bottom: 16px" onclick="check_sign_in()">Войти</button>
 				<button id="sign_in" type="submit" style="display: none"></button>
 			</form>
-			<a href="signup" class="title" id="sign_up">Регистрация</a>
+			<div class="title" id="sign_up">            <a>Забыли пароль?</a>            <a>Регистрация</a>        </div>
 		</div>
 
 		<div class="push"></div>
 	</div>
-	<div class="add_button tooltip-toggle" aria-label="Подать объявление">
+	<div class="add_button" data-balloon-pos="left" data-balloon="Подать объявление">
 		<a href="#sign_in_popup"><i class="fa fa-plus" aria-hidden="true"></i></a>
 	</div>
 	<div class="footer span">

@@ -14,7 +14,7 @@ $(document).ready(function () {
     city.load(function(callback) {
         xhr && xhr.abort();
         xhr = $.ajax({
-            url: '../../../static/json/cities.json',
+            url: '/Bootstrap/json/cities.json',
             type: 'GET',
             dataType: 'json',
             success: function(results) {
@@ -114,15 +114,15 @@ function check() {
     $('select.required, input.required').each(function () {
         if ($(this).val() == '') {
             $(this).parent().addClass('set_focus');
-            $(this).parent().children('.icon').addClass('hovered');
+            $(this).parent().children('.icon').attr('data-balloon-visible', true);
             $('html, body').animate({
                 scrollTop: $(this).offset().top - 100
             }, 500);
             $(this).focus();
             setTimeout(function (o) {
                 o.parent().removeClass('set_focus');
-                o.parent().children('.icon').removeClass('hovered');
-            }, 5000, $(this));
+                o.parent().children('.icon').removeAttr('data-balloon-visible');
+            }, 3000, $(this));
             flag = false;
             return false;
         }

@@ -307,7 +307,7 @@ function check() {
     $('select.required, input.required').each(function () {
         if ($(this).val() == '') {
             $(this).parent().addClass('set_focus');
-            $(this).parent().children('.icon').addClass('hovered');
+            $(this).parent().children('.icon').attr('data-balloon-visible', true);
             if ($(this).prop('tagName') == 'SELECT')
             {
                 $('html, body').animate({
@@ -322,8 +322,8 @@ function check() {
             }
             setTimeout(function (o) {
                 o.parent().removeClass('set_focus');
-                o.parent().children('.icon').removeClass('hovered');
-            }, 5000, $(this));
+                o.parent().children('.icon').removeAttr('data-balloon-visible');
+            }, 3000, $(this));
             flag = false;
             return false;
         }
