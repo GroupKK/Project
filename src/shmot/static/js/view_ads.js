@@ -4,7 +4,7 @@ $(document).ready(function () {
     //load brands
     $.ajax({
         type: 'GET',
-        url: '/Bootstrap/json/top_brands.json',
+        url: '/static/json/top_brands.json',
         data: { get_param: 'value' },
         dataType: 'json',
         success: function (data) {

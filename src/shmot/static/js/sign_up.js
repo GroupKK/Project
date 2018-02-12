@@ -14,7 +14,7 @@ $(document).ready(function () {
     city.load(function(callback) {
         xhr && xhr.abort();
         xhr = $.ajax({
-            url: '/Bootstrap/json/cities.json',
+            url: '/static/json/cities.json',
             type: 'GET',
             dataType: 'json',
             success: function(results) {

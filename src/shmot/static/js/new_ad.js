@@ -48,7 +48,7 @@ $(document).ready(function () {
             type.load(function(callback) {
                 xhr && xhr.abort();
                 xhr = $.ajax({
-                    url: '/Bootstrap/json/options_' + cat_value +'_' + value +'.json',
+                    url: '/static/json/options_' + cat_value +'_' + value +'.json',
                     type: 'GET',
                     dataType: 'json',
                     success: function(results) {
@@ -114,7 +114,7 @@ $(document).ready(function () {
     brand.load(function f(callback) {
         xhr && xhr.abort();
         xhr = $.ajax({
-            url: '/Bootstrap/json/brands.json',
+            url: '/static/json/brands.json',
             type: 'GET',
             dataType: 'json',
             success: function(results) {
@@ -131,7 +131,7 @@ $(document).ready(function () {
     city.load(function(callback) {
         xht && xht.abort();
         xht = $.ajax({
-            url: '/Bootstrap/json/cities.json',
+            url: '/static/json/cities.json',
             type: 'GET',
             dataType: 'json',
             success: function(results) {
