@@ -1,3 +1,4 @@
+"""
 from django.contrib.auth.models import AbstractUser, UserManager
 
 class CustomUserManager(UserManager):
@@ -6,4 +7,4 @@ class CustomUserManager(UserManager):
 class CustomUser(AbstractUser):
     objects = CustomUserManager()
 
-
+"""
