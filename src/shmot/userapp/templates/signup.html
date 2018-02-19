@@ -316,7 +316,7 @@
     <div class="section span" style="margin-bottom: 86px;">
         <div class="centered">
             <div id="form_wrap">
-                <form action="/file-upload" class="main_form dropzone" id="dropzone">
+                <form action="/signup_submit" class="main_form dropzone" id="dropzone">
                     <div class="fields">
                         <div class="title" style="text-align: center; padding-top: 32px">Регистрация</div>
                         <div class="center">
@@ -410,7 +410,7 @@
             <i class="fa fa-facebook" aria-hidden="true"></i> Facebook
         </button>
         <div class="title">Есть аккаунт?</div>
-        <form action="/file-upload" id="sign_in_form">
+        <form action="/signin_submit" id="sign_in_form" method="post">
             <input type="text" name="login" placeholder="Логин">
             <input type="password" name="password" placeholder="Пароль">
             <button class="sign_in_btn" type="button" style="margin-bottom: 16px" onclick="check_sign_in()">Войти</button>
