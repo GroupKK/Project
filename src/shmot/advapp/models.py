@@ -22,7 +22,7 @@ class Advert(models.Model):
     forwarding = models.BooleanField()
     description = models.TextField()
     image1 = models.ImageField(upload_to=user_directory_path)
-    image2 = models.ImageField(upload_to=user_directory_path)
-    image3 = models.ImageField(upload_to=user_directory_path)
-    image4 = models.ImageField(upload_to=user_directory_path)
+    image2 = models.ImageField(upload_to=user_directory_path, blank=True)
+    image3 = models.ImageField(upload_to=user_directory_path, blank=True)
+    image4 = models.ImageField(upload_to=user_directory_path, blank=True)
     
