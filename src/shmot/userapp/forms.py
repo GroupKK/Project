@@ -17,3 +17,11 @@ class CustomUserChangeForm(UserChangeForm):
 
 
 """
+
+from django import forms
+from advapp.models import Advert
+
+class UploadFileForm(forms.ModelForm):
+    
+    class Meta:
+        model = Advert 

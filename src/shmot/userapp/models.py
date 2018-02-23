@@ -3,21 +3,21 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.validators import RegexValidator
+from advapp.models import Advert
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
-    phone_number = models.CharField(validators=[phone_regex], max_length=17, default=000000000)
+    phone_number = models.CharField(max_length=17, default=000000000)
     city = models.CharField(max_length=15, null=True)
     number_of_posts = models.IntegerField(blank=False, default=0) # active + inactive
-    # posts
-    # liked_posts
-    # favourite_posts
-    # following people
-    # number of sold items
+    posts = models.ForeignKey(Advert, on_delete=models.CASCADE, related_name='posts', null=True)
+    liked_posts = models.ForeignKey(Advert, on_delete=models.CASCADE, related_name='liked_posts', null=True)
+    favourite_posts = models.ForeignKey(Advert, on_delete=models.CASCADE, related_name='favourite_posts', null=True)
+    following_people = models.ForeignKey(User, on_delete=models.CASCADE, related_name='folloing_people', null=True)
+    number_of_sold_items = models.IntegerField(default=0)
     # rating
-    # followers
-    # number of likes recieved
+    # followers = models.ForeignKey(User, on_delete=models.CASCADE, limit_choices_to={'profile.following_people': True})
+    number_of_likes_recieved = models.IntegerField(default=0)
     
 
 @receiver(post_save, sender=User)

@@ -116,3 +116,4 @@ settings.py
 myvenv/
 sent_emails/
 __pycache__/
+media/

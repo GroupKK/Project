@@ -316,7 +316,8 @@
     <div class="section span" style="margin-bottom: 86px;">
         <div class="centered">
             <div id="form_wrap">
-                <form action="/signup_submit" class="main_form dropzone" id="dropzone">
+                <form action="/signup_submit" class="main_form dropzone" id="dropzone" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
                     <div class="fields">
                         <div class="title" style="text-align: center; padding-top: 32px">Регистрация</div>
                         <div class="center">
@@ -344,14 +345,14 @@
                             <div class="title" style="">Персональная информация</div>
                         </div>
                         <div class="center" style="/*margin-top: 16px*/">
-                            <input class="required" type="text" name="name" placeholder="Имя">
+                            <input class="required" type="text" name="first_name" placeholder="Имя">
                             <div class="icon" data-balloon-pos="right" data-balloon="Обязательно для заполнения">
                                 <img class="neutral" src="/static/images/important.svg">
                                 <img class="red" src="/static/images/important_red.svg">
                             </div>
                         </div>
                         <div class="center">
-                            <input class="required" type="text" name="surname" placeholder="Фамилия">
+                            <input class="required" type="text" name="last_name" placeholder="Фамилия">
                             <div class="icon" data-balloon-pos="right" data-balloon="Обязательно для заполнения">
                                 <img class="neutral" src="/static/images/important.svg">
                                 <img class="red" src="/static/images/important_red.svg">
