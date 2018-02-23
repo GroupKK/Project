@@ -1,27 +1,18 @@
-"""
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import CustomUser
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
-class CustomUserCreationForm(UserCreationForm):
-
-    class Meta(UserCreationForm.Meta):
-        model = CustomUser
-        fields = UserCreationForm.Meta.fields
-
-class CustomUserChangeForm(UserChangeForm):
-
-    class Meta:
-        model = CustomUser
-        fields = UserChangeForm.Meta.fields
-
-
-"""
-
-from django import forms
-from advapp.models import Advert
-
-class UploadFileForm(forms.ModelForm):
+class SignUpForm(UserCreationForm):
+    first_name = forms.CharField(max_length=30, required=True, help_text='Required.')
+    last_name = forms.CharField(max_length=30, required=True, help_text='Required.')
+    city = forms.CharField(max_length=15, required=True)
+    phone_number = forms.CharField(max_length=17, required=True)
+    email = forms.EmailField(max_length=254, required=False, help_text='Optional.')
+    vk = forms.CharField(max_length=20, required=False)
+    fb = forms.CharField(max_length=20, required=False)
     
+
     class Meta:
-        model = Advert 
+        model = User
+        fields = ('username', 'first_name', 'last_name', 'city', 'phone_number', 'email', 'vk', 'fb', 'password1', 'password2')
+

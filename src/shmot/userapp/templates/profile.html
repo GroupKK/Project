@@ -20,17 +20,14 @@
     <link rel="stylesheet" href="/static/libs/magnific-popup/magnific-popup.css"/>
     <!--<link rel="stylesheet" href="/static/libs/owl-carousel/owl.carousel.css"/>-->
     <link rel="stylesheet" href="/static/libs/owlcarousel/owl.carousel.css">
-    <link rel="stylesheet" href="/static/libs/selectize/css/selectize.css">
+    <link rel="stylesheet" href="/static/libs/owlcarousel/owl.theme.default.css">
 
     <link rel="stylesheet" href="/static/libs/countdown/jquery.countdown.css"/>
     <link rel="stylesheet" href="/static/css/fonts.css"/>
     <link rel="stylesheet" href="/static/css/main.css"/>
     <link rel="stylesheet" href="/static/css/media.css"/>
-    <link rel="stylesheet" href="/static/libs/dropzone/dropzone.css"/>
-    <link rel="stylesheet" href="/static/css/custom_selectize.css"/>
-    <link rel="stylesheet" href="/static/css/custom_inputs.css"/>
-    <link rel="stylesheet" href="/static/css/custom_dropzone.css"/>
-    <link rel="stylesheet" href="/static/css/sign_up.css"/>
+    <link rel="stylesheet" href="/static/css/user_profile.css"/>
+    <!--<link rel="stylesheet" href="/static/css/sign_up.css"/>-->
     <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700&amp;subset=cyrillic" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&amp;subset=cyrillic" rel="stylesheet">
@@ -53,7 +50,7 @@
     <meta name="msapplication-TileImage" content="icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 </head>
-<body>
+<body class="signed_in">
 <!--[if lt IE 9]>
 <script src="/static/libs/html5shiv/es5-shim.min.js"></script>
 <script src="/static/libs/html5shiv/html5shiv.min.js"></script>
@@ -69,16 +66,12 @@
 <!--<script src="/static/libs/owl-carousel/owl.carousel.min.js"></script>-->
 <script src="/static/libs/owlcarousel/owl.carousel.min.js"></script>
 
-<script src="/static/libs/dropzone/dropzone.js"></script>
-
-<script src="/static/libs/selectize/js/standalone/selectize.min.js"></script>
-
 <script src="/static/libs/countdown/jquery.plugin.js"></script>
 <script src="/static/libs/countdown/jquery.countdown.min.js"></script>
 <script src="/static/libs/countdown/jquery.countdown-ru.js"></script>
 <script src="/static/libs/landing-nav/navigation.js"></script>
 <script src="/static/js/common.js"></script>
-<script src="/static/js/sign_up.js"></script>
+<script src="/static/js/user_profile.js"></script>
 <!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
 <!-- Google Analytics counter --><!-- /Google Analytics counter -->
 
@@ -296,17 +289,25 @@
                     </a></div>
 
                     <div class="nav_icon" id="profile">
-                        <a href="#sign_in_popup" style="display: block">
-                            <img src="/static/images/profile_icon.svg" width="50" style="display: block">
-                        </a>
-                        <div id="profile_options">
-                            <ul>
-                                <li><a href="">Профиль</a></li>
-                                <li><a href="">Объявления</a></li>
-                                <li><a href="">Подписки</a></li>
-                                <li><a href="">Настройки <i class="fa fa-cog" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
+                       {% if not user.is_authenticated %}
+							<a href="#sign_in_popup" style="display: block">
+								<img src="/static/images/profile_icon.svg" width="50" style="display: block">
+							</a>
+							{% else %}
+							<a href="" style="display: block">
+								<img src="/static/images/profile_icon.svg" width="50" style="display: block">
+							</a>
+							{% endif %}
+							{% if user.is_authenticated %}
+							<div id="profile_options">
+								<ul>
+									<li><a href="">Профиль</a></li>
+									<li><a href="">Объявления</a></li>
+									<li><a href="">Подписки</a></li>
+									<li><a href="">Настройки <i class="fa fa-cog" aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+							{% endif %}
                     </div>
                 </div>
             </div>
@@ -315,85 +316,293 @@
 
     <div class="section span" style="margin-bottom: 86px;">
         <div class="centered">
-            <div id="form_wrap">
-                <form action="/signup_submit" class="main_form dropzone" id="dropzone" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                    <div class="fields">
-                        <div class="title" style="text-align: center; padding-top: 32px">Регистрация</div>
+            <div class="center">
+                <div class="profile">
+                    <div class="center">
+                        <a href=""><img src="/static/images/avatar.jpg" style="border-radius: 50%; height: 50px"></a>
+                        <div style="margin-left: 18px">
+                            <a href="" class="title">Алена Куприянова</a>
+                            <button class="sign_in_btn subscribe_btn subscribed">Вы подписаны</button>
+                        </div>
+                    </div>
+                    <div class="stats center">
+                        <div class="stats_column">
+                            <div>продано</div>
+                            <div class="number">
+                                0
+                                <img src="/static/images/tshirt.svg" height="10px">
+                            </div>
+                        </div>
+                        <div class="stats_column">
+                            <div>всего</div>
+                            <div class="number">
+                                3
+                                <img src="/static/images/tshirt.svg" height="10px">
+                            </div>
+                        </div>
+                        <div class="stats_column">
+                            <div>рейтинг</div>
+                            <div class="number">
+                                0/5
+                            </div>
+                        </div>
+                        <div class="stats_column">
+                            <div>фолловеры</div>
+                            <div class="number">
+                                0
+                            </div>
+                        </div>
+                        <div class="stats_column">
+                            <div>лайки</div>
+                            <div class="number">
+                                0
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contacts">
+                        <div class="contact center">
+                            <i class="fa fa-vk" aria-hidden="true"></i>
+                            <a href="kek">Страница Вконтакте</a>
+                            <div class="copy" data-balloon="Копировать" data-balloon-pos="top">
+                                <img src="/static/images/copy.svg">
+                            </div>
+                            <!--<div class="arrow"></div>-->
+                        </div>
+                        <div class="contact center">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <div>+7 (919) 102-96-98</div>
+                            <div class="copy" data-balloon="Копировать" data-balloon-pos="top">
+                                <img src="/static/images/copy.svg">
+                            </div>
+                        </div>
+                        <div class="contact center">
+                            <i class="fa fa-envelope" aria-hidden="true" style="font-size: 11px"></i>
+                            <div>akuprianova57@gmail.com</div>
+                            <div class="copy" data-balloon="Копировать" data-balloon-pos="top">
+                                <img src="/static/images/copy.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ads">
+                    <div class="center">
+                        <div class="title active" id="relevant" onclick="relevantClick()">На продаже</div>
+                        <div class="title" id="sold" onclick="soldClick()">Проданные</div>
+                    </div>
+                    <div id="relevant_items">
                         <div class="center">
-                            <input class="required" type="text" name="username" placeholder="Логин">
-                            <div class="icon" data-balloon-pos="right" data-balloon="Обязательно для заполнения">
-                                <img class="neutral" src="/static/images/important.svg">
-                                <img class="red" src="/static/images/important_red.svg">
-                            </div>
-                        </div>
-                        <div class="center">
-                            <input class="required" type="password" name="password1" placeholder="Пароль" id="password" maxlength="30">
-                            <div class="icon" data-balloon-pos="right" data-balloon="Минимальная длина 6 символов">
-                                <img class="neutral" src="/static/images/important.svg">
-                                <img class="red" src="/static/images/important_red.svg">
-                            </div>
-                        </div>
-                        <div class="center">
-                            <input class="required" type="password" name="password2" placeholder="Повторите пароль" id="password_repeat" maxlength="30">
-                            <div class="icon" data-balloon-pos="right" data-balloon="Пароли должны совпадать">
-                                <img class="neutral" src="/static/images/important.svg">
-                                <img class="red" src="/static/images/important_red.svg">
-                            </div>
-                        </div>
-                        <div class="center">
-                            <div class="title" style="">Персональная информация</div>
-                        </div>
-                        <div class="center" style="/*margin-top: 16px*/">
-                            <input class="required" type="text" name="first_name" placeholder="Имя">
-                            <div class="icon" data-balloon-pos="right" data-balloon="Обязательно для заполнения">
-                                <img class="neutral" src="/static/images/important.svg">
-                                <img class="red" src="/static/images/important_red.svg">
-                            </div>
-                        </div>
-                        <div class="center">
-                            <input class="required" type="text" name="last_name" placeholder="Фамилия">
-                            <div class="icon" data-balloon-pos="right" data-balloon="Обязательно для заполнения">
-                                <img class="neutral" src="/static/images/important.svg">
-                                <img class="red" src="/static/images/important_red.svg">
-                            </div>
-                        </div>
-                        <div>
-                            <select id="city" name="city">
-                                <option value disabled selected>Город</option>
-                            </select>
-                        </div>
-                        <div class="center" style="/*margin-top: 16px*/">
-                            <div class="title" style="text-align: center; padding-top: 16px">Контактная информация</div>
-                            <div class="icon" id="contacts_info" data-balloon-pos="right" data-balloon="Чтобы другие пользователи могли с Вами связаться">
-                                <img src="/static/images/info.svg">
-                            </div>
-                        </div>
-                        <div id="contacts">
-                            <div class="center">
-                                <input class="required" type="tel" name="phone_number" id="phone" maxlength="18" placeholder="Телефон">
-                                <div class="icon" data-balloon-pos="right" data-balloon="Обязательно для заполнения">
-                                    <img class="neutral" src="/static/images/important.svg">
-                                    <img class="red" src="/static/images/important_red.svg">
+                            <div class="add_item">
+                                <a href=""><span class="item_span"></span></a>
+                                <div class="likes">
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                    <a>20</a>
+                                </div>
+                                <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+
+                                <div class="overlay item_top_border">
+                                    <div class="center" style="margin: 10px 0 0 10px">
+                                        <div style="width: 15px; margin-right: 5px">
+                                            <i class="fa fa-map-marker" aria-hidden="true" style="font-size: 22px"></i>
+                                        </div>
+                                        <a>Москва</a>
+                                    </div>
+                                    <div class="center" style="margin: 5px 0 0 10px">
+                                        <div style="width: 15px; margin-right: 5px">
+                                            <i class="fa fa-paper-plane" aria-hidden="true" style="font-size: 14px"></i>
+                                        </div>
+                                        <a>Пересылка</a>
+                                    </div>
+                                    <div style="font-size: 22px; position: absolute; right: 0; top: 0; margin: 10px 12px 0 0">S</div>
+                                </div>
+                                <img class="item_image cropping item_top_border" src="/static/images/item.jpg">
+                                <div class="item_bottom">
+                                    <div class="item_description">Свитер</div>
+                                    <div class="item_price">1000 ₽</div>
+                                    <div class="item_brand">Zara</div>
                                 </div>
                             </div>
-                            <div style="text-align: center;">
-                                <div><input type="email" class="expanded" name="email" id="email" placeholder="Электронная почта"></div>
-                                <div><input type="url" class="expanded" name="vk" placeholder="Вконтакте"></div>
-                                <div><input type="url" class="expanded" name="fb" placeholder="Facebook"></div>
-                                <button class="contrast_btn" type="button" onclick="check()">Зарегистрироваться</button>
-                                <button id="submit" type="submit" style="display: none"></button>
+                            <div class="add_item">
+                                <a href=""><span class="item_span"></span></a>
+                                <div class="likes">
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                    <a>20</a>
+                                </div>
+                                <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+
+                                <div class="overlay item_top_border">
+                                    <div class="center" style="margin: 10px 0 0 10px">
+                                        <div style="width: 15px; margin-right: 5px">
+                                            <i class="fa fa-map-marker" aria-hidden="true" style="font-size: 22px"></i>
+                                        </div>
+                                        <a>Москва</a>
+                                    </div>
+                                    <div class="center" style="margin: 5px 0 0 10px">
+                                        <div style="width: 15px; margin-right: 5px">
+                                            <i class="fa fa-paper-plane" aria-hidden="true" style="font-size: 14px"></i>
+                                        </div>
+                                        <a>Пересылка</a>
+                                    </div>
+                                    <div style="font-size: 22px; position: absolute; right: 0; top: 0; margin: 10px 12px 0 0">S</div>
+                                </div>
+                                <img class="item_image cropping item_top_border" src="/static/images/item.jpg">
+                                <div class="item_bottom">
+                                    <div class="item_description">Свитер</div>
+                                    <div class="item_price">1000 ₽</div>
+                                    <div class="item_brand">Zara</div>
+                                </div>
+                            </div>
+                            <div class="add_item">
+                                <a href=""><span class="item_span"></span></a>
+                                <div class="likes">
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                    <a>20</a>
+                                </div>
+                                <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+
+                                <div class="overlay item_top_border">
+                                    <div class="center" style="margin: 10px 0 0 10px">
+                                        <div style="width: 15px; margin-right: 5px">
+                                            <i class="fa fa-map-marker" aria-hidden="true" style="font-size: 22px"></i>
+                                        </div>
+                                        <a>Москва</a>
+                                    </div>
+                                    <div class="center" style="margin: 5px 0 0 10px">
+                                        <div style="width: 15px; margin-right: 5px">
+                                            <i class="fa fa-paper-plane" aria-hidden="true" style="font-size: 14px"></i>
+                                        </div>
+                                        <a>Пересылка</a>
+                                    </div>
+                                    <div style="font-size: 22px; position: absolute; right: 0; top: 0; margin: 10px 12px 0 0">S</div>
+                                </div>
+                                <img class="item_image cropping item_top_border" src="/static/images/item.jpg">
+                                <div class="item_bottom">
+                                    <div class="item_description">Свитер</div>
+                                    <div class="item_price">1000 ₽</div>
+                                    <div class="item_brand">Zara</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="center">
+                            <div class="add_item">
+                                <a href=""><span class="item_span"></span></a>
+                                <div class="likes">
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                    <a>20</a>
+                                </div>
+                                <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+
+                                <div class="overlay item_top_border">
+                                    <div class="center" style="margin: 10px 0 0 10px">
+                                        <div style="width: 15px; margin-right: 5px">
+                                            <i class="fa fa-map-marker" aria-hidden="true" style="font-size: 22px"></i>
+                                        </div>
+                                        <a>Москва</a>
+                                    </div>
+                                    <div class="center" style="margin: 5px 0 0 10px">
+                                        <div style="width: 15px; margin-right: 5px">
+                                            <i class="fa fa-paper-plane" aria-hidden="true" style="font-size: 14px"></i>
+                                        </div>
+                                        <a>Пересылка</a>
+                                    </div>
+                                    <div style="font-size: 22px; position: absolute; right: 0; top: 0; margin: 10px 12px 0 0">S</div>
+                                </div>
+                                <img class="item_image cropping item_top_border" src="/static/images/item.jpg">
+                                <div class="item_bottom">
+                                    <div class="item_description">Свитер</div>
+                                    <div class="item_price">1000 ₽</div>
+                                    <div class="item_brand">Zara</div>
+                                </div>
+                            </div>
+                            <div class="add_item">
+                                <a href=""><span class="item_span"></span></a>
+                                <div class="likes">
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                    <a>20</a>
+                                </div>
+                                <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+
+                                <div class="overlay item_top_border">
+                                    <div class="center" style="margin: 10px 0 0 10px">
+                                        <div style="width: 15px; margin-right: 5px">
+                                            <i class="fa fa-map-marker" aria-hidden="true" style="font-size: 22px"></i>
+                                        </div>
+                                        <a>Москва</a>
+                                    </div>
+                                    <div class="center" style="margin: 5px 0 0 10px">
+                                        <div style="width: 15px; margin-right: 5px">
+                                            <i class="fa fa-paper-plane" aria-hidden="true" style="font-size: 14px"></i>
+                                        </div>
+                                        <a>Пересылка</a>
+                                    </div>
+                                    <div style="font-size: 22px; position: absolute; right: 0; top: 0; margin: 10px 12px 0 0">S</div>
+                                </div>
+                                <img class="item_image cropping item_top_border" src="/static/images/item.jpg">
+                                <div class="item_bottom">
+                                    <div class="item_description">Свитер</div>
+                                    <div class="item_price">1000 ₽</div>
+                                    <div class="item_brand">Zara</div>
+                                </div>
+                            </div>
+                            <div class="add_item">
+                                <a href=""><span class="item_span"></span></a>
+                                <div class="likes">
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                    <a>20</a>
+                                </div>
+                                <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+
+                                <div class="overlay item_top_border">
+                                    <div class="center" style="margin: 10px 0 0 10px">
+                                        <div style="width: 15px; margin-right: 5px">
+                                            <i class="fa fa-map-marker" aria-hidden="true" style="font-size: 22px"></i>
+                                        </div>
+                                        <a>Москва</a>
+                                    </div>
+                                    <div class="center" style="margin: 5px 0 0 10px">
+                                        <div style="width: 15px; margin-right: 5px">
+                                            <i class="fa fa-paper-plane" aria-hidden="true" style="font-size: 14px"></i>
+                                        </div>
+                                        <a>Пересылка</a>
+                                    </div>
+                                    <div style="font-size: 22px; position: absolute; right: 0; top: 0; margin: 10px 12px 0 0">S</div>
+                                </div>
+                                <img class="item_image cropping item_top_border" src="/static/images/item.jpg">
+                                <div class="item_bottom">
+                                    <div class="item_description">Свитер</div>
+                                    <div class="item_price">1000 ₽</div>
+                                    <div class="item_brand">Zara</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="center" id="avatar">
-                        <div class="title" style="">Аватар</div>
+                    <div id="sold_items" class="hidden">
+                        <div class="title empty">Здесь пока пусто!</div>
                     </div>
-                </form>
-                <div id="default_avatar">
-                    <img class="cropping" src="/static/images/avatar_placeholder.svg">
                 </div>
-                <img id="background" src="/static/images/sign_up_placeholder.png">
             </div>
         </div>
     </div>
@@ -412,18 +621,20 @@
         </button>
         <div class="title">Есть аккаунт?</div>
         <form action="/signin_submit" id="sign_in_form" method="post">
-            <input type="text" name="username" placeholder="Логин">
+            <input type="text" name="login" placeholder="Логин">
             <input type="password" name="password" placeholder="Пароль">
             <button class="sign_in_btn" type="button" style="margin-bottom: 16px" onclick="check_sign_in()">Войти</button>
             <button id="sign_in" type="submit" style="display: none"></button>
         </form>
-        <div class="title" id="sign_up">            <a>Забыли пароль?</a>            <a>Регистрация</a>        </div>
+        <div class="title" id="sign_up">
+            <a>Забыли пароль?</a>
+            <a>Регистрация</a>
+        </div>
     </div>
 
     <div class="push"></div>
 </div>
-<!--<p id="current_avatar_url" style="display: none">lisa.jpg</p>-->
-<div class="add_button " data-balloon-pos="right" data-balloon="Подать объявление">
+<div class="add_button" data-balloon-pos="left" data-balloon="Подать объявление">
     <a href="#sign_in_popup"><i class="fa fa-plus" aria-hidden="true"></i></a>
 </div>
 <div class="footer span">

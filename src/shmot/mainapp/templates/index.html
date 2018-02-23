@@ -293,17 +293,25 @@
 						</a></div>
 
 						<div class="nav_icon" id="profile">
+						    {% if not user.is_authenticated %}
 							<a href="#sign_in_popup" style="display: block">
 								<img src="/static/images/profile_icon.svg" width="50" style="display: block">
 							</a>
+							{% else %}
+							<a href="profile/" style="display: block">
+								<img src="/static/images/profile_icon.svg" width="50" style="display: block">
+							</a>
+							{% endif %}
+							{% if user.is_authenticated %}
 							<div id="profile_options">
 								<ul>
-									<li><a href="">Профиль</a></li>
+									<li><a href="profile">Профиль</a></li>
 									<li><a href="">Объявления</a></li>
 									<li><a href="">Подписки</a></li>
 									<li><a href="">Настройки <i class="fa fa-cog" aria-hidden="true"></i></a></li>
 								</ul>
 							</div>
+							{% endif %}
 						</div>
 					</div>
 				</div>
@@ -753,6 +761,7 @@ text-transform: none; color: black;
 		</div>
 
 		<!-- form itself -->
+		{% if not user.is_authenticated %}
 		<div id="sign_in_popup" class="white-popup mfp-hide">
 			<div class="title" style="text-align: center; padding-top: 16px">Вход</div>
 			<button class="sign_in_btn" style="color: #597a9e">
@@ -773,6 +782,7 @@ text-transform: none; color: black;
 			</form>
 			<div class="title" id="sign_up">            <a>Забыли пароль?</a>            <a href='signup'>Регистрация</a>        </div>
 		</div>
+		{% endif %}
 
 		<div class="push"></div>
 	</div>
