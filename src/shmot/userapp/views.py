@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.contrib.auth import login, authenticate
+from django.contrib.auth import logout as django_logout
 from django.contrib.auth.models import User
 
 # from .forms import CustomUserCreationForm
@@ -36,12 +37,30 @@ def signUp_submit(request):
             login(request, us)
             print(request.FILES)
             print("Line 36")
-            return redirect('../../')
+            return redirect('/')
         else:
             print("Line 39")
             return render(request, 'signup.html', context)
     else:
         print("Line 42")
         return render(request, 'signup.html', context)
+        
+def signIn_submit(request):
+    context = {}
+    if request.method == 'POST':
+        username = request.POST['login']
+        password = request.POST['password']
+        us = authenticate(request, username=username, password=password)
+        if us is not None:
+            login(request, us)
+            return redirect('/')
+        else:
+            return redirect('/')
+    else:
+        return redirect('/')
     
+    
+def logout(request):
+    django_logout(request)
+    return redirect('/')
     

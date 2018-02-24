@@ -309,6 +309,7 @@
 									<li><a href="">Объявления</a></li>
 									<li><a href="">Подписки</a></li>
 									<li><a href="">Настройки <i class="fa fa-cog" aria-hidden="true"></i></a></li>
+									<li><a href="logout">Выход</a></li>
 								</ul>
 							</div>
 							{% endif %}
@@ -774,7 +775,8 @@ text-transform: none; color: black;
 				<i class="fa fa-facebook" aria-hidden="true"></i> Facebook
 			</button>
 			<div class="title" style="text-align: center; padding-top: 16px">Есть аккаунт?</div>
-			<form action="/signin_submit" id="sign_in_form" method="post">
+			<form action="signin_submit/" id="sign_in_form" method="post">
+			{% csrf_token %}
 				<input type="text" name="login" placeholder="Логин">
 				<input type="password" name="password" placeholder="Пароль">
 				<button class="sign_in_btn" type="button" style="margin-bottom: 16px" onclick="check_sign_in()">Войти</button>
