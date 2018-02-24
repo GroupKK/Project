@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response,  get_object_or_404
 from django.template import RequestContext
 from django.contrib.auth import login, authenticate
 from django.contrib.auth import logout as django_logout
@@ -12,8 +12,19 @@ def signupPage(request):
     context = {}
     return render(request, 'signup.html', context)
     
-def profile(request):
-    context = {}
+def profile(request, username):
+    context = {'us' : get_object_or_404(User, username=username), }
+    if request.user.profile.posts_id is None:
+        context['total'] = 0
+    else:
+        context['total'] = request.user.profile.posts_id.count()
+    
+    if request.user.profile.followers_id is None:
+        context['followers'] = 0
+    else:
+        context['followers'] = request.user.profile.followers_id.count()
+    
+    print(username)
     return render(request, 'profile.html', context)
     
 def signUp_submit(request):

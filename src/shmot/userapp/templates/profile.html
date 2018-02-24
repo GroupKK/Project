@@ -81,7 +81,7 @@
     <header class="span">
         <nav>
             <div class="centered ">
-                <a class="logo" href="../">
+                <a class="logo" href="../../">
                     <img src="/static/images/logo.svg" width="50">
                 </a>
                 <div class="cat">
@@ -319,9 +319,9 @@
             <div class="center">
                 <div class="profile">
                     <div class="center">
-                        <a href=""><img src="/static/images/avatar.jpg" style="border-radius: 50%; height: 50px"></a>
+                        <a href=""><img src="{{ user.profile.avatar }}" style="border-radius: 50%; height: 50px"></a>
                         <div style="margin-left: 18px">
-                            <a href="" class="title">Алена Куприянова</a>
+                            <a href="" class="title">{{ us.first_name }} {{ us.last_name }}</a>
                             <button class="sign_in_btn subscribe_btn subscribed">Вы подписаны</button>
                         </div>
                     </div>
@@ -329,14 +329,14 @@
                         <div class="stats_column">
                             <div>продано</div>
                             <div class="number">
-                                0
+                                {{ user.profile.selled }}
                                 <img src="/static/images/tshirt.svg" height="10px">
                             </div>
                         </div>
                         <div class="stats_column">
                             <div>всего</div>
                             <div class="number">
-                                3
+                                {{ total }}
                                 <img src="/static/images/tshirt.svg" height="10px">
                             </div>
                         </div>
@@ -349,28 +349,42 @@
                         <div class="stats_column">
                             <div>фолловеры</div>
                             <div class="number">
-                                0
+                                {{ followers }}
                             </div>
                         </div>
                         <div class="stats_column">
                             <div>лайки</div>
                             <div class="number">
-                                0
+                                {{ user.profile.number_of_likes_recieved }}
                             </div>
                         </div>
                     </div>
                     <div class="contacts">
+                        {% if user.profile.vk %}
                         <div class="contact center">
                             <i class="fa fa-vk" aria-hidden="true"></i>
-                            <a href="kek">Страница Вконтакте</a>
+                            <a href="{{ user.profile.vk }}">Страница Вконтакте</a>
                             <div class="copy" data-balloon="Копировать" data-balloon-pos="top">
                                 <img src="/static/images/copy.svg">
                             </div>
                             <!--<div class="arrow"></div>-->
                         </div>
+                        {% endif %}
+                        {% if user.profile.fb %}
+                        <div class="contact center">
+                            <i class="fa fa-fb" aria-hidden="true"></i>
+                            <a href="{{ user.profile.fb }}">Страница Facebook</a>
+                            <div class="copy" data-balloon="Копировать" data-balloon-pos="top">
+                                <img src="/static/images/copy.svg">
+                            </div>
+                            <!--<div class="arrow"></div>-->
+                        </div>
+                        {% endif %}
                         <div class="contact center">
                             <i class="fa fa-phone" aria-hidden="true"></i>
-                            <div>+7 (919) 102-96-98</div>
+                            <div>
+                            {{ user.profile.phone_number }}
+                            </div>
                             <div class="copy" data-balloon="Копировать" data-balloon-pos="top">
                                 <img src="/static/images/copy.svg">
                             </div>
