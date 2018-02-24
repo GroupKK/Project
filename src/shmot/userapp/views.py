@@ -40,6 +40,7 @@ def signUp_submit(request):
         user.profile.fb = request.POST['fb']
         user.first_name = request.POST['first_name']
         user.last_name = request.POST['last_name']
+        user.profile.avatar = request.FILES['file[0]']
         user.save()
         print(user)
         us = authenticate(request, username=username, password=password)
