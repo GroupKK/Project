@@ -22,17 +22,6 @@ class Profile(models.Model):
     followers = models.ForeignKey(User, on_delete=models.CASCADE, related_name='followers', null=True)
     number_of_likes_recieved = models.IntegerField(default=0)
     
-
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.create(user=instance)
-
-@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
-    instance.profile.save()
-    
-    
 @receiver(post_save, sender=User)
 def update_user_profile(sender, instance, created, **kwargs):
     if created:

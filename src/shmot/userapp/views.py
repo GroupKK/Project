@@ -29,13 +29,19 @@ def signUp_submit(request):
         user.first_name = request.POST['first_name']
         user.last_name = request.POST['last_name']
         user.save()
+        print(user)
         us = authenticate(request, username=username, password=password)
-        if user is not None:
+        print(us)
+        if us is not None:
             login(request, us)
-            return redirect('../')
+            print(request.FILES)
+            print("Line 36")
+            return redirect('../../')
         else:
+            print("Line 39")
             return render(request, 'signup.html', context)
     else:
+        print("Line 42")
         return render(request, 'signup.html', context)
     
     
