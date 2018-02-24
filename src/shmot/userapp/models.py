@@ -5,12 +5,13 @@ from django.dispatch import receiver
 from django.core.validators import RegexValidator
 from advapp.models import Advert
 import datetime
+from PIL import Image
 
 class Profile(models.Model):
     def user_directory_path(instance, filename):
         now = datetime.datetime.now()
         # file will be uploaded to MEDIA_ROOT/ad_images/user_<id>/<year>/<month>/<day>/image_<hour>_<minute>_<second>
-        return 'ad_images/user_{0}/{1}/{2}/{3}/image_{4}_{5}_{6}.png'.format(instance.user.id, now.year, now.month, now.day, now.hour, now.minute, now.second)
+        return 'user_images/user_{0}/{1}/{2}/{3}/image_{4}_{5}_{6}.png'.format(instance.user.id, now.year, now.month, now.day, now.hour, now.minute, now.second)
 
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
