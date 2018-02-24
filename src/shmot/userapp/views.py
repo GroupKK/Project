@@ -13,18 +13,18 @@ def signupPage(request):
     return render(request, 'signup.html', context)
     
 def profile(request, username):
-    context = {'us' : get_object_or_404(User, username=username), }
-    if request.user.profile.posts_id is None:
+    us = get_object_or_404(User, username=username)
+    context = {'us' : us, }
+    if us.profile.posts_id is None:
         context['total'] = 0
     else:
-        context['total'] = request.user.profile.posts_id.count()
+        context['total'] = us.profile.posts_id.count()
     
-    if request.user.profile.followers_id is None:
+    if us.profile.followers_id is None:
         context['followers'] = 0
     else:
-        context['followers'] = request.user.profile.followers_id.count()
+        context['followers'] = us.profile.followers_id.count()
     
-    print(username)
     return render(request, 'profile.html', context)
     
 def signUp_submit(request):
@@ -42,19 +42,13 @@ def signUp_submit(request):
         user.last_name = request.POST['last_name']
         user.profile.avatar = request.FILES['file[0]']
         user.save()
-        print(user)
         us = authenticate(request, username=username, password=password)
-        print(us)
         if us is not None:
             login(request, us)
-            print(request.FILES)
-            print("Line 36")
             return redirect('/')
         else:
-            print("Line 39")
             return render(request, 'signup.html', context)
     else:
-        print("Line 42")
         return render(request, 'signup.html', context)
         
 def signIn_submit(request):
