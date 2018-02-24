@@ -25,6 +25,24 @@ $(document).ready(function () {
             }
         })
     });
+    
+        var dropzone = new Dropzone(".main_form", {
+        url: "signup_submit/",
+        paramName: "avatar", // The name that will be used to transfer the file
+        autoProcessQueue: false,
+        uploadMultiple: true,
+        parallelUploads: 100,
+        maxFiles: 1,
+        addRemoveLinks: true,
+        acceptedFiles: "image/jpeg,image/png,image/jpg",
+        init: function() {
+            this.on("maxfilesexceeded", function() {
+                if (this.files[1]!=null){
+                    this.removeFile(this.files[1]);
+                }
+            });
+        }
+    });
 
     
     $('.dz-message span').text('Добавить аватар');
@@ -133,6 +151,8 @@ function check() {
     }
     if (flag)
     {
+        var myDropzone = Dropzone.forElement(".main_form");
+        myDropzone.processQueue();
         $('#submit').click();
     }
 };

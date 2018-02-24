@@ -2,6 +2,8 @@ from django.shortcuts import redirect, render
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.views.decorators.http import require_safe
+from advapp.models import Advert
+from django.contrib.auth.models import User
 
 
 
@@ -11,11 +13,11 @@ def redirect_to_home(request):
 
 @require_safe
 def index(request):
-    context = {}
+    context = {'advapp_advert' : Advert.objects.order_by('-number_of_likes'), 'on_sale' : Advert.objects.filter(active_ad='True').count(), 'selled' : Advert.objects.filter(selled='True').count(), 'user_count' : User.objects.filter(is_active='True').count() }
     if request.user.is_authenticated:
         print('User authenticated')
         print('Username: ', request.user.username)
-        print('Name: ', request.user.first_name)
+        print('First name: ', request.user.first_name)
     return render(request, 'index.html', context)
 
 

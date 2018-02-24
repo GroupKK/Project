@@ -663,12 +663,14 @@ input::-webkit-input-placeholder, input::-moz-placeholder, input:-ms-input-place
 }
 .item_description {
 	margin: 10px 0 0 10px;
-	position: absolute
+	position: absolute;
+	z-index: 3; 
+    color: black;
 }
 .item_price {
 	margin: 10px 10px 0 0;
 	position: absolute;
-	right: 0
+	right: 0;
 }
 .item_price:after {
 	content: '\0020BD';
@@ -680,7 +682,8 @@ input::-webkit-input-placeholder, input::-moz-placeholder, input:-ms-input-place
 	position: absolute;
 	bottom: 0;
 	color: #a2a2a2;
-	font-size: 14px
+	font-size: 14px;
+	z-index: 3;
 }
 #profile {
 	position: relative;

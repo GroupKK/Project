@@ -91,7 +91,14 @@ $(document).ready(function() {
         setTimeout(function (e) {
             e.attr('data-balloon', 'Копировать');
         }, 2000, $(this));
-    })
+    });
+    
+    $('.item_description').each(function () { 
+        $(this).attr('title', $(this).text()); 
+        if ($(this).text().length >= 10) 
+            $(this).text($(this).text().substr(0,10)+'...'); 
+    }); 
+    
 });
 
 function check_sign_in() {
