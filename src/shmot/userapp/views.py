@@ -1,40 +1,41 @@
-from django.shortcuts import render, redirect
-from django.shortcuts import render_to_response,  get_object_or_404
-from django.template import RequestContext
+# from .forms import CustomUserCreationForm
+from advapp.models import Advert
 from django.contrib.auth import login, authenticate
 from django.contrib.auth import logout as django_logout
 from django.contrib.auth.models import User
+from django.db.models import Sum
+from django.shortcuts import get_object_or_404
+from django.shortcuts import render, redirect
 
-# from .forms import CustomUserCreationForm
- 
 
 def signupPage(request):
     context = {}
     return render(request, 'signup.html', context)
-    
+
+
 def profile(request, username):
     us = get_object_or_404(User, username=username)
-    context = {'us' : us, }
-    if us.profile.posts is None:
+    ads = Advert.objects.filter(user=us)
+    context = {'us': us, }
+    if not ads:
         context['total'] = 0
+        context['sold_num'] = 0
+        context['likes'] = 0
     else:
-        context['total'] = us.profile.posts.count()
-    
-    if us.profile.followers is None:
+        context['total'] = ads.count()
+        context['likes'] = ads.annotate(likes=Sum('number_of_likes')).first().likes
+        context['sold_num'] = ads.filter(sold=True).count()
+        context['advapp_advert'] = ads.filter(sold=False).order_by('-creation_date')
+        context['advapp_advert_1'] = ads.filter(sold=True).order_by('-creation_date')
+
+    if not us.profile.following_people:
         context['followers'] = 0
     else:
-        context['followers'] = us.profile.followers.count()
-        
-    
-    if us.profile.posts is None:
-        pass
-    else:
-        context['advapp_advert'] = us.profile.posts.order_by('-creation_date') 
-        context['advapp_advert_1'] = us.profile.posts.filter(sold=True).order_by('-creation_date')    
-    
-    
+        context['followers'] = us.profile.following_people.count()
+
     return render(request, 'profile.html', context)
-    
+
+
 def signUp_submit(request):
     context = {}
     if request.method == 'POST':
@@ -58,7 +59,8 @@ def signUp_submit(request):
             return render(request, 'signup.html', context)
     else:
         return render(request, 'signup.html', context)
-        
+
+
 def signIn_submit(request):
     context = {}
     if request.method == 'POST':
@@ -72,9 +74,8 @@ def signIn_submit(request):
             return redirect('/')
     else:
         return redirect('/')
-    
-    
+
+
 def logout(request):
     django_logout(request)
     return redirect('/')
-    

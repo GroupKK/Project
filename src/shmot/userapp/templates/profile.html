@@ -301,7 +301,7 @@
                             {% if user.is_authenticated %}
 							<div id="profile_options">
 								<ul>
-									<li><a href="profile/{{ user.username}}">Профиль</a></li>
+									<li><a href="">Профиль</a></li>
 									<li><a href="">Объявления</a></li>
 									<li><a href="">Подписки</a></li>
 									<li><a href="">Настройки <i class="fa fa-cog" aria-hidden="true"></i></a></li>
@@ -332,7 +332,7 @@
                         <div class="stats_column">
                             <div>продано</div>
                             <div class="number">
-                                {{ us.profile.selled }}
+                                {{ sold_num }}
                                 <img src="/static/images/tshirt.svg" height="10px">
                             </div>
                         </div>
@@ -358,7 +358,7 @@
                         <div class="stats_column">
                             <div>лайки</div>
                             <div class="number">
-                                {{ us.profile.number_of_likes_recieved }}
+                                {{ likes }}
                             </div>
                         </div>
                     </div>
@@ -409,15 +409,14 @@
                         <div class="title" id="sold" onclick="soldClick()">Проданные</div>
                     </div>
                     <div id="relevant_items">
-                    {% if us.profile.posts_id %}
                         <div class="center">
-                        {% for ad in advapp_advert|slice:":6" %}
+                        {% for ad in advapp_advert %}
                             <div class="add_item">
                                 <a href=""><span class="item_span"></span></a>
                                 <div class="likes">
                                     <i class="fa fa-heart-o" aria-hidden="true"></i>
                                     <i class="fa fa-heart" aria-hidden="true"></i>
-                                    <a>20</a>
+                                    <a>{{ ad.numer_of_likes }}</a>
                                 </div>
                                 <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
                                     <i class="fa fa-star-o" aria-hidden="true"></i>
@@ -429,7 +428,7 @@
                                         <div style="width: 15px; margin-right: 5px">
                                             <i class="fa fa-map-marker" aria-hidden="true" style="font-size: 22px"></i>
                                         </div>
-                                        <a>Москва</a>
+                                        <a>{{ ad.city }}</a>
                                     </div>
                                     <div class="center" style="margin: 5px 0 0 10px">
                                         <div style="width: 15px; margin-right: 5px">
@@ -439,29 +438,27 @@
                                     </div>
                                     <div style="font-size: 22px; position: absolute; right: 0; top: 0; margin: 10px 12px 0 0">S</div>
                                 </div>
-                                <img class="item_image cropping item_top_border" src="/static/images/item.jpg">
+                                <img class="item_image cropping item_top_border" src="{{ ad.image1.url }}">
                                 <div class="item_bottom">
-                                    <div class="item_description">Свитер</div>
-                                    <div class="item_price">1000 ₽</div>
-                                    <div class="item_brand">Zara</div>
+                                    <div class="item_description">{{ ad.title }}</div>
+                                    <div class="item_price">{{ ad.price }}</div>
+                                    <div class="item_brand">{{ ad.brand_name }}</div>
                                 </div>
                             </div>
-                            {% endfor %}
                         </div>
-                        {% else %}
+                    {% empty %}
                         <div class="title empty">Здесь пока пусто!</div>
-                        {% endif %}
+                    {% endfor %}
                     </div>
                     <div id="sold_items" class="hidden">
-                    {% if us.profile.posts_id %}
                         <div class="center">
-                        {% for ad in advapp_advert_1|slice:":6" %}
+                        {% for ad in advapp_advert_1 %}
                             <div class="add_item">
                                 <a href=""><span class="item_span"></span></a>
                                 <div class="likes">
                                     <i class="fa fa-heart-o" aria-hidden="true"></i>
                                     <i class="fa fa-heart" aria-hidden="true"></i>
-                                    <a>20</a>
+                                    <a>{{ ad.number_of_likes }}</a>
                                 </div>
                                 <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
                                     <i class="fa fa-star-o" aria-hidden="true"></i>
@@ -490,11 +487,10 @@
                                     <div class="item_brand">Zara</div>
                                 </div>
                             </div>
-                            {% endfor %}
                         </div>
-                        {% else %}
+                        {% empty %}
                         <div class="title empty">Здесь пока пусто!</div>
-                        {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
             </div>
