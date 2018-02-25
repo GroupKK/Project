@@ -1,6 +1,5 @@
 Dropzone.options.dropzone = { // The camelized version of the ID of the form element
 
-  // The configuration we've talked about above
   autoProcessQueue: false,
   uploadMultiple: true,
   parallelUploads: 100,
@@ -13,7 +12,7 @@ Dropzone.options.dropzone = { // The camelized version of the ID of the form ele
     // First change the button to actually tell Dropzone to process the queue.
     this.element.querySelector("button[type=submit]").addEventListener("click", function(e) {
       // Make sure that the form isn't actually being sent.
-      e.preventDefault();
+      //e.preventDefault();
       e.stopPropagation();
       myDropzone.processQueue();
     });
@@ -32,6 +31,7 @@ Dropzone.options.dropzone = { // The camelized version of the ID of the form ele
     this.on("errormultiple", function(files, response) {
       // Gets triggered when there was an error sending the files.
       // Maybe show form again, and notify user of error
+        alert('Error')
     });
   }
  

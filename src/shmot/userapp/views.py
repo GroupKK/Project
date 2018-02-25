@@ -51,7 +51,10 @@ def signUp_submit(request):
             user.profile.fb = "https://www.facebook.com/" + request.POST['fb']
         user.first_name = request.POST['first_name']
         user.last_name = request.POST['last_name']
-        user.profile.avatar = request.FILES['file[0]']
+        if request.FILES['file[0]']:
+            user.profile.avatar = request.FILES['file[0]']
+        else:
+            user.profile.avatar = '/static/images/avatar_placeholder.svg'
         user.save()
         us = authenticate(request, username=username, password=password)
         if us is not None:
