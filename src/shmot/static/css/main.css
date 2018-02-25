@@ -142,6 +142,9 @@ a {
 	.text_on_image {
 		line-height: 220px;
 	}
+	header .search {
+		display: none !important;
+	}
 }
 @media screen and (max-width: 1220px) and (min-width: 1025px) {
 	.span {
@@ -213,7 +216,7 @@ header {
 	height: 50px;
 	float: left;
 }
-.nav_icon:hover img{
+.nav_icon img:hover{
 	opacity: 0.8;
 }
 .user_avatar {
@@ -664,13 +667,14 @@ input::-webkit-input-placeholder, input::-moz-placeholder, input:-ms-input-place
 .item_description {
 	margin: 10px 0 0 10px;
 	position: absolute;
-	z-index: 3; 
+    z-index: 3;
     color: black;
+    text-transform: capitalize;
 }
 .item_price {
 	margin: 10px 10px 0 0;
 	position: absolute;
-	right: 0;
+	right: 0
 }
 .item_price:after {
 	content: '\0020BD';
@@ -683,7 +687,7 @@ input::-webkit-input-placeholder, input::-moz-placeholder, input:-ms-input-place
 	bottom: 0;
 	color: #a2a2a2;
 	font-size: 14px;
-	z-index: 3;
+    z-index: 3;
 }
 #profile {
 	position: relative;
@@ -781,6 +785,35 @@ input::-webkit-input-placeholder, input::-moz-placeholder, input:-ms-input-place
 .copy img {
 	width: 14px;
 	display: block;
+}
+
+header .search input {
+	height: 50px;
+	border: none;
+	margin: 0;
+	background-color: transparent;
+}
+
+header .search {
+	float: left;
+	transition: all linear 0.3s;
+}
+header .search .clear_btn {
+	height: 50px;
+	padding: 15px 0;
+	float: left;
+	cursor: pointer;
+}
+.search_wrap {
+	overflow: hidden;
+}
+.search.hidden {
+	transform: translate(120%);
+	opacity: 0;
+	display: block;
+}
+.search_btn {
+	cursor: pointer;
 }
 
 [data-balloon]:hover:after, [data-balloon]:hover:before, [data-balloon][data-balloon-visible]:after, [data-balloon][data-balloon-visible]:before {

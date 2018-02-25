@@ -17,8 +17,8 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=25, default=000000000)
     city = models.CharField(max_length=20, null=True)
-    vk = models.CharField(max_length=30, null=True)
-    fb = models.CharField(max_length=30, null=True)
+    vk = models.CharField(max_length=100, null=True)
+    fb = models.CharField(max_length=100, null=True)
     number_of_posts = models.IntegerField(blank=False, default=0)  # active + inactive
     sold = models.IntegerField(default=0)
     following_people = models.ManyToManyField('Profile', related_name='folloing_people')
