@@ -294,14 +294,14 @@
 								<img src="/static/images/profile_icon.svg" width="50" style="display: block">
 							</a>
 							{% else %}
-							<a href="" style="display: block">
+							<a href="../{{ us.username }}" style="display: block">
 								<img src="/static/images/profile_icon.svg" width="50" style="display: block">
 							</a>
 							{% endif %}
                             {% if user.is_authenticated %}
 							<div id="profile_options">
 								<ul>
-									<li><a href="">Профиль</a></li>
+									<li><a href="../{{ us.username }}">Профиль</a></li>
 									<li><a href="">Объявления</a></li>
 									<li><a href="">Подписки</a></li>
 									<li><a href="">Настройки <i class="fa fa-cog" aria-hidden="true"></i></a></li>
