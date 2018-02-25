@@ -15,15 +15,23 @@ def signupPage(request):
 def profile(request, username):
     us = get_object_or_404(User, username=username)
     context = {'us' : us, }
-    if us.profile.posts_id is None:
+    if us.profile.posts is None:
         context['total'] = 0
     else:
-        context['total'] = us.profile.posts_id.count()
+        context['total'] = us.profile.posts.count()
     
-    if us.profile.followers_id is None:
+    if us.profile.followers is None:
         context['followers'] = 0
     else:
-        context['followers'] = us.profile.followers_id.count()
+        context['followers'] = us.profile.followers.count()
+        
+    
+    if us.profile.posts is None:
+        pass
+    else:
+        context['advapp_advert'] = us.profile.posts.order_by('-creation_date') 
+        context['advapp_advert_1'] = us.profile.posts.filter(sold=True).order_by('-creation_date')    
+    
     
     return render(request, 'profile.html', context)
     

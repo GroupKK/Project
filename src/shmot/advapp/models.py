@@ -1,6 +1,7 @@
 from django.db import models 
 from django.contrib.auth.models import User
 import datetime
+from django.utils import timezone
 
 # Create your models here.
 
@@ -24,8 +25,10 @@ class Advert(models.Model):
     forwarding = models.BooleanField()
     description = models.TextField()
     active_ad = models.BooleanField(default=True)
-    selled = models.BooleanField(default=False)
-    number_of_likes = models.IntegerField(default=0)
+    sold = models.BooleanField(default=False)
+    creation_date = models.DateTimeField(auto_now_add=True)
+    liked_by = models.ManyToManyField(User, related_name='liked_by', null=True)
+    favourited_by = models.ManyToManyField(User, related_name='favourited_by', null=True)
     image1 = models.ImageField(upload_to=user_directory_path)
     image2 = models.ImageField(upload_to=user_directory_path, blank=True)
     image3 = models.ImageField(upload_to=user_directory_path, blank=True)
