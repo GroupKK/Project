@@ -45,8 +45,10 @@ def signUp_submit(request):
         user = User.objects.create_user(username, email, password)
         user.profile.phone_number = request.POST['phone_number']
         user.profile.city = request.POST['city']
-        user.profile.vk = "https://vk.com/" + request.POST['vk']
-        user.profile.fb = "https://www.facebook.com/" + request.POST['fb']
+        if request.POST['vk']:
+            user.profile.vk = "https://vk.com/" + request.POST['vk']
+        if request.POST['fb']:
+            user.profile.fb = "https://www.facebook.com/" + request.POST['fb']
         user.first_name = request.POST['first_name']
         user.last_name = request.POST['last_name']
         user.profile.avatar = request.FILES['file[0]']
