@@ -51,7 +51,7 @@ def signUp_submit(request):
             user.profile.fb = "https://www.facebook.com/" + request.POST['fb']
         user.first_name = request.POST['first_name']
         user.last_name = request.POST['last_name']
-        if request.FILES['file[0]']:
+        if request.FILES:
             user.profile.avatar = request.FILES['file[0]']
         else:
             user.profile.avatar = '/static/images/avatar_placeholder.svg'
