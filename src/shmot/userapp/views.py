@@ -66,7 +66,7 @@ def signIn_submit(request):
     if request.method == 'POST':
         username = request.POST['login']
         password = request.POST['password']
-        us = authenticate(request, username=username, password=password)
+        us = authenticate(username=username, password=password)
         if us is not None:
             login(request, us)
             return redirect('/')

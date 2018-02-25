@@ -366,7 +366,7 @@
                         {% if us.profile.vk %}
                         <div class="contact center">
                             <i class="fa fa-vk" aria-hidden="true"></i>
-                            <a href="{{ user.profile.vk }}">Страница Вконтакте</a>
+                            <a href="{{ us.profile.vk }}">Страница Вконтакте</a>
                             <div class="copy" data-balloon="Копировать" data-balloon-pos="top">
                                 <img src="/static/images/copy.svg">
                             </div>
@@ -448,6 +448,7 @@
                         </div>
                     {% empty %}
                         <div class="title empty">Здесь пока пусто!</div>
+                            </div>
                     {% endfor %}
                     </div>
                     <div id="sold_items" class="hidden">
@@ -470,7 +471,7 @@
                                         <div style="width: 15px; margin-right: 5px">
                                             <i class="fa fa-map-marker" aria-hidden="true" style="font-size: 22px"></i>
                                         </div>
-                                        <a>Москва</a>
+                                        <a>{{ ad.city }}</a>
                                     </div>
                                     <div class="center" style="margin: 5px 0 0 10px">
                                         <div style="width: 15px; margin-right: 5px">
@@ -480,16 +481,17 @@
                                     </div>
                                     <div style="font-size: 22px; position: absolute; right: 0; top: 0; margin: 10px 12px 0 0">S</div>
                                 </div>
-                                <img class="item_image cropping item_top_border" src="/static/images/item.jpg">
+                                <img class="item_image cropping item_top_border" src="{{ ad.image1.url }}">
                                 <div class="item_bottom">
-                                    <div class="item_description">Свитер</div>
-                                    <div class="item_price">1000 ₽</div>
-                                    <div class="item_brand">Zara</div>
+                                    <div class="item_description">{{ ad.title }}</div>
+                                    <div class="item_price">{{ ad.price }}</div>
+                                    <div class="item_brand">{{ ad.brand_name }}</div>
                                 </div>
                             </div>
                         </div>
                         {% empty %}
                         <div class="title empty">Здесь пока пусто!</div>
+                            </div>
                         {% endfor %}
                     </div>
                 </div>
