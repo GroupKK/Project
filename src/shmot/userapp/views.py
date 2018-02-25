@@ -54,7 +54,7 @@ def signUp_submit(request):
         if request.FILES:
             user.profile.avatar = request.FILES['file[0]']
         else:
-            user.profile.avatar = '/static/images/avatar_placeholder.svg'
+            user.profile.avatar = 'user_images/default/avatar_placeholder.svg'
         user.save()
         us = authenticate(request, username=username, password=password)
         if us is not None:
