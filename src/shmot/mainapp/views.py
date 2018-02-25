@@ -10,9 +10,9 @@ def redirect_to_home(request):
 
 @require_safe
 def index(request):
-    context = {'advapp_advert': Advert.objects.filter(sold='False').order_by('-number_of_likes'),
+    context = {'advapp_advert': Advert.objects.filter(active_ad='True').filter(sold='False').order_by('-number_of_likes'),
                'on_sale': Advert.objects.filter(active_ad='True').count(),
-               'selled': Advert.objects.filter(sold='True').count(),
+               'sold': Advert.objects.filter(sold='True').count(),
                'user_count': User.objects.filter(is_active='True').count()}
     if request.user.is_authenticated:
         print('User authenticated')

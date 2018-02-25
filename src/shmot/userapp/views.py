@@ -15,7 +15,7 @@ def signupPage(request):
 
 def profile(request, username):
     us = get_object_or_404(User, username=username)
-    ads = Advert.objects.filter(user=us)
+    ads = Advert.objects.filter(user=us).filter(active_ad='True')
     context = {'us': us, }
     if not ads:
         context['total'] = 0
@@ -45,8 +45,8 @@ def signUp_submit(request):
         user = User.objects.create_user(username, email, password)
         user.profile.phone_number = request.POST['phone_number']
         user.profile.city = request.POST['city']
-        user.profile.vk = request.POST['vk']
-        user.profile.fb = request.POST['fb']
+        user.profile.vk = "https://vk.com/" + request.POST['vk']
+        user.profile.fb = "https://www.facebook.com/" + request.POST['fb']
         user.first_name = request.POST['first_name']
         user.last_name = request.POST['last_name']
         user.profile.avatar = request.FILES['file[0]']
