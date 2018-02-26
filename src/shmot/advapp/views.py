@@ -14,7 +14,6 @@ def ad_page(request, advert_id):
     except Advert.DoesNotExist:
         raise Http404()
 
-
     user = User.objects.get(id=ad.user_id)
     ads = Advert.objects.filter(user=user).filter(active_ad='True')
 
