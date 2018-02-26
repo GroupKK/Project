@@ -25,6 +25,14 @@ def ad_page(request, advert_id):
             context['subscribed'] = True
         else:
             context['subscribed'] = False
+        if ad.liked_by.filter(username=request.user.username).exists():
+            context['liked'] = True
+        else:
+            context['liked'] = False
+        if ad.favourited_by.filter(username=request.user.username).exists():
+            context['favourited'] = True
+        else:
+            context['favourited'] = False
 
     if not user.profile.following_people:
         context['followers'] = 0
