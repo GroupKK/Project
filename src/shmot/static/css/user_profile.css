@@ -1,4 +1,4 @@
-.section .centered>.center {
+#center {
     align-items: stretch;
     padding: 48px 0 48px 5%;
 }
@@ -14,6 +14,13 @@
 .profile>.center:first-child {
     padding-left: 24px;
 }
+.avatar img{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    display: block;
+}
 .subscribe_btn {
     position: relative;
     font-size: 12px;
@@ -24,7 +31,7 @@
     background-color: white;
     border: solid 1px #E0E0E0;
     border-radius: 3px;
-    display:block;
+    display: block;
 }
 .subscribed {
     background-color: white;
@@ -83,7 +90,7 @@
     display: inline-block;
     cursor: pointer;
 }
-.active {
+.title.active {
     border-bottom: 1px solid black;
 }
 @media screen and (max-width: 1024px) {

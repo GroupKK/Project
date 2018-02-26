@@ -1,0 +1,33 @@
+@media screen and (max-width: 1024px) {
+    #ads .add_item {
+        margin: 0 6px 16px 6px; !important;
+    }
+}
+#ads .add_item {
+    margin: 0 9px 16px 9px;
+}
+.content>.search {
+    width: fit-content;
+    margin: 0 auto;
+    padding-bottom: 32px;
+}
+.content>.search .clear_btn {
+    width: 50px;
+    float: left;
+    cursor: pointer;
+    height: 50px;
+    padding: 15px 0;
+}
+.content>.search .search_btn {
+    float: right;
+}
+.content>.search .clear_btn {
+    width: 50px;
+    float: left;
+    cursor: pointer;
+    height: 50px;
+    padding: 15px 0;
+}
+.content>.search input {
+    height: 50px;
+}

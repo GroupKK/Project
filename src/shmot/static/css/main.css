@@ -62,7 +62,7 @@ a {
 	/*width: 92%;*/
 	/*width: 1340px;*/
 }
-#others {
+.others {
 	height: 277px;
 }
 .add_item, .item_bottom, .item_image, .overlay {
@@ -117,7 +117,7 @@ a {
 		/*width: 1024px;*/
 		width: 925px;
 	}
-	#others {
+	.others {
 		height: 237px;
 	}
 	.add_item, .item_bottom, .item_image, .overlay {
@@ -293,6 +293,9 @@ header nav .right {
 	background-color: white;
 	border-bottom: 1px solid #E0E0E0;
 	border-top: 1px solid #E0E0E0;
+}
+.adds_bar .section_header {
+	margin-left: 5%;
 }
 .arrow_button_back {
 	/*padding: 20px 10px 20px 10px;*/
