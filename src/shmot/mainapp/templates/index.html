@@ -233,7 +233,7 @@
 							</a>
 							{% else %}
 							<a href="profile/{{ user.username }}" style="display: block">
-								<img src="/static/images/profile_icon.svg" width="50" style="display: block">
+								<img src="{{ user.profile.avatar.url }}" class="user_avatar">
 							</a>
 							{% endif %}
 							{% if user.is_authenticated %}
