@@ -237,3 +237,12 @@
 .contact i {
     margin-right: 8px;
 }
+/*normalizes images*/
+.owl-stage {
+    display: flex;
+    align-items: stretch;
+}
+.owl-item img{
+    height: 100%;
+    object-fit: cover;
+}
