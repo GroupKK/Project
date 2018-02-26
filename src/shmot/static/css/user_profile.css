@@ -101,3 +101,20 @@
         width: 65%;
     }
 }
+
+.edit {
+    display: none;
+    position: absolute;
+    left: 280px;
+    top: 0px;
+    font-size: 16px;
+}
+.ads:hover .edit {
+    display: block;
+}
+.edit i {
+    color: black;
+}
+.ads>.center {
+    position: relative;
+}

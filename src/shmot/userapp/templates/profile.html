@@ -379,7 +379,6 @@
                             <div class="copy" data-balloon="Копировать" data-balloon-pos="top">
                                 <img src="/static/images/copy.svg">
                             </div>
-                            <!--<div class="arrow"></div>-->
                         </div>
                         {% endif %}
                         {% if us.profile.fb %}
@@ -389,7 +388,6 @@
                             <div class="copy" data-balloon="Копировать" data-balloon-pos="top">
                                 <img src="/static/images/copy.svg">
                             </div>
-                            <!--<div class="arrow"></div>-->
                         </div>
                         {% endif %}
                         <div class="contact center">
@@ -416,6 +414,13 @@
                     <div class="center">
                         <div class="title active" id="relevant" onclick="relevantClick()">На продаже</div>
                         <div class="title" id="sold" onclick="soldClick()">Проданные</div>
+                        {% if us.username == user.username %}
+                        <div class="edit" data-balloon="Управление моими объявлениями" data-balloon-pos="top">
+                            <a href="">
+                                <i class="fa fa-cog" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        {% endif %}
                     </div>
                     <div id="relevant_items">
                         <div class="center">
