@@ -19,6 +19,12 @@ def ad_page(request, advert_id):
 
     context['advert'] = ad
     context['us'] = user
+    print(request.user.profile.following_people.all())
+
+    if request.user.profile.following_people.filter(user_id=user.id).exists():
+        context['subscribed'] = True
+    else:
+        context['subscribed'] = False
 
     if not user.profile.following_people:
         context['followers'] = 0

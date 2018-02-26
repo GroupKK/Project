@@ -308,14 +308,14 @@
 
                     <div class="nav_icon" id="profile">
                         {% if not user.is_authenticated %}
-							<a href="#sign_in_popup" style="display: block">
-								<img src="/static/images/profile_icon.svg" width="50" style="display: block">
-							</a>
-							{% else %}
-							<a href="../../profile/{{ user.username }}" style="display: block">
+                            <a href="#sign_in_popup" style="display: block">
+                                <img src="/static/images/profile_icon.svg" width="50" style="display: block">
+                            </a>
+                        {% else %}
+                            <a href="../../profile/{{ user.username }}" style="display: block">
                                 <img src="{{ user.profile.avatar.url }}" class="user_avatar">
-							</a>
-							{% endif %}
+                            </a>
+                        {% endif %}
                         {% if user.is_authenticated %}
                             <div id="profile_options">
                                 <ul>
@@ -345,7 +345,6 @@
                             <a href="{{ advert.image1.url }}" class="item"><img src="{{ advert.image1.url }}"></a>
                             {% if advert.image2 %}
                                 <a href="{{ advert.image2.url }}" class="item"><img src="{{ advert.image2.url }}"></a>
-
                             {% endif %}
                             {% if advert.image3 %}
                                 <a href="{{ advert.image3.url }}" class="item"><img src="{{ advert.image3.url }}"></a>
@@ -420,9 +419,14 @@
                     <div class="center">
                         <a href="../../profile/{{ us.username }}" class="avatar"><img src="{{ us.profile.avatar.url }}"></a>
                         <div style="margin-left: 18px">
-                            <a href="../../profile/{{ us.username }}" class="title">{{ us.first_name }} {{ us.last_name }}</a>
+                            <a href="../../profile/{{ us.username }}"
+                               class="title">{{ us.first_name }} {{ us.last_name }}</a>
                             {% if us.username != user.username %}
-                                <button class="sign_in_btn subscribe_btn subscribed">Вы подписаны</button>
+                                {% if subscibed %}
+                                    <button class="sign_in_btn subscribe_btn subscribed">Вы подписаны</button>
+                                {% else %}
+                                    <button class="sign_in_btn subscribe_btn">Подписаться</button>
+                                {% endif %}
                             {% endif %}
                         </div>
                     </div>
