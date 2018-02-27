@@ -29,7 +29,7 @@ $(document).ready(function () {
     });
 
     dropzone = new Dropzone(".main_form", {
-        url: "/file/post",
+        url: "/upload_avatar/",
         paramName: "avatar", // The name that will be used to transfer the file
         autoProcessQueue: false,
         uploadMultiple: false,

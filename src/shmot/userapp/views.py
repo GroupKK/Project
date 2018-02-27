@@ -39,25 +39,7 @@ def profile(request, username):
 
 
 def upload_avatar(request):
-    context = {}
-    print("HELLO1")
-    if request.is_ajax():
-        print("HELLO2")
-        if User.objects.filter(username=request.POST['username']).exists():
-            print("HELLO3")
-            us = User.objects.get(username=request.POST['username'])
-            if request.FILES:
-                us.profile.avatar = request.FILES['file[0]']
-            else:
-                us.profile.avatar = 'user_images/default/avatar_placeholder.svg'
-            us.save()
-            return HttpResponse('ok', content_type='text/html')
-        else:
-            print("HELLO4")
-            return HttpResponse('not_ok', content_type='text/html')
-    else:
-        print("HELLO5")
-        return HttpResponse('not_ok', content_type='text/html')
+    return HttpResponse('not_ok', content_type='text/html')
 
 
 def signUp_submit(request):
@@ -73,17 +55,18 @@ def signUp_submit(request):
             user.profile.fb = "https://www.facebook.com/" + request.POST['fb']
         user.first_name = request.POST['first_name']
         user.last_name = request.POST['last_name']
+        if request.FILES:
+            user.profile.avatar = request.FILES['avatar']
+        else:
+            user.profile.avatar = 'user_images/default/avatar_placeholder.svg'
         user.save()
         user = authenticate(request, username=request.POST['username'], password=request.POST['password1'])
         if user is not None:
             login(request, user)
-            print("======================================================\n1\n")
             return HttpResponseRedirect('/')
         else:
-            print("======================================================\n2\n")
             return HttpResponseRedirect('/')
     else:
-        print("======================================================\n3\n")
         return HttpResponseRedirect('/')
 
 
