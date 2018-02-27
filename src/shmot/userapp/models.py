@@ -21,7 +21,7 @@ class Profile(models.Model):
     fb = models.CharField(max_length=100, null=True)
     number_of_posts = models.IntegerField(blank=False, default=0)  # active + inactive
     sold = models.IntegerField(default=0)
-    following_people = models.ManyToManyField('Profile', related_name='folloing_people')
+    following_people = models.ManyToManyField('Profile', related_name='folloing_people', blank=True)
     # rating
     avatar = models.ImageField(upload_to=user_directory_path, default='/static/images/avatar_placeholder.svg')
 
