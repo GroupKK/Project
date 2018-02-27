@@ -48,7 +48,7 @@ $(document).ready(function () {
             type.load(function(callback) {
                 xhr && xhr.abort();
                 xhr = $.ajax({
-                    url: '/static/json/options_' + cat_value +'_' + value +'.json',
+                    url: '/Bootstrap/json/options_' + cat_value +'_' + value +'.json',
                     type: 'GET',
                     dataType: 'json',
                     success: function(results) {
@@ -106,6 +106,36 @@ $(document).ready(function () {
         }
     });
 
+    //THIS SHIT SEEMS TO WORK
+    dropzone.on("addedfile", function () {
+        // Input node with selected files. It will be removed from document shortly in order to
+        // give user ability to choose another set of files.
+        var usedInput = dropzone.hiddenFileInput;
+        // Append it to form after stack become empty, because if you append it earlier
+        // it will be removed from its parent node by Dropzone.js.
+        setTimeout(function () {
+            $('.main_form').append(usedInput);
+        },0);
+        // Set some unique name in order to submit data.
+        usedInput.name = "photos";
+    });
+    dropzone.on("thumbnail", function () {
+        alert();
+        var e = $('.main_form .dz-hidden-input').last();
+        $('.dz-remove').last().on('click', function () {
+            e.remove();
+        });
+    });
+    // dropzone.on("removedfile", function () {
+    //     $('.main_form .dz-hidden-input').remove();
+    //     // add input
+    //     var usedInput = dropzone.hiddenFileInput;
+    //     setTimeout(function () {
+    //         $('.main_form').append(usedInput);
+    //     },30);
+    //     usedInput.name = "photos";
+    // });
+
     subcategory.disable();
     // type.disable();
     disableType();
@@ -114,7 +144,7 @@ $(document).ready(function () {
     brand.load(function f(callback) {
         xhr && xhr.abort();
         xhr = $.ajax({
-            url: '/static/json/brands.json',
+            url: '/Bootstrap/json/brands.json',
             type: 'GET',
             dataType: 'json',
             success: function(results) {
@@ -131,7 +161,7 @@ $(document).ready(function () {
     city.load(function(callback) {
         xht && xht.abort();
         xht = $.ajax({
-            url: '/static/json/cities.json',
+            url: '/Bootstrap/json/cities.json',
             type: 'GET',
             dataType: 'json',
             success: function(results) {
@@ -345,9 +375,11 @@ function check() {
     if (flag && dropzone.getQueuedFiles().length == 0) {
         $('.dropzone, #drop').addClass('hovered');
         $('#drop').addClass('set_focus');
+        $('#drop').attr('data-balloon-visible', true);
         setTimeout(function () {
             $('.dropzone, #drop').removeClass('hovered');
             $('#drop').removeClass('set_focus');
+            $('#drop').removeAttr('data-balloon-visible');
         }, 5000);
         flag = false;
     }

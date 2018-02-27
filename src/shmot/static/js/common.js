@@ -53,9 +53,11 @@ $(document).ready(function() {
     $('.fav').on('click', function () {
         if ($(this).hasClass('starred')) { //remove from favourites
             $(this).removeClass('starred');
+            $(this).attr('data-balloon','Добавить в избранное');
         }
         else { //add to favourites
             $(this).addClass('starred');
+            $(this).attr('data-balloon','Удалить из избранного');
         }
     });
     //load brands
@@ -85,7 +87,6 @@ $(document).ready(function() {
                 '                                    </a></li>');
         }
     });
-    //copies links
     $('.copy').on('click', function () {
         copyToClipboard($(this).prev());
         $(this).attr('data-balloon', 'Скопировано');
@@ -93,14 +94,12 @@ $(document).ready(function() {
             e.attr('data-balloon', 'Копировать');
         }, 2000, $(this));
     });
-    //normalizes ad's titles
     $('.item_description').each(function () {
         $(this).attr('title', $(this).text());
         if ($(this).text().length >= 10)
             $(this).text($(this).text().substr(0,10)+'...');
     });
-    //search in header
-    $('.search_btn').on('click',function (e) {
+    $('header .search_btn').on('click',function (e) {
         if ($('.wrap').width() == 1024)
             return;
         else
@@ -122,7 +121,7 @@ $(document).ready(function() {
             }
         }
     });
-    $('.clear_btn').on('click', function () {
+    $('header .clear_btn').on('click', function () {
         $(this).parent().addClass('hidden');
         $(this).next().val("");
     });

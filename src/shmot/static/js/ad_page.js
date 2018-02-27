@@ -1,11 +1,18 @@
 $(document).ready(function() {
+    if ($('#photos>*').length == 1)
+    {
+        $('.photos .arrow_button_back, .photos .arrow_button_forward').addClass('hidden');
+    }
     var photos = $('#photos');
     photos.owlCarousel({
         loop: false,
         autoplay: false,
         dots: true,
         // nav: true,
-        items: 1
+        items: 1,
+        onResized: function () {
+            $('#photos .owl-item:first-child').css('height',$('#photos .owl-item:first-child').width());
+        }
     });
     //Go to the next item
     $('#next_p').click(function() {
@@ -17,6 +24,7 @@ $(document).ready(function() {
         // Parameters has to be in square bracket '[]'
         photos.trigger('prev.owl.carousel');
     });
+    $('#photos .owl-item:first-child').css('height',$('#photos .owl-item:first-child').width());
     photos.magnificPopup({
         delegate: 'a',
         type: 'image',
