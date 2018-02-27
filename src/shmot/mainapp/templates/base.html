@@ -91,7 +91,7 @@
                     {% for ad, favourited, liked in advapp_advert|slice:":30" %}
                         <div class="item">
                         <div class="add_item">
-                        <a href="advert/{{ ad.id }}"><span class="item_span"></span></a>
+                        <a href="post/{{ ad.id }}"><span class="item_span"></span></a>
                         {% if liked %}
                             <div class="likes liked">
                         {% else %}
@@ -377,7 +377,7 @@
     <div class="push"></div>
 </div>
 <div class="add_button" data-balloon-pos="left" data-balloon="Подать объявление">
-    <a href="#sign_in_popup"><i class="fa fa-plus" aria-hidden="true"></i></a>
+    <a href="post/new_post/"><i class="fa fa-plus" aria-hidden="true"></i></a>
 </div>
 <div class="footer span">
     <div class="centered" style="height: 100%">

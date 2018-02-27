@@ -65,3 +65,8 @@ def ad_page(request, advert_id):
     context['advapp_advert'] = return_list
 
     return render(request, 'ad_page.html', context)
+
+
+def new_ad(request):
+    context = {}
+    return render(request, 'new_ad.html', context)

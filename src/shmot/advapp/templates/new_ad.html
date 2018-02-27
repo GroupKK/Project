@@ -20,32 +20,35 @@
     <link rel="stylesheet" href="/static/libs/magnific-popup/magnific-popup.css"/>
     <!--<link rel="stylesheet" href="/static/libs/owl-carousel/owl.carousel.css"/>-->
     <link rel="stylesheet" href="/static/libs/owlcarousel/owl.carousel.css">
-    <link rel="stylesheet" href="/static/libs/owlcarousel/owl.theme.default.css">
-
+    <link rel="stylesheet" href="/static/libs/selectize/css/selectize.css">
     <link rel="stylesheet" href="/static/libs/countdown/jquery.countdown.css"/>
     <link rel="stylesheet" href="/static/css/fonts.css"/>
     <link rel="stylesheet" href="/static/css/main.css"/>
+    <link rel="stylesheet" href="/static/css/custom_inputs.css"/>
     <link rel="stylesheet" href="/static/css/media.css"/>
-    <link rel="stylesheet" href="/static/css/user_profile.css"/>
-    <!--<link rel="stylesheet" href="/static/css/sign_up.css"/>-->
+    <link rel="stylesheet" href="/static/libs/dropzone/dropzone.css"/>
+    <link rel="stylesheet" href="/static/css/new_ad.css"/>
+    <link rel="stylesheet" href="/static/css/custom_selectize.css"/>
+    <link rel="stylesheet" href="/static/css/custom_dropzone.css"/>
     <!--Google Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700&amp;subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700&amp;subset=cyrillic"
+          rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&amp;subset=cyrillic" rel="stylesheet">
     <!--Icons-->
-    <link rel="apple-touch-icon" sizes="57x57" href="/static/icons/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/static/icons/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/static/icons/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/static/icons/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/static/icons/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/static/icons/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/static/icons/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/static/icons/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/static/icons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/static/icons/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/static/icons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/static/icons/favicon-16x16.png">
-    <link rel="manifest" href="/static/icons/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="manifest" href="icons/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
@@ -65,13 +68,17 @@
 <script src="/static/libs/scrollto/jquery.scrollTo.min.js"></script>
 <!--<script src="/static/libs/owl-carousel/owl.carousel.min.js"></script>-->
 <script src="/static/libs/owlcarousel/owl.carousel.min.js"></script>
+<script src="/static/libs/selectize/js/standalone/selectize.min.js"></script>
+
+<script src="/static/libs/dropzone/dropzone.js"></script>
 
 <script src="/static/libs/countdown/jquery.plugin.js"></script>
 <script src="/static/libs/countdown/jquery.countdown.min.js"></script>
 <script src="/static/libs/countdown/jquery.countdown-ru.js"></script>
 <script src="/static/libs/landing-nav/navigation.js"></script>
 <script src="/static/js/common.js"></script>
-<script src="/static/js/user_profile.js"></script>
+<script src="/static/js/new_ad.js"></script>
+
 <!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
 <!-- Google Analytics counter --><!-- /Google Analytics counter -->
 
@@ -265,10 +272,18 @@
                     </div>
                     <div class="sub span">
                         <ul class="centered row brands_list">
-                            <li class="sub_column"><ul></ul></li>
-                            <li class="sub_column"><ul></ul></li>
-                            <li class="sub_column"><ul></ul></li>
-                            <li class="sub_column"><ul></ul></li>
+                            <li class="sub_column">
+                                <ul></ul>
+                            </li>
+                            <li class="sub_column">
+                                <ul></ul>
+                            </li>
+                            <li class="sub_column">
+                                <ul></ul>
+                            </li>
+                            <li class="sub_column">
+                                <ul></ul>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -285,8 +300,8 @@
                         <div class="search_wrap">
                             <form name="search" class="search hidden" method="get" action="/search">
                                 <img src="/static/images/close.svg" class="clear_btn">
-                                <input type="text" placeholder="Искать...">
-                                <button type="submit" style="display: none"></button>
+                                <input type="text" name="key" placeholder="Искать...">
+
                             </form>
                             <a href="search.html" class="search_btn">
                                 <img src="/static/images/search_icon.svg" width="50">
@@ -298,258 +313,168 @@
                     </a></div>
 
                     <div class="nav_icon" id="profile">
-                       {% if not user.is_authenticated %}
-							<a href="#sign_in_popup" style="display: block">
-								<img src="/static/images/profile_icon.svg" width="50" style="display: block">
-							</a>
-							{% else %}
-							<a href="../{{ user.username }}" style="display: block">
-								<img src="{{ user.profile.avatar.url }}" class="user_avatar">
-							</a>
-							{% endif %}
-                            {% if user.is_authenticated %}
-							<div id="profile_options">
-								<ul>
-									<li><a href="../{{ user.username }}">Профиль</a></li>
-									<li><a href="">Объявления</a></li>
-									<li><a href="">Подписки</a></li>
-									<li><a href="">Настройки <i class="fa fa-cog" aria-hidden="true"></i></a></li>
-									<li><a href="../logout">Выход</a></li>
-								</ul>
-							</div>
-							{% endif %}
+                        {% if not user.is_authenticated %}
+                            <a href="#sign_in_popup" style="display: block">
+                                <img src="/static/images/profile_icon.svg" width="50" style="display: block">
+                            </a>
+                        {% else %}
+                            <a href="../../profile/{{ user.username }}" style="display: block">
+                                <img src="{{ user.profile.avatar.url }}" class="user_avatar">
+                            </a>
+                        {% endif %}
+                        {% if user.is_authenticated %}
+                            <div id="profile_options">
+                                <ul>
+                                    <li><a href="../../profile/{{ user.username }}">Профиль</a></li>
+                                    <li><a href="">Объявления</a></li>
+                                    <li><a href="">Подписки</a></li>
+                                    <li><a href="">Настройки <i class="fa fa-cog" aria-hidden="true"></i></a></li>
+                                    <li><a href="../../profile/logout">Выход</a></li>
+                                </ul>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
         </nav>
     </header>
 
-    <div class="section span" style="margin-bottom: 86px;">
+    <div class="span"
+         style="margin-top: 32px; margin-bottom: 86px; background-color: white; border-bottom: 1px solid #E0E0E0;	border-top: 1px solid #E0E0E0;">
         <div class="centered">
-            <div class="center" id="center">
-                <div class="profile">
-                    <div class="center">
-                        <a href="../../profile/{{ us.username }}" class="avatar"><img src="{{ us.profile.avatar.url }}"></a>
-                        <div style="margin-left: 18px">
-                            <a href="../../profile/{{ us.username }}" class="title">{{ us.first_name }} {{ us.last_name }}</a>
-                            {% if us.username != user.username %}
-                            <button class="sign_in_btn subscribe_btn subscribed">Вы подписаны</button>
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class="stats center">
-                        <div class="stats_column">
-                            <div>продано</div>
-                            <div class="number">
-                                {{ sold_num }}
-                                <img src="/static/images/tshirt.svg" height="10px">
-                            </div>
-                        </div>
-                        <div class="stats_column">
-                            <div>всего</div>
-                            <div class="number">
-                                {{ total }}
-                                <img src="/static/images/tshirt.svg" height="10px">
-                            </div>
-                        </div>
-                        <div class="stats_column">
-                            <div>рейтинг</div>
-                            <div class="number">
-                                0/5
-                            </div>
-                        </div>
-                        <div class="stats_column">
-                            <div>фолловеры</div>
-                            <div class="number">
-                                {{ followers }}
-                            </div>
-                        </div>
-                        <div class="stats_column">
-                            <div>лайки</div>
-                            <div class="number">
-                                {{ likes }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contacts">
-                        {% if us.profile.vk %}
-                        <div class="contact center">
-                            <i class="fa fa-vk" aria-hidden="true"></i>
-                            <a href="{{ us.profile.vk }}">Страница Вконтакте</a>
-                            <div class="copy" data-balloon="Копировать" data-balloon-pos="top">
-                                <img src="/static/images/copy.svg">
-                            </div>
-                        </div>
-                        {% endif %}
-                        {% if us.profile.fb %}
-                        <div class="contact center">
-                            <i class="fa fa-facebook" aria-hidden="true"></i>
-                            <a href="{{ user.profile.fb }}">Страница Facebook</a>
-                            <div class="copy" data-balloon="Копировать" data-balloon-pos="top">
-                                <img src="/static/images/copy.svg">
-                            </div>
-                        </div>
-                        {% endif %}
-                        <div class="contact center">
-                            <i class="fa fa-phone" aria-hidden="true"></i>
-                            <div>
-                            {{ us.profile.phone_number }}
-                            </div>
-                            <div class="copy" data-balloon="Копировать" data-balloon-pos="top">
-                                <img src="/static/images/copy.svg">
-                            </div>
-                        </div>
-                        {% if us.email %}
-                        <div class="contact center">
-                            <i class="fa fa-envelope" aria-hidden="true" style="font-size: 11px"></i>
-                            <div>{{ us.email }}</div>
-                            <div class="copy" data-balloon="Копировать" data-balloon-pos="top">
-                                <img src="/static/images/copy.svg">
-                            </div>
-                        </div>
-                        {% endif %}
-                    </div>
-                </div>
-                <div class="ads">
-                    <div class="center">
-                        <div class="title active" id="relevant" onclick="relevantClick()">На продаже</div>
-                        <div class="title" id="sold" onclick="soldClick()">Проданные</div>
-                        {% if us.username == user.username %}
-                        <div class="edit" data-balloon="Управление моими объявлениями" data-balloon-pos="top">
-                            <a href="">
-                                <i class="fa fa-cog" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                        {% endif %}
-                    </div>
-                    <div id="relevant_items">
+            <div class="no_fields" id="form_wrap">
+                <form action="/file-upload" class="main_form dropzone" id="dropzone">
+                    <div class="fields">
+                        <div class="title" style="text-align: center; padding-top: 32px">Новое объявление</div>
                         <div class="center">
-                        {% for ad in advapp_advert %}
-                            <div class="add_item">
-                                <a href=""><span class="item_span"></span></a>
-                                <div class="likes">
-                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    <i class="fa fa-heart" aria-hidden="true"></i>
-                                    <a>{{ ad.numer_of_likes }}</a>
-                                </div>
-                                <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
-                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                </div>
-
-                                <div class="overlay item_top_border">
-                                    <div class="center" style="margin: 10px 0 0 10px">
-                                        <div style="width: 15px; margin-right: 5px">
-                                            <i class="fa fa-map-marker" aria-hidden="true" style="font-size: 22px"></i>
-                                        </div>
-                                        <a>{{ ad.city }}</a>
-                                    </div>
-                                    <div class="center" style="margin: 5px 0 0 10px">
-                                        <div style="width: 15px; margin-right: 5px">
-                                            <i class="fa fa-paper-plane" aria-hidden="true" style="font-size: 14px"></i>
-                                        </div>
-                                        <a>Пересылка</a>
-                                    </div>
-                                    <div style="font-size: 22px; position: absolute; right: 0; top: 0; margin: 10px 12px 0 0">S</div>
-                                </div>
-                                <img class="item_image cropping item_top_border" src="{{ ad.image1.url }}">
-                                <div class="item_bottom">
-                                    <div class="item_description">{{ ad.title }}</div>
-                                    <div class="item_price">{{ ad.price }}</div>
-                                    <div class="item_brand">{{ ad.brand_name }}</div>
-                                </div>
+                            <p>Категория</p>
+                            <select class="required" id="category" style="margin-right: 10px" name="category">
+                                <option value disabled selected>Выберите категорию</option>
+                                <option value="women">Женская одежда</option>
+                                <option value="men">Мужская одежда</option>
+                            </select>
+                            <select class="required" id="subcategory" name="subcategory">
+                                <option value disabled selected>Выберите подкатегорию</option>
+                                <option value="clothing">Одежда</option>
+                                <option value="outer_clothing">Верхняя одежда</option>
+                                <option value="footwear">Обувь</option>
+                                <option value="accessories">Аксессуары</option>
+                            </select>
+                            <div class="icon" data-balloon-pos="right" data-balloon="Обязательно для заполнения">
+                                <img class="neutral" src="/static/images/important.svg">
+                                <img class="red" src="/static/images/important_red.svg">
                             </div>
                         </div>
-                    {% empty %}
-                        <div class="title empty">Здесь пока пусто!</div>
-                            </div>
-                    {% endfor %}
-                    </div>
-                    <div id="sold_items" class="hidden">
                         <div class="center">
-                        {% for ad in advapp_advert_1 %}
-                            <div class="add_item">
-                                <a href=""><span class="item_span"></span></a>
-                                <div class="likes">
-                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    <i class="fa fa-heart" aria-hidden="true"></i>
-                                    <a>{{ ad.number_of_likes }}</a>
-                                </div>
-                                <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
-                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                </div>
-
-                                <div class="overlay item_top_border">
-                                    <div class="center" style="margin: 10px 0 0 10px">
-                                        <div style="width: 15px; margin-right: 5px">
-                                            <i class="fa fa-map-marker" aria-hidden="true" style="font-size: 22px"></i>
-                                        </div>
-                                        <a>{{ ad.city }}</a>
-                                    </div>
-                                    <div class="center" style="margin: 5px 0 0 10px">
-                                        <div style="width: 15px; margin-right: 5px">
-                                            <i class="fa fa-paper-plane" aria-hidden="true" style="font-size: 14px"></i>
-                                        </div>
-                                        <a>Пересылка</a>
-                                    </div>
-                                    <div style="font-size: 22px; position: absolute; right: 0; top: 0; margin: 10px 12px 0 0">S</div>
-                                </div>
-                                <img class="item_image cropping item_top_border" src="{{ ad.image1.url }}">
-                                <div class="item_bottom">
-                                    <div class="item_description">{{ ad.title }}</div>
-                                    <div class="item_price">{{ ad.price }}</div>
-                                    <div class="item_brand">{{ ad.brand_name }}</div>
-                                </div>
+                            <p>Тип</p>
+                            <select class="required" disabled id="type" name="type">
+                                <option value disabled selected>Выберите тип</option>
+                            </select>
+                            <div class="icon" style="left: 435px" data-balloon-pos="right"
+                                 data-balloon="Обязательно для заполнения">
+                                <img class="neutral" src="/static/images/important.svg">
+                                <img class="red" src="/static/images/important_red.svg">
                             </div>
                         </div>
-                        {% empty %}
-                        <div class="title empty">Здесь пока пусто!</div>
+                        <div id="additional"></div>
+                        <div class="center hidden" id="brand_wrap">
+                            <p>Бренд</p>
+                            <select id="brand" name="brand">
+                                <option value="null" selected>Не выбрано</option>
+                            </select>
+                        </div>
+                        <div id="other_fields">
+                            <div class="center">
+                                <p>Название товара</p>
+                                <input class="required expanded" type="text" name="title">
+                                <div class="icon" data-balloon-pos="right" data-balloon="Обязательно для заполнения">
+                                    <img class="neutral" src="/static/images/important.svg">
+                                    <img class="red" src="/static/images/important_red.svg">
+                                </div>
                             </div>
-                        {% endfor %}
+                            <div class="center" id="price_wrap">
+                                <p>Цена</p>
+                                <input class="required" type="number" maxlength="9" id="price" name="price">
+                                <div class="icon" data-balloon-pos="right" data-balloon="Обязательно для заполнения"
+                                     style="left: 353px">
+                                    <img class="neutral" src="/static/images/important.svg">
+                                    <img class="red" src="/static/images/important_red.svg">
+                                </div>
+                            </div>
+                            <div class="center" style="/*margin-top: 16px*/">
+                                <p>Город</p>
+                                <select class="required" id="city" name="city">
+                                    <option value disabled selected>Выберите город</option>
+                                </select>
+                                <div class="icon" style="left: 435px" data-balloon-pos="right"
+                                     data-balloon="Обязательно для заполнения">
+                                    <img class="neutral" src="/static/images/important.svg">
+                                    <img class="red" src="/static/images/important_red.svg">
+                                </div>
+                            </div>
+                            <div class="center" style="/*margin-top: 16px*/">
+                                <p>Пересылка</p>
+                                <select id="sending" name="sending">
+                                    <option selected>Без пересылки</option>
+                                    <option>С пересылкой</option>
+                                </select>
+                            </div>
+                            <div class="center" style="align-items: inherit; height: 120px">
+                                <p>Описание</p>
+                                <textarea class="expanded" style="resize: none; height: 100px"
+                                          name="description"></textarea>
+                            </div>
+                            <div class="center" style="align-items: inherit; width: 10px; position: absolute;">
+                                <p>Фотографии</p>
+                                <div class="icon" id="drop" data-balloon-pos="right"
+                                     data-balloon="Нужна хотя бы одна фотография" style="top: 12px">
+                                    <img class="neutral" src="/static/images/important.svg">
+                                    <img class="red" src="/static/images/important_red.svg">
+                                </div>
+                            </div>
+                            <button id="submit" type="submit" style="display: none"></button>
+                            <button class="contrast_btn" type="button" onclick="check()">Подать объявление</button>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
 
     <!-- form itself -->
-    <div id="sign_in_popup" class="white-popup mfp-hide">
-        <div class="title">Вход</div>
-        <button class="sign_in_btn" style="color: #597a9e">
-            <i class="fa fa-vk" aria-hidden="true"></i> Вконтакте
-        </button>
-        <button class="sign_in_btn" style="color: #dc4e41">
-            <i class="fa fa-google-plus" aria-hidden="true"></i> Google
-        </button>
-        <button class="sign_in_btn" style="color: #3e5b9b">
-            <i class="fa fa-facebook" aria-hidden="true"></i> Facebook
-        </button>
-        <div class="title">Есть аккаунт?</div>
-        <form action="/signin_submit" id="sign_in_form" method="post">
-            <input type="text" name="login" placeholder="Логин">
-            <input type="password" name="password" placeholder="Пароль">
-            <button class="sign_in_btn" type="button" style="margin-bottom: 16px" onclick="check_sign_in()">Войти</button>
-            <button id="sign_in" type="submit" style="display: none"></button>
-        </form>
-        <div class="title" id="sign_up">
-            <a>Забыли пароль?</a>
-            <a href="{% url 'sign_up' %}">Регистрация</a>
+    {% if not user.is_authenticated %}
+        <div id="sign_in_popup" class="white-popup mfp-hide">
+            <div class="title" style="text-align: center; padding-top: 16px">Вход</div>
+            <button class="sign_in_btn" style="color: #597a9e">
+                <i class="fa fa-vk" aria-hidden="true"></i> Вконтакте
+            </button>
+            <button class="sign_in_btn" style="color: #dc4e41">
+                <i class="fa fa-google-plus" aria-hidden="true"></i> Google
+            </button>
+            <button class="sign_in_btn" style="color: #3e5b9b">
+                <i class="fa fa-facebook" aria-hidden="true"></i> Facebook
+            </button>
+            <div class="title" style="text-align: center; padding-top: 16px">Есть аккаунт?</div>
+            <form action="profile/signin_submit/" id="sign_in_form" method="post">
+                {% csrf_token %}
+                <input type="text" name="login" placeholder="Логин">
+                <input type="password" name="password" placeholder="Пароль">
+                <button class="sign_in_btn" type="button" style="margin-bottom: 16px" onclick="check_sign_in()">Войти
+                </button>
+                <button id="sign_in" type="submit" style="display: none"></button>
+            </form>
+            <div class="title" id="sign_up"><a>Забыли пароль?</a> <a href='profile/signup'>Регистрация</a></div>
         </div>
-    </div>
+    {% endif %}
 
     <div class="push"></div>
 </div>
-<div class="add_button" data-balloon-pos="left" data-balloon="Подать объявление">
-{% if not user.is_authenticated %}
-    <a href=""><i class="fa fa-plus" aria-hidden="true"></i></a>
-{% else %}
-    <a href="../../post/new_post/"><i class="fa fa-plus" aria-hidden="true"></i></a>
-{% endif %}
+<div class="add_button" data-balloon-pos="right" data-balloon="Подать объявление">
+    <a href="#sign_in_popup"><i class="fa fa-plus" aria-hidden="true"></i></a>
 </div>
 <div class="footer span">
     <div class="centered" style="height: 100%">
-        <div  style="position: relative; float: left; padding: 48px; height: 100%">
+        <div style="position: relative; float: left; padding: 48px; height: 100%">
             <div class="title">
                 <a href="">О сайте</a>
             </div>
