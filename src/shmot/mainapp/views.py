@@ -31,7 +31,6 @@ def index(request):
             except:
                 return_list.append((ad, False, False))
 
-
     context['advapp_advert'] = return_list
 
     if request.user.is_authenticated:
