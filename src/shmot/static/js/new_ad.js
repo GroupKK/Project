@@ -120,7 +120,6 @@ $(document).ready(function () {
         usedInput.name = "photos";
     });
     dropzone.on("thumbnail", function () {
-        alert();
         var e = $('.main_form .dz-hidden-input').last();
         $('.dz-remove').last().on('click', function () {
             e.remove();
@@ -152,7 +151,6 @@ $(document).ready(function () {
             },
             error: function() {
                 callback();
-                alert('error');
             }
         })
     });
