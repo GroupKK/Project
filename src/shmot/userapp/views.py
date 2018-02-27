@@ -1,10 +1,10 @@
 # from .forms import CustomUserCreationForm
 from advapp.models import Advert
-from userapp.models import Profile
 from django.contrib.auth import login, authenticate
 from django.contrib.auth import logout as django_logout
 from django.contrib.auth.models import User
 from django.db.models import Sum
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 
@@ -48,32 +48,58 @@ def profile(request, username):
 
 def signUp_submit(request):
     context = {}
+    if request.is_ajax():
+        if User.objects.filter(username=request.POST['username']).exists():
+            us = User.objects.get(username=request.POST['username'])
+            if request.FILES:
+                us.profile.avatar = request.FILES['file[0]']
+            else:
+                us.profile.avatar = 'user_images/default/avatar_placeholder.svg'
+            us.save()
+        else:
+            us = User.objects.create_user(username=request.POST['username'], email=request.POST['email'],
+                                          password=request.POST['password1'])
+            if request.FILES:
+                us.profile.avatar = request.FILES['file[0]']
+            else:
+                us.profile.avatar = 'user_images/default/avatar_placeholder.svg'
+            us.save()
+
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password1']
-        email = request.POST['email']
-        user = User.objects.create_user(username, email, password)
-        user.profile.phone_number = request.POST['phone_number']
-        user.profile.city = request.POST['city']
-        if request.POST['vk']:
-            user.profile.vk = "https://vk.com/" + request.POST['vk']
-        if request.POST['fb']:
-            user.profile.fb = "https://www.facebook.com/" + request.POST['fb']
-        user.first_name = request.POST['first_name']
-        user.last_name = request.POST['last_name']
-        if request.FILES:
-            user.profile.avatar = request.FILES['file']
+        if User.objects.filter(username=request.POST['username']).exists():
+            user = User.objects.get(username=request.POST['username'])
+            user.profile.phone_number = request.POST['phone_number']
+            user.profile.city = request.POST['city']
+            if request.POST['vk']:
+                user.profile.vk = "https://vk.com/" + request.POST['vk']
+            if request.POST['fb']:
+                user.profile.fb = "https://www.facebook.com/" + request.POST['fb']
+            user.first_name = request.POST['first_name']
+            user.last_name = request.POST['last_name']
+            user.save()
         else:
-            user.profile.avatar = 'user_images/default/avatar_placeholder.svg'
-        user.save()
-        us = authenticate(request, username=username, password=password)
-        if us is not None:
-            login(request, us)
-            return redirect('/')
+            user = User.objects.create_user(username=request.POST['username'], email=request.POST['email'],
+                                            password=request.POST['password1'])
+            user.profile.phone_number = request.POST['phone_number']
+            user.profile.city = request.POST['city']
+            if request.POST['vk']:
+                user.profile.vk = "https://vk.com/" + request.POST['vk']
+            if request.POST['fb']:
+                user.profile.fb = "https://www.facebook.com/" + request.POST['fb']
+            user.first_name = request.POST['first_name']
+            user.last_name = request.POST['last_name']
+            user.save()
+        user = authenticate(request, username=request.POST['username'], password=request.POST['password1'])
+        if user is not None:
+            login(request, user)
+            print("======================================================\n1\n")
+            return HttpResponseRedirect('/')
         else:
-            return render(request, 'signup.html', context)
+            print("======================================================\n2\n")
+            return HttpResponseRedirect('/')
     else:
-        return render(request, 'signup.html', context)
+        print("======================================================\n3\n")
+        return HttpResponseRedirect('/')
 
 
 def signIn_submit(request):

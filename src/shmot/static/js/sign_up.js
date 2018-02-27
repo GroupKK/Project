@@ -1,7 +1,7 @@
 Dropzone.options.dropzone = { // The camelized version of the ID of the form element
 
   autoProcessQueue: false,
-  uploadMultiple: false,
+  uploadMultiple: true,
   parallelUploads: 100,
   maxFiles: 1,
 
@@ -19,11 +19,11 @@ Dropzone.options.dropzone = { // The camelized version of the ID of the form ele
 
     // Listen to the sendingmultiple event. In this case, it's the sendingmultiple event instead
     // of the sending event because uploadMultiple is set to true.
-    this.on("sending", function() {
+    this.on("sendingMultiple", function() {
       // Gets triggered when the form is actually being sent.
       // Hide the success button or the complete form.
     });
-    this.on("success", function(files, response) {
+    this.on("successMultiple", function(files, response) {
       // Gets triggered when the files have successfully been sent.
       // Redirect user or notify of success.
       window.location = "/";
@@ -31,10 +31,10 @@ Dropzone.options.dropzone = { // The camelized version of the ID of the form ele
     this.on("error", function(files, response) {
       // Gets triggered when there was an error sending the files.
       // Maybe show form again, and notify user of error
-        alert('Error')
+        alert(response)
     });
   }
- 
+
 }
 
 
@@ -63,8 +63,8 @@ $(document).ready(function () {
             }
         })
     });
-    
-    
+
+
     $('.dz-message span').text('Добавить аватар');
     //add current avatar (when user edits his profile)
     if (document.getElementById('current_avatar_url'))
@@ -105,6 +105,7 @@ $(document).ready(function () {
             return false;
         }
     })
+
 });
 
 function addTemplate(s) {
