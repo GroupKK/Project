@@ -11,8 +11,8 @@ class Profile(models.Model):
         now = datetime.datetime.now()
         # file will be uploaded to MEDIA_ROOT/ad_images/user_<id>/<year>/<month>/<day>/image_<hour>_<minute>_<second>
         return 'user_images/user_{0}/{1}/{2}/{3}/image_{4}_{5}_{6}'.format(instance.user.id, now.year, now.month,
-                                                                               now.day, now.hour, now.minute,
-                                                                               now.second)
+                                                                           now.day, now.hour, now.minute,
+                                                                           now.second)
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=25, default=000000000)
@@ -21,7 +21,7 @@ class Profile(models.Model):
     fb = models.CharField(max_length=100, null=True)
     number_of_posts = models.IntegerField(blank=False, default=0)  # active + inactive
     sold = models.IntegerField(default=0)
-    following_people = models.ManyToManyField('Profile', related_name='folloing_people', blank=True)
+    following_people = models.ManyToManyField('Profile', related_name='followed_by')
     # rating
     avatar = models.ImageField(upload_to=user_directory_path, default='/static/images/avatar_placeholder.svg')
 

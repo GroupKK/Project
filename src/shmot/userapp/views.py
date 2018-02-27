@@ -1,5 +1,6 @@
 # from .forms import CustomUserCreationForm
 from advapp.models import Advert
+from userapp.models import Profile
 from django.contrib.auth import login, authenticate
 from django.contrib.auth import logout as django_logout
 from django.contrib.auth.models import User
@@ -28,10 +29,19 @@ def profile(request, username):
         context['advapp_advert'] = ads.filter(sold=False).order_by('-creation_date')
         context['advapp_advert_1'] = ads.filter(sold=True).order_by('-creation_date')
 
-    if not us.profile.following_people:
+    print("I:", request.user.first_name, request.user.id, request.user.profile.id)
+    print('Him:', us.first_name, us.id, us.profile.id)
+
+    print('I:', request.user.profile.following_people.all())
+    print('Him:', us.profile.following_people.all())
+
+    print('I:', request.user.profile.followed_by.all())
+    print('Him:', us.profile.followed_by.all())
+
+    if not us.profile.followed_by:
         context['followers'] = 0
     else:
-        context['followers'] = us.profile.following_people.count()
+        context['followers'] = us.profile.followed_by.all().count()
 
     return render(request, 'profile.html', context)
 
@@ -52,7 +62,7 @@ def signUp_submit(request):
         user.first_name = request.POST['first_name']
         user.last_name = request.POST['last_name']
         if request.FILES:
-            user.profile.avatar = request.FILES['file[0]']
+            user.profile.avatar = request.FILES['file']
         else:
             user.profile.avatar = 'user_images/default/avatar_placeholder.svg'
         user.save()
