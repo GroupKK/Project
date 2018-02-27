@@ -10,10 +10,30 @@ def redirect_to_home(request):
 
 @require_safe
 def index(request):
-    context = {'advapp_advert': Advert.objects.filter(active_ad='True').filter(sold='False').order_by('-number_of_likes'),
-               'on_sale': Advert.objects.filter(active_ad='True').count(),
+    context = {'on_sale': Advert.objects.filter(active_ad='True').count(),
                'sold': Advert.objects.filter(sold='True').count(),
                'user_count': User.objects.filter(is_active='True').count()}
+
+    return_list = []
+
+    for ad in Advert.objects.filter(active_ad='True').filter(sold='False').order_by('-number_of_likes'):
+        try:
+            if ad.favourited_by.get(username=request.user.username):
+                try:
+                    if ad.liked_by.get(username=request.user.username):
+                        return_list.append((ad, True, True))
+                except:
+                    return_list.append((ad, True, False))
+        except:
+            try:
+                if ad.liked_by.get(username=request.user.username):
+                    return_list.append((ad, False, True))
+            except:
+                return_list.append((ad, False, False))
+
+
+    context['advapp_advert'] = return_list
+
     if request.user.is_authenticated:
         print('User authenticated')
         print('Username: ', request.user.username)

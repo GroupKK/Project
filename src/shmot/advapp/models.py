@@ -36,4 +36,3 @@ class Advert(models.Model):
     image2 = models.ImageField(upload_to=user_directory_path, blank=True)
     image3 = models.ImageField(upload_to=user_directory_path, blank=True)
     image4 = models.ImageField(upload_to=user_directory_path, blank=True)
-
