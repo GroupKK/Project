@@ -45,4 +45,23 @@ def ad_page(request, advert_id):
     else:
         context['likes'] = ads.annotate(likes=Sum('number_of_likes')).first().likes
 
+    return_list = []
+
+    for ad in Advert.objects.filter(active_ad='True').filter(sold='False').order_by('-number_of_likes'):
+        try:
+            if ad.favourited_by.get(username=request.user.username):
+                try:
+                    if ad.liked_by.get(username=request.user.username):
+                        return_list.append((ad, True, True))
+                except:
+                    return_list.append((ad, True, False))
+        except:
+            try:
+                if ad.liked_by.get(username=request.user.username):
+                    return_list.append((ad, False, True))
+            except:
+                return_list.append((ad, False, False))
+
+    context['advapp_advert'] = return_list
+
     return render(request, 'ad_page.html', context)
