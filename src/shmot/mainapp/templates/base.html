@@ -376,9 +376,15 @@
 
     <div class="push"></div>
 </div>
+{% if user.is_authenticated %}
 <div class="add_button" data-balloon-pos="left" data-balloon="Подать объявление">
     <a href="post/new_post/"><i class="fa fa-plus" aria-hidden="true"></i></a>
 </div>
+{% else %}
+<div class="add_button" data-balloon-pos="left" data-balloon="Подать объявление">
+    <a href="#sign_in_popup"><i class="fa fa-plus" aria-hidden="true"></i></a>
+</div>
+{% endif %}
 <div class="footer span">
     <div class="centered" style="height: 100%">
         <div style="position: relative; float: left; padding: 48px; height: 100%">

@@ -30,15 +30,6 @@ def profile(request, username):
         context['advapp_advert'] = ads.filter(sold=False).order_by('-creation_date')
         context['advapp_advert_1'] = ads.filter(sold=True).order_by('-creation_date')
 
-    print("I:", request.user.first_name, request.user.id, request.user.profile.id)
-    print('Him:', us.first_name, us.id, us.profile.id)
-
-    print('I:', request.user.profile.following_people.all())
-    print('Him:', us.profile.following_people.all())
-
-    print('I:', request.user.profile.followed_by.all())
-    print('Him:', us.profile.followed_by.all())
-
     if not us.profile.followed_by:
         context['followers'] = 0
     else:

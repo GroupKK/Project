@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db.models import Sum
 from django.http import Http404
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 from .models import Advert
@@ -69,4 +70,7 @@ def ad_page(request, advert_id):
 
 def new_ad(request):
     context = {}
-    return render(request, 'new_ad.html', context)
+    if request.user.is_authenticated:
+        return render(request, 'new_ad.html', context)
+    else:
+        return HttpResponseRedirect('/')
