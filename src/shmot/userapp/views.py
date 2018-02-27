@@ -4,6 +4,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth import logout as django_logout
 from django.contrib.auth.models import User
 from django.db.models import Sum
+from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
@@ -46,49 +47,42 @@ def profile(request, username):
     return render(request, 'profile.html', context)
 
 
-def signUp_submit(request):
+def upload_avatar(request):
     context = {}
+    print("HELLO1")
     if request.is_ajax():
+        print("HELLO2")
         if User.objects.filter(username=request.POST['username']).exists():
+            print("HELLO3")
             us = User.objects.get(username=request.POST['username'])
             if request.FILES:
                 us.profile.avatar = request.FILES['file[0]']
             else:
                 us.profile.avatar = 'user_images/default/avatar_placeholder.svg'
             us.save()
+            return HttpResponse('ok', content_type='text/html')
         else:
-            us = User.objects.create_user(username=request.POST['username'], email=request.POST['email'],
-                                          password=request.POST['password1'])
-            if request.FILES:
-                us.profile.avatar = request.FILES['file[0]']
-            else:
-                us.profile.avatar = 'user_images/default/avatar_placeholder.svg'
-            us.save()
+            print("HELLO4")
+            return HttpResponse('not_ok', content_type='text/html')
+    else:
+        print("HELLO5")
+        return HttpResponse('not_ok', content_type='text/html')
 
+
+def signUp_submit(request):
+    context = {}
     if request.method == 'POST':
-        if User.objects.filter(username=request.POST['username']).exists():
-            user = User.objects.get(username=request.POST['username'])
-            user.profile.phone_number = request.POST['phone_number']
-            user.profile.city = request.POST['city']
-            if request.POST['vk']:
-                user.profile.vk = "https://vk.com/" + request.POST['vk']
-            if request.POST['fb']:
-                user.profile.fb = "https://www.facebook.com/" + request.POST['fb']
-            user.first_name = request.POST['first_name']
-            user.last_name = request.POST['last_name']
-            user.save()
-        else:
-            user = User.objects.create_user(username=request.POST['username'], email=request.POST['email'],
-                                            password=request.POST['password1'])
-            user.profile.phone_number = request.POST['phone_number']
-            user.profile.city = request.POST['city']
-            if request.POST['vk']:
-                user.profile.vk = "https://vk.com/" + request.POST['vk']
-            if request.POST['fb']:
-                user.profile.fb = "https://www.facebook.com/" + request.POST['fb']
-            user.first_name = request.POST['first_name']
-            user.last_name = request.POST['last_name']
-            user.save()
+        user = User.objects.create_user(username=request.POST['username'], email=request.POST['email'],
+                                        password=request.POST['password1'])
+        user.profile.phone_number = request.POST['phone_number']
+        user.profile.city = request.POST['city']
+        if request.POST['vk']:
+            user.profile.vk = "https://vk.com/" + request.POST['vk']
+        if request.POST['fb']:
+            user.profile.fb = "https://www.facebook.com/" + request.POST['fb']
+        user.first_name = request.POST['first_name']
+        user.last_name = request.POST['last_name']
+        user.save()
         user = authenticate(request, username=request.POST['username'], password=request.POST['password1'])
         if user is not None:
             login(request, user)

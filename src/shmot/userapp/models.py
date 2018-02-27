@@ -23,7 +23,7 @@ class Profile(models.Model):
     sold = models.IntegerField(default=0)
     following_people = models.ManyToManyField('Profile', related_name='followed_by')
     # rating
-    avatar = models.ImageField(upload_to=user_directory_path, default='/static/images/avatar_placeholder.svg')
+    avatar = models.ImageField(upload_to=user_directory_path, default='/user_images/default/avatar_placeholder.svg')
 
 
 @receiver(post_save, sender=User)
