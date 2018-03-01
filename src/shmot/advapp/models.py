@@ -11,7 +11,7 @@ class Advert(models.Model):
     def user_directory_path(instance, filename):
         now = datetime.datetime.now()
         # file will be uploaded to MEDIA_ROOT/ad_images/user_<id>/<year>/<month>/<day>/image_<hour>_<minute>_<second>
-        return 'advert_images/user_{0}/{1}/{2}/{3}/image_{4}_{5}_{6}'.format(instance.user.id, now.year, now.month,
+        return 'post_images/user_{0}/{1}/{2}/{3}/image_{4}_{5}_{6}'.format(instance.user.id, now.year, now.month,
                                                                              now.day, now.hour, now.minute, now.second)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)

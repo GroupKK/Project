@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.db.models import Sum
-from django.http import Http404, HttpResponse
+from django.http import Http404
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
@@ -9,6 +9,7 @@ from .models import Advert
 
 def post_upload(request):
     context = {}
+    print(request)
     if not request.user.is_authenticated:
         return HttpResponseRedirect('/')  # TODO: throw an error
     if request.method == "POST":
@@ -31,7 +32,10 @@ def post_upload(request):
         else:
             ad.color = request.POST['color']
         print(ad.color)
-        ad.brand_name = request.POST['brand']
+        if request.POST['brand'] == 'Не выбрано':
+            ad.brand_name = None
+        else:
+            ad.brand_name = request.POST['brand']
         print(ad.brand_name)
         ad.title = request.POST['title']
         print(ad.title)
@@ -39,13 +43,23 @@ def post_upload(request):
         print(ad.price)
         ad.city = request.POST['city']
         print(ad.city)
-        ad.forwarding = request.POST['sending']
+        if request.POST['sending'] == 'Без пересылки':
+            ad.forwarding = False
+        else:
+            ad.forwarding = True
         print(ad.forwarding)
         ad.description = request.POST['description']
         print(ad.description)
-        ad.image1 = request.FILES['photos']
+        ad.image1 = request.FILES['photos']  # TODO: only last photo is in list
+        ad.image2 = request.FILES['photos']
+        ad.image3 = request.FILES['photos']
+        ad.image4 = request.FILES['photos']
         print(ad.image1)
-        return HttpResponse('ok', content_type='text/html')
+        print(ad.image2)
+        print(ad.image3)
+        print(ad.image4)
+        ad.save()
+        return HttpResponseRedirect('/')  # TODO: show that everything is ok
 
 
 def ad_page(request, advert_id):
