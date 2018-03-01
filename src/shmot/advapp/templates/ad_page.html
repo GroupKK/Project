@@ -542,7 +542,11 @@
 
                             {% for ad, favourited, liked in advapp_advert|slice:":30" %}
                                 <div class="item">
-                                <div class="add_item">
+                                    {% if ad.sold %}
+                                    <div class="add_item ceiling sold">
+                                        {% else %}
+                                        <div class="add_item ceiling">
+                                            {% endif %}
                                 <a href="../{{ ad.id }}" class="add_id" id="{{ ad.id }}"><span class="item_span"></span></a>
                                     {% if ad.sold %}
                                     <div class="sold_marker">Продано</div>

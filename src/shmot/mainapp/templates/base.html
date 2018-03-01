@@ -95,7 +95,11 @@
                 <div class="owl-carousel" id="items">
                     {% for ad, favourited, liked in advapp_advert|slice:":30" %}
                         <div class="item">
-                        <div class="add_item ceiling">
+                            {% if ad.sold %}
+                            <div class="add_item ceiling sold">
+                            {% else %}
+                            <div class="add_item ceiling">
+                            {% endif %}
                         <a href="post/{{ ad.id }}" id="{{ ad.id }}" class="add_id"><span class="item_span"></span></a>
                             {% if ad.sold %}
                             <div class="sold_marker">Продано</div>
