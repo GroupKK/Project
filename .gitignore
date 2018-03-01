@@ -116,5 +116,6 @@ settings.py
 myvenv/
 sent_emails/
 __pycache__/
-media/ad_images/
-media/user_images/user_*/
+media/
+!media/user_images/default/
+
