@@ -422,7 +422,7 @@
                         {% endif %}
                     </div>
                 </div>
-                <div class="ads">
+                <div class="ads adds_list">
                     <div class="center">
                         <div class="title active" id="relevant" onclick="relevantClick()">На продаже</div>
                         <div class="title" id="sold" onclick="soldClick()">Проданные</div>
@@ -435,99 +435,109 @@
                         {% endif %}
                     </div>
                     <div id="relevant_items">
-                        <div class="center">
-                            {% for ad in advapp_advert %}
-                                <div class="add_item">
-                                    <a href="../../post/{{ ad.id }}"><span class="item_span"></span></a>
+                        {% for ad in advapp_advert %}
+                        {% if ad.sold %}
+                        <div class="add_item ceiling sold">
+                            {% else %}
+                            <div class="add_item ceiling">
+                                {% endif %}
+                                <a href="post/{{ ad.id }}" id="{{ ad.id }}" class="add_id"><span class="item_span"></span></a>
+                                {% if ad.sold %}
+                                <div class="sold_marker">Продано</div>
+                                {% endif%}
+                                {% if liked %}
+                                <div class="likes liked">
+                                    {% else %}
                                     <div class="likes">
+                                        {% endif %}
                                         <i class="fa fa-heart-o" aria-hidden="true"></i>
                                         <i class="fa fa-heart" aria-hidden="true"></i>
-                                        <a>{{ ad.numer_of_likes }}</a>
+                                        <a>{{ ad.number_of_likes }}</a>
                                     </div>
-                                    <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                                    {% if favourited %}
+                                    <div class="fav starred" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                                        {% else %}
+                                        <div class="fav " data-balloon="Добавить в избранное" data-balloon-pos="top">
+                                            {% endif %}
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        </div>
+
+                                        <div class="overlay item_top_border">
+                                            <div class="center">
+                                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                <a>{{ ad.city }}</a>
+                                            </div>
+                                            {% if ad.forwarding %}
+                                            <div class="center">
+                                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                                <a>Пересылка</a>
+                                            </div>
+                                            {% endif %}
+                                            <div class="size">{{ ad.size }}</div>
+                                        </div>
+                                        <img class="item_image cropping item_top_border" src={{ ad.image1.url }}>
+                                        <div class="item_bottom">
+                                            <div class="item_description">{{ ad.title }}</div>
+                                            <div class="item_price">{{ ad.price }}</div>
+                                            <div class="item_brand">{{ ad.brand_name }}</div>
+                                        </div>
+                                    </div>
+                    {% empty %}
+                    <div class="title empty">Здесь пока пусто!</div>
+                    {% endfor %}
+                    </div>
+                <div id="sold_items" class="hidden">
+                    {% for ad in advapp_advert_1 %}
+                    {% if ad.sold %}
+                    <div class="add_item ceiling sold">
+                        {% else %}
+                        <div class="add_item ceiling">
+                            {% endif %}
+                            <a href="post/{{ ad.id }}" id="{{ ad.id }}" class="add_id"><span class="item_span"></span></a>
+                            {% if ad.sold %}
+                            <div class="sold_marker">Продано</div>
+                            {% endif%}
+                            {% if liked %}
+                            <div class="likes liked">
+                                {% else %}
+                                <div class="likes">
+                                    {% endif %}
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                    <a>{{ ad.number_of_likes }}</a>
+                                </div>
+                                {% if favourited %}
+                                <div class="fav starred" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                                    {% else %}
+                                    <div class="fav " data-balloon="Добавить в избранное" data-balloon-pos="top">
+                                        {% endif %}
                                         <i class="fa fa-star-o" aria-hidden="true"></i>
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                     </div>
 
                                     <div class="overlay item_top_border">
-                                        <div class="center" style="margin: 10px 0 0 10px">
-                                            <div style="width: 15px; margin-right: 5px">
-                                                <i class="fa fa-map-marker" aria-hidden="true"
-                                                   style="font-size: 22px"></i>
-                                            </div>
+                                        <div class="center">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
                                             <a>{{ ad.city }}</a>
                                         </div>
-                                        <div class="center" style="margin: 5px 0 0 10px">
-                                            <div style="width: 15px; margin-right: 5px">
-                                                <i class="fa fa-paper-plane" aria-hidden="true"
-                                                   style="font-size: 14px"></i>
-                                            </div>
+                                        {% if ad.forwarding %}
+                                        <div class="center">
+                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
                                             <a>Пересылка</a>
                                         </div>
-                                        <div style="font-size: 22px; position: absolute; right: 0; top: 0; margin: 10px 12px 0 0">
-                                            S
-                                        </div>
+                                        {% endif %}
+                                        <div class="size">{{ ad.size }}</div>
                                     </div>
-                                    <img class="item_image cropping item_top_border" src="{{ ad.image1.url }}">
+                                    <img class="item_image cropping item_top_border" src={{ ad.image1.url }}>
                                     <div class="item_bottom">
                                         <div class="item_description">{{ ad.title }}</div>
                                         <div class="item_price">{{ ad.price }}</div>
                                         <div class="item_brand">{{ ad.brand_name }}</div>
                                     </div>
                                 </div>
-                                </div>
-                                {% empty %}
-                                <div class="title empty">Здесь пока пусто!</div>
-                                </div>
-                            {% endfor %}
-                </div>
-                <div id="sold_items" class="hidden">
-                    <div class="center">
-                        {% for ad in advapp_advert_1 %}
-                            <div class="add_item">
-                                <a href=""><span class="item_span"></span></a>
-                                {% if liked %}
-                                    <div class="likes liked">
-                                {% else %}
-                                    <div class="likes">
-                                {% endif %}
-                                <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                <a>{{ ad.number_of_likes }}</a>
-                                </div>
-                                <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
-                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                </div>
-
-                                <div class="overlay item_top_border">
-                                    <div class="center" style="margin: 10px 0 0 10px">
-                                        <div style="width: 15px; margin-right: 5px">
-                                            <i class="fa fa-map-marker" aria-hidden="true" style="font-size: 22px"></i>
-                                        </div>
-                                        <a>{{ ad.city }}</a>
-                                    </div>
-                                    <div class="center" style="margin: 5px 0 0 10px">
-                                        <div style="width: 15px; margin-right: 5px">
-                                            <i class="fa fa-paper-plane" aria-hidden="true" style="font-size: 14px"></i>
-                                        </div>
-                                        <a>Пересылка</a>
-                                    </div>
-                                    <div style="font-size: 22px; position: absolute; right: 0; top: 0; margin: 10px 12px 0 0">
-                                        S
-                                    </div>
-                                </div>
-                                <img class="item_image cropping item_top_border" src="{{ ad.image1.url }}">
-                                <div class="item_bottom">
-                                    <div class="item_description">{{ ad.title }}</div>
-                                    <div class="item_price">{{ ad.price }}</div>
-                                    <div class="item_brand">{{ ad.brand_name }}</div>
-                                </div>
-                                </div>
-                            </div>
                             {% empty %}
                             <div class="title empty">Здесь пока пусто!</div>
-                            </div>
                         {% endfor %}
                 </div>
             </div>

@@ -844,6 +844,10 @@ header .search .clear_btn {
 	display: none;
 }
 
+.adds_list .add_item {
+	display: inline-block;
+}
+
 [data-balloon]:hover:after, [data-balloon]:hover:before, [data-balloon][data-balloon-visible]:after, [data-balloon][data-balloon-visible]:before {
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 	filter: alpha(opacity=100);
