@@ -97,7 +97,10 @@
                         <div class="item">
                         <div class="add_item ceiling">
                         <a href="post/{{ ad.id }}" id="{{ ad.id }}" class="add_id"><span class="item_span"></span></a>
-                        {% if liked %}
+                            {% if ad.sold %}
+                            <div class="sold_marker">Продано</div>
+                            {% endif%}
+                            {% if liked %}
                             <div class="likes liked">
                         {% else %}
                             <div class="likes">
