@@ -16,7 +16,7 @@ def index(request):
 
     return_list = []
 
-    for ad in Advert.objects.filter(active_ad='True').filter(sold='False').order_by('-number_of_likes'):
+    for ad in Advert.objects.filter(active_ad='True').filter(sold='False').order_by('-number_of_likes').order_by('-price'):
         try:
             if ad.favourited_by.get(username=request.user.username):
                 try:

@@ -486,10 +486,14 @@
                         {% for ad in advapp_advert_1 %}
                             <div class="add_item">
                                 <a href=""><span class="item_span"></span></a>
-                                <div class="likes">
-                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    <i class="fa fa-heart" aria-hidden="true"></i>
-                                    <a>{{ ad.number_of_likes }}</a>
+                                {% if liked %}
+                                    <div class="likes liked">
+                                {% else %}
+                                    <div class="likes">
+                                {% endif %}
+                                <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                <a>{{ ad.number_of_likes }}</a>
                                 </div>
                                 <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
                                     <i class="fa fa-star-o" aria-hidden="true"></i>
@@ -519,16 +523,16 @@
                                     <div class="item_price">{{ ad.price }}</div>
                                     <div class="item_brand">{{ ad.brand_name }}</div>
                                 </div>
-                            </div>
+                                </div>
                             </div>
                             {% empty %}
                             <div class="title empty">Здесь пока пусто!</div>
                             </div>
                         {% endfor %}
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 
 <!-- form itself -->
