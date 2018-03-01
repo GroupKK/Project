@@ -1,0 +1,88 @@
+.section>.centered {
+    padding: 32px 0% 32px 0;
+}
+
+.centered>.center {
+    width: fit-content;
+}
+
+.overlay {
+    padding-top: 20%;
+    z-index: 4;
+}
+
+.overlay a {
+    color: white;
+}
+
+.overlay p {
+    margin: 0;
+}
+
+.overlay>.center {
+    width: 130px;
+    margin: 0 auto 8px !important;
+}
+
+.overlay .center>*:first-child{
+    padding-right: 10px;
+}
+
+#relevant_items, #sold_items {
+    padding-left: 5%;
+}
+
+.add_item {
+    margin: 0 9px 16px 9px;
+}
+
+#confirm_popup {
+    max-width: 400px;
+    padding-bottom: 16px;
+}
+
+#confirm_popup .title {
+    text-align: center;
+    padding-top: 16px;
+}
+
+#confirm_popup p {
+    font-weight: lighter;
+    font-size: 16px;
+}
+
+#confirm_popup img {
+    height: 20px;
+}
+
+#confirm_popup button {
+    height: 54px;
+    width: 100px;
+    margin: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .add_item {
+        margin: 0 6px 16px 6px; !important;
+    }
+}
+.deleted:hover .overlay {
+    display: none;
+}
+
+.deleted:hover [data-balloon]:after, .deleted:hover [data-balloon]:before {
+    display: none;
+}
+
+.deleted>* {
+    opacity: 0.5;
+}
+
+.deleted>*:first-child, .deleted>*:nth-child(2) {
+    opacity: 1;
+}
+
+.deleted>a>span{
+    z-index: 10;
+    cursor: default;
+}
