@@ -48,7 +48,12 @@
     <meta name="msapplication-TileImage" content="icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 </head>
-<body class="signed_in">
+{% if user.is_authenticated %}
+<body class="signed_in" id="{{ user.username }}"><body>
+{% else %}
+<body>
+<button class="hidden" id="hidden_sign_in_popup" href="#sign_in_popup"></button>
+{% endif %}
 <!--[if lt IE 9]>
 	<script src="/static/libs/html5shiv/es5-shim.min.js"></script>
 	<script src="/static/libs/html5shiv/html5shiv.min.js"></script>
@@ -90,8 +95,8 @@
                 <div class="owl-carousel" id="items">
                     {% for ad, favourited, liked in advapp_advert|slice:":30" %}
                         <div class="item">
-                        <div class="add_item">
-                        <a href="post/{{ ad.id }}"><span class="item_span"></span></a>
+                        <div class="add_item ceiling">
+                        <a href="post/{{ ad.id }}" id="{{ ad.id }}" class="add_id"><span class="item_span"></span></a>
                         {% if liked %}
                             <div class="likes liked">
                         {% else %}

@@ -17,14 +17,27 @@ $(document).ready(function() {
         // }
     });
     pulse($('.add_button'));
+
+    var last_sub;
     //handle subscribe
     $('.subscribe_btn').on('click', function () {
-        if ($(this).hasClass('subscribed'))
-        { //unsubscribe
-            $(this).text('Подписаться').removeClass('subscribed');
+        if ($('body').hasClass('signed_in')) {
+            toggleSub($(this));
+            last_sub = $(this);
+            $.ajax({
+                type: "POST",
+                url: 'subscribe/' + $('body').attr('id') + '/' + $('.profile').first().attr('id') + '/',
+                success: function(data)
+                {
+                },
+                error: function ()
+                {
+                    // toggleSub(last_sub);
+                }
+            });
         }
-        else { //subscribe
-            $(this).text('Вы подписаны').addClass('subscribed');
+        else {
+            $('#hidden_sign_in_popup').click();
         }
     });
     $('.subscribe_btn').hover(function () {
@@ -39,25 +52,49 @@ $(document).ready(function() {
         }
     });
     //handle likes
+    var last_liked;
     $('.likes').on('click', function () {
-        if ($(this).hasClass('liked')) { //dislike
-            $(this).removeClass('liked');
-            $(this).children('a').text(parseInt($(this).children('a').text())-1);
+        if ($('body').hasClass('signed_in')) {
+            toggleLikes($(this));
+            last_liked = $(this);
+            $.ajax({
+                type: "POST",
+                url: 'like_post/' + $('body').attr('id') + '/' + $(this).parent('.ceiling').children('.add_id').first().attr('id') + '/',
+                success: function(data)
+                {
+                },
+                error: function ()
+                {
+                    // toggleLikes(last_liked);
+                }
+            });
         }
-        else { //like
-            $(this).addClass('liked');
-            $(this).children('a').text(parseInt($(this).children('a').text())+1);
+        else {
+            $('#hidden_sign_in_popup').click();
         }
     });
+    var last_fav;
     //handle adding to favourites
     $('.fav').on('click', function () {
-        if ($(this).hasClass('starred')) { //remove from favourites
-            $(this).removeClass('starred');
-            $(this).attr('data-balloon','Добавить в избранное');
+        if ($('body').hasClass('signed_in'))
+        {
+            toggleFav($(this));
+            last_fav = $(this);
+            $.ajax({
+                type: "POST",
+                url: 'add_to_fav/' + $('body').attr('id') + '/' + $(this).parent('.ceiling').children('.add_id').first().attr('id') + '/',
+                success: function(data)
+                {
+                },
+                error: function ()
+                {
+                    // toggleFav(last_fav);
+                }
+            });
         }
-        else { //add to favourites
-            $(this).addClass('starred');
-            $(this).attr('data-balloon','Удалить из избранного');
+        else
+        {
+            $('#hidden_sign_in_popup').click();
         }
     });
     //load brands
@@ -127,6 +164,38 @@ $(document).ready(function() {
     });
 });
 
+function toggleLikes(element) {
+    if (element.hasClass('liked')) { //dislike
+        element.removeClass('liked');
+        element.children('a').text(parseInt(element.children('a').text())-1);
+    }
+    else { //like
+        element.addClass('liked');
+        element.children('a').text(parseInt(element.children('a').text())+1);
+    }
+}
+
+function toggleFav(element) {
+    if (element.hasClass('starred')) { //remove from favourites
+        element.removeClass('starred');
+        element.attr('data-balloon','Добавить в избранное');
+    }
+    else { //add to favourites
+        element.addClass('starred');
+        element.attr('data-balloon','Удалить из избранного');
+    }
+}
+
+function toggleSub(element) {
+    if (element.hasClass('subscribed'))
+    { //unsubscribe
+        element.text('Подписаться').removeClass('subscribed');
+    }
+    else { //subscribe
+        element.text('Вы подписаны').addClass('subscribed');
+    }
+}
+
 function check_sign_in() {
     var flag = true;
     $('#sign_in_form input').each(function () {
@@ -170,34 +239,3 @@ function copyToClipboard(element) {
     document.execCommand("copy");
     $temp.remove();
 }
-
-
-// function likeItem(likes) {
-//     var number = likes.getElementsByTagName('a')[0];
-//     // number.innerHTML = number.innerHTML++;
-//     var unliked = likes.getElementsByTagName('i')[0];
-//     var liked = likes.getElementsByTagName('i')[1];
-//     if (unliked.style.display == "none") { //unlike
-//         unliked.style.display = "inline";
-//         liked.style.display = "none";
-//         var num = parseInt(number.text);
-//         number.text = num-1;
-//     } else { //like
-//         liked.style.display = "inline";
-//         unliked.style.display = "none";
-//         var num = parseInt(number.text);
-//         number.text = num+1;
-//     }
-// }
-
-// function favItem(fav) {
-//     var unstarred = fav.getElementsByTagName('i')[0];
-//     var starred = fav.getElementsByTagName('i')[1];
-//     if (unstarred.style.display == "none") { //remove from favorites
-//         unstarred.style.display = "inline";
-//         starred.style.display = "none";
-//     } else { //add to favorites
-//         starred.style.display = "inline";
-//         unstarred.style.display = "none";
-//     }
-// }
