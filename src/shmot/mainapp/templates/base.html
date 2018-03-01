@@ -266,9 +266,9 @@
                     </div>
                     <div style="margin-bottom: 48px; font-size: 24px">Продайте ее.</div>
                     {% if not user.is_authenticated %}
-                    <button class="contrast_btn ad_btn" href="#sign_in_popup">Подать объявление</button>
+                        <button class="contrast_btn ad_btn" href="#sign_in_popup">Подать объявление</button>
                     {% else %}
-                    <a class="contrast_btn ad_btn" href="post/new_post/">Подать объявление</a>
+                        <a class="contrast_btn ad_btn" href="post/new_post/">Подать объявление</a>
                     {% endif %}
                 </div>
                 <div style="position:relative; z-index: 0">
@@ -381,13 +381,13 @@
     <div class="push"></div>
 </div>
 {% if user.is_authenticated %}
-<div class="add_button" data-balloon-pos="left" data-balloon="Подать объявление">
-    <a href="post/new_post/"><i class="fa fa-plus" aria-hidden="true"></i></a>
-</div>
+    <div class="add_button" data-balloon-pos="left" data-balloon="Подать объявление">
+        <a href="post/new_post/"><i class="fa fa-plus" aria-hidden="true"></i></a>
+    </div>
 {% else %}
-<div class="add_button" data-balloon-pos="left" data-balloon="Подать объявление">
-    <a href="#sign_in_popup"><i class="fa fa-plus" aria-hidden="true"></i></a>
-</div>
+    <div class="add_button" data-balloon-pos="left" data-balloon="Подать объявление">
+        <a href="#sign_in_popup"><i class="fa fa-plus" aria-hidden="true"></i></a>
+    </div>
 {% endif %}
 <div class="footer span">
     <div class="centered" style="height: 100%">
