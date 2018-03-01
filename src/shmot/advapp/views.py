@@ -1,10 +1,51 @@
 from django.contrib.auth.models import User
 from django.db.models import Sum
-from django.http import Http404
+from django.http import Http404, HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 from .models import Advert
+
+
+def post_upload(request):
+    context = {}
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/')  # TODO: throw an error
+    if request.method == "POST":
+        ad = Advert()
+        ad.user = request.user
+        print(ad.user)
+        ad.sex = request.POST['category']
+        print(ad.sex)
+        ad.category = request.POST['subcategory']
+        print(ad.category)
+        ad.c_type = request.POST['type']
+        print(ad.c_type)
+        if request.POST['size'] == 'Не выбрано':
+            ad.size = None
+        else:
+            ad.size = request.POST['size']
+        print(ad.size)
+        if request.POST['color'] == 'Не выбрано':
+            ad.color = None
+        else:
+            ad.color = request.POST['color']
+        print(ad.color)
+        ad.brand_name = request.POST['brand']
+        print(ad.brand_name)
+        ad.title = request.POST['title']
+        print(ad.title)
+        ad.price = request.POST['price']
+        print(ad.price)
+        ad.city = request.POST['city']
+        print(ad.city)
+        ad.forwarding = request.POST['sending']
+        print(ad.forwarding)
+        ad.description = request.POST['description']
+        print(ad.description)
+        ad.image1 = request.FILES['photos']
+        print(ad.image1)
+        return HttpResponse('ok', content_type='text/html')
 
 
 def ad_page(request, advert_id):

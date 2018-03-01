@@ -39,7 +39,7 @@ def profile(request, username):
 
 
 def upload_avatar(request):
-    return HttpResponse('not_ok', content_type='text/html')
+    return HttpResponse('ok', content_type='text/html')
 
 
 def signUp_submit(request):

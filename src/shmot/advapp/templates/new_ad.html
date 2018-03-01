@@ -343,7 +343,8 @@
          style="margin-top: 32px; margin-bottom: 86px; background-color: white; border-bottom: 1px solid #E0E0E0;	border-top: 1px solid #E0E0E0;">
         <div class="centered">
             <div class="no_fields" id="form_wrap">
-                <form action="/file-upload" class="main_form dropzone" id="dropzone">
+                <form action="post-upload/" class="main_form dropzone" id="dropzone" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <div class="fields">
                         <div class="title" style="text-align: center; padding-top: 32px">Новое объявление</div>
                         <div class="center">
