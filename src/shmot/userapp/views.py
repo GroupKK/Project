@@ -10,6 +10,11 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 
 
+def subscriptions(request, username):
+    context = {}
+    return render(request, 'subscriptions.html', context)
+
+
 def signupPage(request):
     context = {}
     return render(request, 'signup.html', context)

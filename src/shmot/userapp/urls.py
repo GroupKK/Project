@@ -10,4 +10,5 @@ urlpatterns = [
     path('signin_submit/', views.signIn_submit, name='sign_in_submit'),
     path('logout/', views.logout, name='logout'),
     path('<str:username>/', views.profile, name='profile'),
+    path('<str:username>/subscriptions/', views.subscriptions, name='subscriptions'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
