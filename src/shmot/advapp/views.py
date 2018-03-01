@@ -24,6 +24,8 @@ def post_upload(request):
         print(ad.c_type)
         if request.POST['size'] == 'Не выбрано':
             ad.size = None
+        elif not request.POST['size']:
+            ad.size = None
         else:
             ad.size = request.POST['size']
         print(ad.size)
