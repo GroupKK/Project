@@ -51,13 +51,13 @@ def post_upload(request):
         ad.description = request.POST['description']
         print(ad.description)
         ad.image1 = request.FILES['photos']  # TODO: only last photo is in list
-        ad.image2 = request.FILES['photos']
-        ad.image3 = request.FILES['photos']
-        ad.image4 = request.FILES['photos']
+        # ad.image2 = request.FILES['photos']
+        # ad.image3 = request.FILES['photos']
+        # ad.image4 = request.FILES['photos']
         print(ad.image1)
-        print(ad.image2)
-        print(ad.image3)
-        print(ad.image4)
+        # print(ad.image2)
+        # print(ad.image3)
+        # print(ad.image4)
         ad.save()
         return HttpResponseRedirect('/')  # TODO: show that everything is ok
 
