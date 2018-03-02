@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     $('[href=\'#sign_in_popup\']').magnificPopup({
         type: 'inline',
         showCloseBtn: false
@@ -59,6 +60,7 @@ $(document).ready(function() {
             last_liked = $(this);
             $.ajax({
                 type: "POST",
+                //data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
                 url: '/like_post/' + $('body').attr('id') + '/' + $(this).parent('.ceiling').children('.add_id').first().attr('id') + '/',
                 success: function(data)
                 {
