@@ -60,7 +60,7 @@ $(document).ready(function() {
             last_liked = $(this);
             $.ajax({
                 type: "POST",
-                //data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+                data: $('#fake_form').serialize(), // serializes the form's elements
                 url: '/like_post/' + $('body').attr('id') + '/' + $(this).parent('.ceiling').children('.add_id').first().attr('id') + '/',
                 success: function(data)
                 {
