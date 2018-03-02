@@ -51,7 +51,12 @@
     <meta name="msapplication-TileImage" content="icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 </head>
-<body class="signed_in">
+{% if user.is_authenticated %}
+<body class="signed_in" id="{{ user.username }}"><body>
+{% else %}
+<body>
+<button class="hidden" id="hidden_sign_in_popup" href="#sign_in_popup"></button>
+{% endif %}
 <!--[if lt IE 9]>
 <script src="/static/libs/html5shiv/es5-shim.min.js"></script>
 <script src="/static/libs/html5shiv/html5shiv.min.js"></script>

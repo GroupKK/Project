@@ -26,7 +26,7 @@ $(document).ready(function() {
             last_sub = $(this);
             $.ajax({
                 type: "POST",
-                url: 'subscribe/' + $('body').attr('id') + '/' + $('.profile').first().attr('id') + '/',
+                url: '/subscribe/' + $('body').attr('id') + '/' + $('.profile').first().attr('id') + '/',
                 success: function(data)
                 {
                 },
@@ -59,7 +59,7 @@ $(document).ready(function() {
             last_liked = $(this);
             $.ajax({
                 type: "POST",
-                url: 'like_post/' + $('body').attr('id') + '/' + $(this).parent('.ceiling').children('.add_id').first().attr('id') + '/',
+                url: '/like_post/' + $('body').attr('id') + '/' + $(this).parent('.ceiling').children('.add_id').first().attr('id') + '/',
                 success: function(data)
                 {
                 },
@@ -82,7 +82,7 @@ $(document).ready(function() {
             last_fav = $(this);
             $.ajax({
                 type: "POST",
-                url: 'add_to_fav/' + $('body').attr('id') + '/' + $(this).parent('.ceiling').children('.add_id').first().attr('id') + '/',
+                url: '/add_to_fav/' + $('body').attr('id') + '/' + $(this).parent('.ceiling').children('.add_id').first().attr('id') + '/',
                 success: function(data)
                 {
                 },
