@@ -643,6 +643,9 @@
                 <a href="../../post/new_post/"><i class="fa fa-plus" aria-hidden="true"></i></a>
             {% endif %}
         </div>
+        <form id="fake_form" class="hidden">
+            {% csrf_token %}
+        </form>
         <div class="footer span">
             <div class="centered" style="height: 100%">
                 <div style="position: relative; float: left; padding: 48px; height: 100%">
