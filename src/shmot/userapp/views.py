@@ -40,6 +40,12 @@ def profile(request, username):
             else:
                 return_list.append((ad, False))
 
+    if request.user.is_authenticated:
+        if us.profile.followed_by.filter(user=request.user):
+            context['subscribed'] = True
+        else:
+            context['subscribed'] = False
+
         context['advapp_advert'] = return_list
         context['advapp_advert_1'] = ads.filter(sold=True).order_by('-creation_date')
 

@@ -26,5 +26,6 @@ urlpatterns = [
     path('profile/', include('userapp.urls')),
     path('post/', include('advapp.urls')),
     path('like_post/', include('reqapp.urls')),
+    path('subscribe/', include('reqapp.urls')),
     re_path(r'^admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

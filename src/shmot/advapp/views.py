@@ -61,7 +61,7 @@ def ad_page(request, advert_id):
     context['us'] = user
 
     if request.user.is_authenticated:
-        if request.user.profile.following_people.filter(user_id=user.id).exists():
+        if user.profile.followed_by.filter(user=request.user):
             context['subscribed'] = True
         else:
             context['subscribed'] = False

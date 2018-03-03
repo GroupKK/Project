@@ -16,3 +16,14 @@ def like_post(request, username, advert_id):
         ad.number_of_likes += 1
         ad.save()
     return HttpResponse('ok', content_type='text/html')
+
+
+def subscribe(request, username_from, username_to):
+    user_from = User.objects.get(username=username_from)
+    user_to = User.objects.get(username=username_to)
+    if user_to.profile.followed_by.filter(user=user_from):
+        user_to.profile.followed_by.remove(user_from.profile)
+    else:
+        user_to.profile.followed_by.add(user_from.profile)
+    user_to.profile.save()
+    return HttpResponse('ok', content_type='text/html')
