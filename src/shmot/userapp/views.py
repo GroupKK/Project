@@ -32,8 +32,17 @@ def profile(request, username):
         context['total'] = ads.count()
         context['likes'] = ads.annotate(likes=Sum('number_of_likes')).first().likes
         context['sold_num'] = ads.filter(sold=True).count()
-        context['advapp_advert'] = ads.filter(sold=False).order_by('-creation_date')
+        return_list = []
+
+        for ad in ads.filter(sold=False).order_by('-creation_date'):
+            if ad.liked_by.filter(username=request.user.username):
+                return_list.append((ad, True))
+            else:
+                return_list.append((ad, False))
+
+        context['advapp_advert'] = return_list
         context['advapp_advert_1'] = ads.filter(sold=True).order_by('-creation_date')
+
 
     if not us.profile.followed_by:
         context['followers'] = 0

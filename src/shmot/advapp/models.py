@@ -18,7 +18,7 @@ class Advert(models.Model):
     sex = models.CharField(max_length=7)
     category = models.CharField(max_length=30)
     c_type = models.CharField(max_length=30)
-    size = models.CharField(max_length=10, null=True)
+    size = models.CharField(max_length=15, null=True)
     color = models.CharField(max_length=30, null=True)
     brand_name = models.CharField(max_length=50, null=True)
     title = models.CharField(max_length=100)

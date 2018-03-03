@@ -32,9 +32,4 @@ def index(request):
                 return_list.append((ad, False, False))
 
     context['advapp_advert'] = return_list
-
-    if request.user.is_authenticated:
-        print('User authenticated')
-        print('Username: ', request.user.username)
-        print('First name: ', request.user.first_name)
     return render(request, 'index.html', context)

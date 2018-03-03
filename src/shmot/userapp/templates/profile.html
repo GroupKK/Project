@@ -443,7 +443,7 @@
                         {% endif %}
                     </div>
                     <div id="relevant_items">
-                        {% for ad in advapp_advert %}
+                        {% for ad, liked in advapp_advert %}
                         {% if ad.sold %}
                         <div class="add_item ceiling sold">
                             {% else %}
