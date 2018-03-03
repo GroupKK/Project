@@ -45,6 +45,10 @@ def profile(request, username):
             context['subscribed'] = True
         else:
             context['subscribed'] = False
+        if ad.favourited_by.filter(username=request.user.username).exists():
+            context['favourited'] = True
+        else:
+            context['favourited'] = False
 
         context['advapp_advert'] = return_list
         context['advapp_advert_1'] = ads.filter(sold=True).order_by('-creation_date')

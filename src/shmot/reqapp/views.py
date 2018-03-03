@@ -18,6 +18,18 @@ def like_post(request, username, advert_id):
     return HttpResponse('ok', content_type='text/html')
 
 
+def add_fav(request, username, advert_id):
+    ad = Advert.objects.get(pk=advert_id)
+    us = User.objects.get(username=username)
+    if ad.favourited_by.filter(username=username):
+        ad.favourited_by.remove(us)
+        ad.save()
+    else:
+        ad.favourited_by.add(us)
+        ad.save()
+    return HttpResponse('ok', content_type='text/html')
+
+
 def subscribe(request, username_from, username_to):
     user_from = User.objects.get(username=username_from)
     user_to = User.objects.get(username=username_to)
