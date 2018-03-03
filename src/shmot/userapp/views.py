@@ -8,10 +8,14 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
+from userapp.models import Profile
 
 
 def subscriptions(request, username):
     context = {}
+    subsrs = Profile.objects.filter(followed_by__id=request.user.id)
+    print(subsrs)
+    context['subscriptions'] = subsrs
     return render(request, 'subscriptions.html', context)
 
 
@@ -24,6 +28,7 @@ def profile(request, username):
     us = get_object_or_404(User, username=username)
     ads = Advert.objects.filter(user=us).filter(active_ad='True')
     context = {'us': us, }
+
     if not ads:
         context['total'] = 0
         context['sold_num'] = 0
@@ -39,19 +44,19 @@ def profile(request, username):
                 return_list.append((ad, True))
             else:
                 return_list.append((ad, False))
+            if ad.favourited_by.filter(username=request.user.username):
+                context['favourited'] = True
+            else:
+                context['favourited'] = False
+
+        context['advapp_advert'] = return_list
+        context['advapp_advert_1'] = ads.filter(sold=True).order_by('-creation_date')
 
     if request.user.is_authenticated:
         if us.profile.followed_by.filter(user=request.user):
             context['subscribed'] = True
         else:
             context['subscribed'] = False
-        if ad.favourited_by.filter(username=request.user.username).exists():
-            context['favourited'] = True
-        else:
-            context['favourited'] = False
-
-        context['advapp_advert'] = return_list
-        context['advapp_advert_1'] = ads.filter(sold=True).order_by('-creation_date')
 
 
     if not us.profile.followed_by:
