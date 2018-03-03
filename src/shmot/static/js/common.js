@@ -27,6 +27,7 @@ $(document).ready(function() {
             last_sub = $(this);
             $.ajax({
                 type: "POST",
+                data: $('#fake_form').serialize(),
                 url: '/subscribe/' + $('body').attr('id') + '/' + $('.profile').first().attr('id') + '/',
                 success: function(data)
                 {
@@ -84,6 +85,7 @@ $(document).ready(function() {
             last_fav = $(this);
             $.ajax({
                 type: "POST",
+                data: $('#fake_form').serialize(),
                 url: '/add_to_fav/' + $('body').attr('id') + '/' + $(this).parent('.ceiling').children('.add_id').first().attr('id') + '/',
                 success: function(data)
                 {

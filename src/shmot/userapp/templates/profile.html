@@ -347,10 +347,13 @@
                         <div style="margin-left: 18px">
                             <a href="../../profile/{{ us.username }}"
                                class="title">{{ us.first_name }} {{ us.last_name }}</a>
-                            {% if user.is_authenticated %}
-                                {% if us.username != user.username %}
-                                    <button class="sign_in_btn subscribe_btn subscribed">Вы подписаны</button>
-                                {% endif %}
+                            {% if us.username != user.username %}
+                            {% if subscibed %}
+                            <button class="sign_in_btn subscribe_btn subscribed">Вы подписаны
+                            </button>
+                            {% else %}
+                            <button class="sign_in_btn subscribe_btn">Подписаться</button>
+                            {% endif %}
                             {% endif %}
                         </div>
                     </div>
@@ -584,6 +587,9 @@
         <a href="../../post/new_post/"><i class="fa fa-plus" aria-hidden="true"></i></a>
     {% endif %}
 </div>
+                        <form id="fake_form" class="hidden">
+                            {% csrf_token %}
+                        </form>
 <div class="footer span">
     <div class="centered" style="height: 100%">
         <div style="position: relative; float: left; padding: 48px; height: 100%">
