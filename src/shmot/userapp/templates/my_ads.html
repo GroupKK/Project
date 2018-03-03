@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="/static/css/main.css"/>
     <link rel="stylesheet" href="/static/css/media.css"/>
     <link rel="stylesheet" href="/static/css/user_profile.css"/>
-    <link rel="stylesheet" href="/static/css/subscriptions.css"/>
+    <link rel="stylesheet" href="/static/css/my_ads.css"/>
     <!--<link rel="stylesheet" href="/static/css/sign_up.css"/>-->
     <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700&amp;subset=cyrillic" rel="stylesheet">
@@ -51,33 +51,29 @@
     <meta name="msapplication-TileImage" content="icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 </head>
-{% if user.is_authenticated %}
-<body class="signed_in" id="{{ user.username }}"><body>
-{% else %}
-<body>
+<body class="signed_in" id="kek">
 <button class="hidden" id="hidden_sign_in_popup" href="#sign_in_popup"></button>
-{% endif %}
 <!--[if lt IE 9]>
-<script src="/static/libs/html5shiv/es5-shim.min.js"></script>
-<script src="/static/libs/html5shiv/html5shiv.min.js"></script>
-<script src="/static/libs/html5shiv/html5shiv-printshiv.min.js"></script>
-<script src="/static/libs/respond/respond.min.js"></script>
+<script src="libs/html5shiv/es5-shim.min.js"></script>
+<script src="libs/html5shiv/html5shiv.min.js"></script>
+<script src="libs/html5shiv/html5shiv-printshiv.min.js"></script>
+<script src="libs/respond/respond.min.js"></script>
 <![endif]-->
-<script src="/static/libs/jquery/jquery-3.2.1.min.js"></script>
-<script src="/static/libs/jquery-mousewheel/jquery.mousewheel.min.js"></script>
-<!--<script src="/static/libs/fancybox/jquery.fancybox.pack.js"></script>-->
-<script src="/static/libs/magnific-popup/jquery.magnific-popup.js"></script>
-<script src="/static/libs/waypoints/waypoints-1.6.2.min.js"></script>
-<script src="/static/libs/scrollto/jquery.scrollTo.min.js"></script>
-<!--<script src="/static/libs/owl-carousel/owl.carousel.min.js"></script>-->
-<script src="/static/libs/owlcarousel/owl.carousel.min.js"></script>
+<script src="libs/jquery/jquery-3.2.1.min.js"></script>
+<script src="libs/jquery-mousewheel/jquery.mousewheel.min.js"></script>
+<!--<script src="libs/fancybox/jquery.fancybox.pack.js"></script>-->
+<script src="libs/magnific-popup/jquery.magnific-popup.js"></script>
+<script src="libs/waypoints/waypoints-1.6.2.min.js"></script>
+<script src="libs/scrollto/jquery.scrollTo.min.js"></script>
+<!--<script src="libs/owl-carousel/owl.carousel.min.js"></script>-->
+<script src="libs/owlcarousel/owl.carousel.min.js"></script>
 
-<script src="/static/libs/countdown/jquery.plugin.js"></script>
-<script src="/static/libs/countdown/jquery.countdown.min.js"></script>
-<script src="/static/libs/countdown/jquery.countdown-ru.js"></script>
-<script src="/static/libs/landing-nav/navigation.js"></script>
-<script src="/static/js/common.js"></script>
-<script src="/static/js/subscriptions.js"></script>
+<script src="libs/countdown/jquery.plugin.js"></script>
+<script src="libs/countdown/jquery.countdown.min.js"></script>
+<script src="libs/countdown/jquery.countdown-ru.js"></script>
+<script src="libs/landing-nav/navigation.js"></script>
+<script src="js/common.js"></script>
+<script src="js/my_ads.js"></script>
 <!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
 <!-- Google Analytics counter --><!-- /Google Analytics counter -->
 
@@ -87,7 +83,7 @@
     <header class="span">
         <nav>
             <div class="centered ">
-                <a class="logo" href="../../">
+                <a class="logo" href="index">
                     <img src="/static/images/logo.svg" width="50">
                 </a>
                 <div class="cat">
@@ -271,18 +267,10 @@
                     </div>
                     <div class="sub span">
                         <ul class="centered row brands_list">
-                            <li class="sub_column">
-                                <ul></ul>
-                            </li>
-                            <li class="sub_column">
-                                <ul></ul>
-                            </li>
-                            <li class="sub_column">
-                                <ul></ul>
-                            </li>
-                            <li class="sub_column">
-                                <ul></ul>
-                            </li>
+                            <li class="sub_column"><ul></ul></li>
+                            <li class="sub_column"><ul></ul></li>
+                            <li class="sub_column"><ul></ul></li>
+                            <li class="sub_column"><ul></ul></li>
                         </ul>
                     </div>
                 </div>
@@ -290,7 +278,13 @@
                     <div class="a hype">
                         <a href="">
                             Хайп
-                            <img src="/static/images/fire.svg">
+                            <svg class="icon icon--best_fire" width="15" height="16" xmlns="http://www.w3.org/2000/svg">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#best_fire">
+                                    <svg id="best_fire" viewBox="0 590 20 20" width="100%" height="100%" fill="#f94f4f">
+                                        <path d="M6.407 609.796c-3.99-2.248-5.04-4.378-4.44-7.284.444-2.146 1.896-3.892 2.035-6.034.62 1.128.88 1.942.95 3.122 1.97-2.416 3.274-5.762 3.352-9.275 0 0 5.137 3.018 5.474 7.578.442-.94.665-2.433.223-3.4 1.327.968 9.092 9.555-1.05 15.295 1.906-3.714.49-8.724-2.82-11.038.222.995-.167 4.706-1.63 6.337.405-2.725-.387-3.877-.387-3.877s-.272 1.525-1.327 3.067c-.964 1.406-1.632 2.9-.38 5.51z"></path>
+                                    </svg>
+                                </use>
+                            </svg>
                         </a>
                     </div>
                 </div>
@@ -317,18 +311,18 @@
                             <img src="/static/images/profile_icon.svg" width="50" style="display: block">
                         </a>
                         {% else %}
-                        <a href="../{{ user.username }}" style="display: block">
+                        <a href="profile/{{ user.username }}" style="display: block">
                             <img src="{{ user.profile.avatar.url }}" class="user_avatar">
                         </a>
                         {% endif %}
                         {% if user.is_authenticated %}
                         <div id="profile_options">
                             <ul>
-                                <li><a href="../{{ user.username }}">Профиль</a></li>
+                                <li><a href="profile/{{ user.username}}">Профиль</a></li>
                                 <li><a href="">Объявления</a></li>
                                 <li><a href="">Подписки</a></li>
                                 <li><a href="">Настройки <i class="fa fa-cog" aria-hidden="true"></i></a></li>
-                                <li><a href="../logout">Выход</a></li>
+                                <li><a href="profile/logout">Выход</a></li>
                             </ul>
                         </div>
                         {% endif %}
@@ -339,14 +333,13 @@
     </header>
 
     <div class="section span" style="margin-bottom: 86px;">
-        <div class="centered">
+        <div class="centered adds_list">
             <div class="center">
-                <div class="title active" id="adds" onclick="toggleView()">Объявления</div>
-                <div class="title" id="users" onclick="toggleView()">Пользователи</div>
+                <div class="title active" id="relevant" onclick="toggleView()">На продаже</div>
+                <div class="title" id="sold" onclick="toggleView()">Проданные</div>
             </div>
-            <div id="adds_view" class="adds_list">
-                <!--TODO: Check iteration throw all ads from subscriptions-->
-                {% for ad in subscribed_posts %}
+            <div id="relevant_items">
+                {% for ad in advapp_advert %}
                 {% if ad.sold %}
                 <div class="add_item ceiling sold">
                     {% else %}
@@ -375,17 +368,24 @@
                                 </div>
 
                                 <div class="overlay item_top_border">
-                                    <div class="center">
-                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                        <a>{{ ad.city }}</a>
-                                    </div>
-                                    {% if ad.forwarding %}
-                                    <div class="center">
-                                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                        <a>Пересылка</a>
-                                    </div>
-                                    {% endif %}
-                                    <div class="size">{{ ad.size }}</div>
+                                    <a href="" class="center">
+                                        <img src="/static/images/edit_white.svg" height="18">
+                                        <p>Редактировать</p>
+                                    </a>
+                                    <a href="" class="center">
+                                        <i class="fa fa-angle-up" aria-hidden="true" style="font-size: 26px"></i>
+                                        <p>Продвинуть</p>
+                                    </a>
+                                    <!--TODO:Add actual link for marking this item as sold to the actual-link attribute-->
+                                    <a href="#confirm_popup" actual-link="/sold/{{ ad.id }}" class="center mark_sold">
+                                        <img src="/static/images/check_white.svg" height="18">
+                                        <p>Продано</p>
+                                    </a>
+                                    <!--TODO:Add actual link for deleting this item to the actual-link attribute-->
+                                    <a href="#confirm_popup" actual-link="/delete/{{ ad.id }}" class="center delete">
+                                        <img src="/static/images/close_white.svg" height="20">
+                                        <p>Удалить</p>
+                                    </a>
                                 </div>
                                 <img class="item_image cropping item_top_border" src={{ ad.image1.url }}>
                                 <div class="item_bottom">
@@ -397,134 +397,130 @@
                             {% empty %}
                             <div class="title empty">Здесь пока пусто!</div>
                             {% endfor %}
+
                 <div class="spinner hidden">
                     <div class="bounce1"></div>
                     <div class="bounce2"></div>
                     <div class="bounce3"></div>
                 </div>
             </div>
-            <div id="users_view" class="hidden">
-                <!--TODO: check iteration throw subscriptions-->
-                {% for us in subscriptions %}
-                <div class="subscription">
-                    <div class="profile" id="{{ us.username }}>
-                        <div class="center">
-                            <a href="../../profile/{{ us.username }}" class="avatar"><img src="{{ us.profile.avatar.url }}"></a>
-                            <div style="margin-left: 18px">
-                                <a href="../../profile/{{ us.username }}"
-                                   class="title">{{ us.first_name }} {{ us.last_name }}</a>
-                                {% if user.is_authenticated %}
-                                {% if us.username != user.username %}
-                                <button class="sign_in_btn subscribe_btn subscribed">Вы подписаны</button>
-                                {% endif %}
-                                {% endif %}
-                            </div>
+            <div id="sold_items" class="hidden">
+                <div class="center">
+                    <div class="add_item sold">
+                        <a href="kek"><span class="item_span"></span></a>
+                        <div class="sold_marker">
+                            Продано
                         </div>
-                        <div class="stats center">
-                            <div class="stats_column">
-                                <div>продано</div>
-                                <div class="number">
-                                    {{ sold_num }}
-                                    <img src="/static/images/tshirt.svg" height="10px">
-                                </div>
-                            </div>
-                            <div class="stats_column">
-                                <div>всего</div>
-                                <div class="number">
-                                    {{ total }}
-                                    <img src="/static/images/tshirt.svg" height="10px">
-                                </div>
-                            </div>
-                            <div class="stats_column">
-                                <div>рейтинг</div>
-                                <div class="number">
-                                    0/5
-                                </div>
-                            </div>
-                            <div class="stats_column">
-                                <div>фолловеры</div>
-                                <div class="number">
-                                    {{ followers }}
-                                </div>
-                            </div>
-                            <div class="stats_column">
-                                <div>лайки</div>
-                                <div class="number">
-                                    {{ likes }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ads">
-                        <div class="arrow_button_back">
-                            <img src="/static/images/back_arrow.svg" height="20px">
-                        </div>
-                        <div class="owl-carousel">
-                            <!--TODO: Check iteration throw adds in a subscription-->
-                            {% for ad, favourited, liked in us.ads|slice:":6" %}
-                            <div class="item">
-                                {% if ad.sold %}
-                                <div class="add_item ceiling sold">
-                                    {% else %}
-                                    <div class="add_item ceiling">
-                                        {% endif %}
-                                        <a href="post/{{ ad.id }}" id="{{ ad.id }}" class="add_id"><span class="item_span"></span></a>
-                                        {% if ad.sold %}
-                                        <div class="sold_marker">Продано</div>
-                                        {% endif%}
-                                        {% if liked %}
-                                        <div class="likes liked">
-                                            {% else %}
-                                            <div class="likes">
-                                                {% endif %}
-                                                <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                                <a>{{ ad.number_of_likes }}</a>
-                                            </div>
-                                            {% if favourited %}
-                                            <div class="fav starred" data-balloon="Добавить в избранное" data-balloon-pos="top">
-                                                {% else %}
-                                                <div class="fav " data-balloon="Добавить в избранное" data-balloon-pos="top">
-                                                    {% endif %}
-                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                </div>
 
-                                                <div class="overlay item_top_border">
-                                                    <div class="center">
-                                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                                        <a>{{ ad.city }}</a>
-                                                    </div>
-                                                    {% if ad.forwarding %}
-                                                    <div class="center">
-                                                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                                        <a>Пересылка</a>
-                                                    </div>
-                                                    {% endif %}
-                                                    <div class="size">{{ ad.size }}</div>
-                                                </div>
-                                                <img class="item_image cropping item_top_border" src={{ ad.image1.url }}>
-                                                <div class="item_bottom">
-                                                    <div class="item_description">{{ ad.title }}</div>
-                                                    <div class="item_price">{{ ad.price }}</div>
-                                                    <div class="item_brand">{{ ad.brand_name }}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {% endfor %}
-                            <div class="center others">
-                                <a href="../../profile/{{ us.username }}">
-                                    Смотреть другие
-                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                </a>
-                            </div>
+                        <div class="likes">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <a>20</a>
                         </div>
-                        <div class="arrow_button_forward">
-                            <img src="/static/images/forward_arrow.svg"  height="20">
+                        <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="overlay item_top_border">
+                            <a href="" class="center">
+                                <img src="images/edit_white.svg" height="18">
+                                <p>Редактировать</p>
+                            </a>
+                            <a href="" class="center">
+                                <i class="fa fa-angle-up" aria-hidden="true" style="font-size: 26px"></i>
+                                <p>Продвинуть</p>
+                            </a>
+                            <!--TODO:Add actual link for marking this item as sold to the actual-link attribute-->
+                            <a href="#confirm_popup" actual-link="sold" class="center mark_sold">
+                                <img src="images/check_white.svg" height="18">
+                                <p>Продано</p>
+                            </a>
+                            <!--TODO:Add actual link for deleting this item to the actual-link attribute-->
+                            <a href="#confirm_popup" actual-link="delete" class="center delete">
+                                <img src="images/close_white.svg" height="20">
+                                <p>Удалить</p>
+                            </a>
+                        </div>
+                        <img class="item_image cropping item_top_border" src="images/item.jpg">
+                        <div class="item_bottom">
+                            <a href="" class="item_description">Свитер</a>
+                            <div class="item_price">1000</div>
+                            <a href="" class="item_brand">Zara</a>
                         </div>
                     </div>
+
+                    {% for ad in advapp_advert_1 %}
+                    {% if ad.sold %}
+                    <div class="add_item ceiling sold">
+                        {% else %}
+                        <div class="add_item ceiling">
+                            {% endif %}
+                            <a href="../../post/{{ ad.id }}" id="{{ ad.id }}/" class="add_id"><span class="item_span"></span></a>
+                            {% if ad.sold %}
+                            <div class="sold_marker">Продано</div>
+                            {% endif%}
+                            {% if liked %}
+                            <div class="likes liked">
+                                {% else %}
+                                <div class="likes">
+                                    {% endif %}
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                    <a>{{ ad.number_of_likes }}</a>
+                                </div>
+                                {% if favourited %}
+                                <div class="fav starred" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                                    {% else %}
+                                    <div class="fav " data-balloon="Добавить в избранное" data-balloon-pos="top">
+                                        {% endif %}
+                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+
+                                    <div class="overlay item_top_border">
+                                        <div class="center">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            <a>{{ ad.city }}</a>
+                                        </div>
+                                        {% if ad.forwarding %}
+                                        <div class="center">
+                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                            <a>Пересылка</a>
+                                        </div>
+                                        {% endif %}
+                                        <div class="size">{{ ad.size }}</div>
+                                    </div>
+                                    <img class="item_image cropping item_top_border" src={{ ad.image1.url }}>
+                                    <div class="item_bottom">
+                                        <div class="item_description">{{ ad.title }}</div>
+                                        <div class="item_price">{{ ad.price }}</div>
+                                        <div class="item_brand">{{ ad.brand_name }}</div>
+                                    </div>
+                                </div>
+                                {% empty %}
+                                <div class="title empty">Здесь пока пусто!</div>
+                                {% endfor %}
                 </div>
-                {% endfor%}
+            </div>
+        </div>
+    </div>
+
+    <!-- confirmation for actions -->
+    <div id="confirm_popup" class="white-popup mfp-hide">
+        <a class="hidden"></a>
+        <div class="title">Вы уверены?</div>
+        <p>Это действие невозможно будет отменить.</p>
+        <div class="center">
+            <div style="width: 50%; padding-left: 20%">
+                <button class="contrast_btn" id="close_btn">
+                    <img src="/static/images/close_white.svg">
+                </button>
+            </div>
+            <div style="width: 50%; padding-right: 20%" id="confirm_btn">
+                <button class="sign_in_btn">
+                    <img src="/static/images/check.svg">
+                </button>
             </div>
         </div>
     </div>
@@ -555,8 +551,8 @@
                 </div>
                 {% endif %}
 
-                <div class="push"></div>
-            </div>
+    <div class="push"></div>
+</div>
                         {% if user.is_authenticated %}
                         <div class="add_button" data-balloon-pos="left" data-balloon="Подать объявление">
                             <a href="post/new_post/"><i class="fa fa-plus" aria-hidden="true"></i></a>
@@ -566,9 +562,9 @@
                             <a href="#sign_in_popup"><i class="fa fa-plus" aria-hidden="true"></i></a>
                         </div>
                         {% endif %}
-                <form id="fake_form" class="hidden">
-                    {% csrf_token %}
-                </form>
+                        <form id="fake_form" class="hidden">
+                            {% csrf_token %}
+                        </form>
 <div class="footer span">
     <div class="centered" style="height: 100%">
         <div  style="position: relative; float: left; padding: 48px; height: 100%">
